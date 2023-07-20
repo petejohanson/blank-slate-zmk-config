@@ -39,8 +39,8 @@
 		label = "BATTERY";
 	};
 
-	softlock {
-		compatible = "zmk,soft-locker-gpio";
+	soft_on_off {
+		compatible = "zmk,soft-on-off-gpio";
 
 		input-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		wakeup-sources = <&kscan>;
