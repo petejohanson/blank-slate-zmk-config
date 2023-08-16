@@ -17,8 +17,7 @@
 
 #define NAV_L 1
 #define NUM_L 2
-#define MED_L 3
-#define FUN_L 4
+#define SYM_L 3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -59,7 +58,7 @@
         compatible = "zmk,conditional-layers";
 	tri {
 	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <MED_L>;
+	    then-layer = <SYM_L>;
         };
     };
 
@@ -74,16 +73,16 @@
  &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
  &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp RET
 #else
-  &kp Q      &kp W      &kp F       &kp P          &kp B   &none &none  &kp J            &kp L          &kp U       &kp Y      &kp QUOT
-  &kp A      &kp R      &kp S       &kp T          &kp G   &none &none  &kp M            &kp N          &kp E       &kp I      &kp O
-  &kp Z      &kp X      &kp C       &kp D          &kp V   &none &none  &kp K            &kp H          &kp COMMA   &kp DOT    &kp SEMI
+ &kp ESC    &kp Q      &kp W      &kp F       &kp P          &kp B          &kp J            &kp L          &kp U       &kp Y      &kp QUOT      &kp BKSP
+ &kp TAB    &kp A      &kp R      &kp S       &kp T          &kp G          &kp M            &kp N          &kp E       &kp I      &kp O         &kp QUOT
+ &kp LSHFT  &kp Z      &kp X      &kp C       &kp D          &kp V          &kp K            &kp H          &kp COMMA   &kp DOT    &kp SEMI      &kp RET
 #endif
 #ifdef TBLE_DUAL_2U
-&trans         &trans &trans    &mo NAV_L      &shifty      &kp SPACE        &mo NUM_L     &trans &trans &trans
+ &kp LCTRL  &kp LGUI   &kp LALT   &mo NAV_L         &shifty                        &kp SPACE                &mo NUM_L   &kp LALT   &kp RGUI      &kp RSHIFT
 #elif defined(TBLE_MIT)
- &trans &trans         &kp LCTRL  &kp LGUI    &kp LALT          &lt NAV_L SPACE                   &mo NUM_L       &kp RALT &kp RCTRL        &trans &trans
+ &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &trans &trans         &kp LCTRL  &kp LALT    &mo NAV_L      &shifty      &kp SPACE        &mo NUM_L      &kp RALT    &kp RCTRL          &trans &trans
+ &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L      &kp SPACE      &kp RET          &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #endif
             >;
         };
