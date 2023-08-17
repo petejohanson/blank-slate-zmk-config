@@ -122,15 +122,15 @@
         sym_layer {
             label = "Sym";
             bindings = <
-&trans     &kp LBRC   &kp AMPS   &kp STAR    &kp RPAR     &kp RBRC     &trans     &trans    &trans       &trans       &trans     &bootloader
+&trans     &kp LBRC   &kp AMPS   &kp STAR    &kp LPAR     &kp RBRC     &trans     &trans    &trans       &trans       &trans     &bootloader
 &trans     &kp COLON  &kp DLLR   &kp PRCNT   &kp CARET    &kp PLUS     &trans     &trans    &trans       &trans       &trans     &trans
 &trans     &kp TILDE  &kp EXCL   &kp AT      &kp HASH     &kp PIPE     &trans     &trans    &trans       &trans       &trans     &trans
 #ifdef TBLE_DUAL_2U
-&trans &trans        &trans     &kp LS(N0)              &trans                    &trans       &trans         &trans &trans &trans
+&trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
 #elif defined(TBLE_MIT)
-&trans &trans        &trans     &kp LS(N0)      &trans                &trans             &trans      &trans   &trans &trans &trans
+&trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
 #else
-&trans &trans        &trans     &kp LS(N0)      &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+&trans &trans        &trans     &kp RPAR        &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
 #endif
             >;
         };
