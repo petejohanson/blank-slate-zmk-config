@@ -26,6 +26,15 @@
 		led0 = &blue_led;
 	};
 
+	behaviors {
+		hw_soft_off: behavior_hw_soft_off {
+			compatible = "zmk,behavior-soft-off";
+			#binding-cells = <0>;
+			label = "HW_SO";
+			hold-time-ms = <3000>;
+		};
+	};
+
 	leds {
 		compatible = "gpio-leds";
 		blue_led: led_0 {
@@ -34,9 +43,38 @@
 		};
 	};
 
+	keys {
+		compatible = "gpio-keys";
+		wakeup_key: wakeup_key {
+			gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+		};
+	};
+
 	vbatt: vbatt {
 		compatible = "zmk,battery-nrf-vddh";
 		label = "BATTERY";
+	};
+
+	wakeup_source: wakeup_source {
+		compatible = "zmk,wakeup-trigger-key";
+
+		trigger = <&wakeup_key>;
+		wakeup-source;
+		extra-gpios 
+			= <&gpio0 12 GPIO_ACTIVE_HIGH>
+			;
+	};
+
+	soft_off_behavior_key {
+		compatible = "zmk,behavior-key-scanned";
+		status = "okay";
+		bindings = <&hw_soft_off>;
+		key = <&wakeup_key>;
+	};
+
+	soft_off_wakers {
+		compatible = "zmk,soft-off-wakeup-sources";
+		wakeup-sources = <&wakeup_source>;
 	};
 
 	soft_on_off {
