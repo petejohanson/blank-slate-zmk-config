@@ -31,7 +31,7 @@
 			compatible = "zmk,behavior-soft-off";
 			#binding-cells = <0>;
 			label = "HW_SO";
-			hold-time-ms = <3000>;
+			hold-time-ms = <1000>;
 		};
 	};
 
