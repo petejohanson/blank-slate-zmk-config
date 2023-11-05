@@ -60,14 +60,14 @@
         };
         combo_tab {
             timeout-ms = <50>;
-            key-positions = <21 22>;
+            key-positions = <19 20>;
             bindings = <&kp TAB>;
         };
         
          combo_alt {
             timeout-ms = <50>;
-            key-positions = <32 33>;
-            bindings = <&kp LGUI>;
+            key-positions = <31 32>;
+            bindings = <&kp LALT>;
         };
         
     };
