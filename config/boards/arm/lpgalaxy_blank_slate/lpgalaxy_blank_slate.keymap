@@ -50,16 +50,28 @@
                 bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
 		)
     };
-    
-    tap_dances {
-    	shifty: shift_caps_word {
-		compatible = "zmk,behavior-tap-dance";
-		label = "TD_SHIFTY";
-		#binding-cells = <0>;
-		tapping-term-ms = <150>;
-		bindings = <&kp LSHFT>, <&caps_word>;
-	};
+
+    combos {
+        compatible = "zmk,combos";
+        combo_del {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp BSPC>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&kp TAB>;
+        };
+        
+         combo_alt {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp LGUI>;
+        };
+        
     };
+    
 
 // Conditional layer only when we have less thumb keys
 #ifdef TBLE_DUAL_2U
@@ -88,11 +100,12 @@
  &mt LSFT Z &kp X      &kp C        &kp V      &kp B      &trans  &trans  &kp N      &kp M      &kp COMMA  &kp DOT    &mt LSFT SLASH
 #endif
 #ifdef TBLE_DUAL_2U
+ &trans     &trans     &trans       &mt LGUI ESC &lt SYMBOL SPACE &trans  &trans  &lt SYMBOL ENTER &mt LCTRL BSPC &trans     &trans     &trans
  &kp LCTRL  &kp LGUI   &kp LALT   &mo NAV_L         &shifty                        &kp SPACE                &mo NUM_L   &kp LALT   &kp RGUI      &kp RSHIFT
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &trans     &trans     &trans       &mt LALT ESC &lt SYMBOL SPACE &trans  &trans  &lt SYMBOL ENTER &mt LCTRL BSPC &trans     &trans     &trans
+ &trans     &trans     &trans       &mt LGUI ESC &lt SYMBOL SPACE &trans  &trans  &lt SYMBOL ENTER &mt LCTRL BSPC &trans     &trans     &trans
 #endif
             >;
         };
