@@ -56,12 +56,12 @@
         combo_del {
             timeout-ms = <50>;
             key-positions = <20 21>;
-            bindings = <&kp BSPC>;
+            bindings = <&kp TAB>;
         };
         combo_tab {
             timeout-ms = <50>;
             key-positions = <19 20>;
-            bindings = <&kp TAB>;
+            bindings = <&kp BSPC>;
         };
         
          combo_alt {
