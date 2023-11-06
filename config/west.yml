@@ -3,9 +3,12 @@ manifest:
     - name: petejohanson
       url-base: https://github.com/petejohanson
   projects:
+    - name: blank-slate-module
+      remote: petejohanson
+      revision: main
     - name: zmk
       remote: petejohanson
-      revision: features/soft-off-take-2
+      revision: build/zephyr-module-keymap-loading-refactor
       import: app/west.yml
   self:
     path: config
