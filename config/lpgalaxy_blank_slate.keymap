@@ -101,7 +101,7 @@
               >;
           };
 
-          num_layer_right {
+          num_layer_shifted {
               label = "Shifted Num";
               bindings = <
 &none        &none     &none   &none     &none       &none        &none      &kp LBRC  &kp RBRC  &kp UNDER  &kp PLUS  &kp DEL
