@@ -87,7 +87,7 @@
 &none        &none   &none   &none   &none   &none   &none        &kp LBKT  &kp RBKT  &kp MINUS  &kp EQUAL  &kp DEL
 &kp   GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6       &kp N7    &kp N8    &kp N9     &kp N0     &kp BSLH
 &kp   LSHFT  &none   &none   &none   &none   &none   &none        &none     &none     &none      &none      &kp RET
-&tra  ns     &none   &trans  &trans  &none   &none   &mo NUM_R_L  &trans    &trans    &trans     &none      &trans
+&trans       &none   &trans  &trans  &none   &none   &mo NUM_R_L  &trans    &trans    &trans     &none      &trans
               >;
           };
 
@@ -97,7 +97,7 @@
 &none        &none   &none   &none   &none   &none        &none   &kp LBKT  &kp RBKT  &kp MINUS  &kp EQUAL  &kp DEL
 &kp   GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6  &kp N7    &kp N8    &kp N9     &kp N0     &kp BSLH
 &kp   LSHFT  &none   &none   &none   &none   &none        &none   &none     &trans    &trans     &trans     &kp RET
-&tra  ns     &none   &trans  &trans  &none   &mo NUM_L_L  &none   &none     &trans    &trans     &none      &trans
+&trans       &none   &trans  &trans  &none   &mo NUM_L_L  &none   &none     &trans    &trans     &none      &trans
               >;
           };
 
@@ -107,7 +107,7 @@
 &none        &none     &none   &none     &none       &none        &none      &kp LBRC  &kp RBRC  &kp UNDER  &kp PLUS  &kp DEL
 &kp   TILDE  &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET  &kp AMPS  &kp STAR  &kp LPAR   &kp RPAR  &kp PIPE
 &kp   LSHFT  &none     &none   &none     &none       &none        &none      &none     &none     &none      &none     &kp RET
-&tra  ns     &none     &trans  &trans    &none       &none        &none      &none     &trans    &trans     &none     &trans
+&trans       &none     &trans  &trans    &none       &none        &none      &none     &trans    &trans     &none     &trans
               >;
           };
 
@@ -117,7 +117,7 @@
 &none        &none   &none   &none   &none   &none      &none      &none   &none   &none   &none    &none
 &kp   LCTRL  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp F6     &kp F7  &kp F8  &kp F9  &kp F10  &kp RCTRL
 &kp   LSHFT  &none   &none   &none   &none   &kp F11    &kp F12    &none   &none   &none   &none    &kp RET
-&tra  ns     &none   &trans  &trans  &none   &kp SPACE  &kp SPACE  &none   &trans  &trans  &none    &trans
+&trans       &none   &trans  &trans  &none   &kp SPACE  &kp SPACE  &none   &trans  &trans  &none    &trans
               >;
           };
 
@@ -127,7 +127,7 @@
 &none        &none  &none   &none   &none  &none      &none      &kp PG_DN  &kp UP     &kp PG_UP  &none    &none
 &kp   LCTRL  &none  &none   &none   &none  &none      &kp HOME   &kp LEFT   &kp DOWN   &kp RIGHT  &kp END  &kp SINGLE_QUOTE
 &kp   LSHFT  &none  &none   &none   &none  &none      &none      &kp HOME   &kp PG_DN  &kp END    &none    &kp RET
-&tra  ns     &none  &trans  &trans  &none  &kp SPACE  &kp SPACE  &none      &trans     &trans     &none    &trans
+&trans       &none  &trans  &trans  &none  &kp SPACE  &kp SPACE  &none      &trans     &trans     &none    &trans
               >;
           };
 
