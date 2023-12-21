@@ -56,7 +56,7 @@
 	};
 
 	wakeup_source: wakeup_source {
-		compatible = "zmk,wakeup-trigger-key";
+		compatible = "zmk,gpio-key-wakeup-trigger";
 
 		trigger = <&wakeup_key>;
 		wakeup-source;
@@ -66,7 +66,7 @@
 	};
 
 	soft_off_behavior_key {
-		compatible = "zmk,behavior-key-scanned";
+		compatible = "zmk,gpio-scanned-key-behavior-trigger";
 		status = "okay";
 		bindings = <&hw_soft_off>;
 		key = <&wakeup_key>;
