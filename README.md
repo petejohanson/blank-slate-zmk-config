@@ -13,13 +13,22 @@ Should you desire to track ZMK `main` (or some other branch of ZMK), simply edit
 ```
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: blank-slate-zmk-module
+      remote: petejohanson
+      revision: main
   self:
     path: config
+```
+
+And then comment out the line in `config/lpgalaxy_blank_slate.conf`:
+
+```
+# CONFIG_ZMK_PM_SOFT_OFF=y
 ```
