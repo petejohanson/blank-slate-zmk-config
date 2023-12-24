@@ -27,47 +27,18 @@
 
 // tri layer documentation
 // https://zmk.dev/docs/features/conditional-layers
+
 / {
-    chosen {
-       zmk,physical-layout =
-#ifdef TBLE_DUAL_2U
-                       &layout_ortho_4x12_2x2u;
-#elif defined(TBLE_MIT)
-                       &layout_ortho_4x12_1x2u;
-#else
-                       &layout_ortho_4x12_all1u;
-#endif
-    };
+      conditional_layers {
+          compatible = "zmk,conditional-layers";
+          tri_layer {
+              if-layers = <NUM_L_L NUM_R_L>;
+              then-layer = <NUM_SFT>;
+          };
+      };
+};
 
-    macros {
-      ZMK_MACRO(thumbs_up,
-		wait-ms = <1>;
-		tap-ms = <5>;
-                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-		)
-    };
-    
-    tap_dances {
-    	shifty: shift_caps_word {
-		compatible = "zmk,behavior-tap-dance";
-		label = "TD_SHIFTY";
-		#binding-cells = <0>;
-		tapping-term-ms = <150>;
-		bindings = <&kp LSHFT>, <&caps_word>;
-	};
-    };
-
-// Conditional layer only when we have less thumb keys
-#ifdef TBLE_DUAL_2U
-    cond_layers {
-        compatible = "zmk,conditional-layers";
-	tri {
-	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <SYM_L>;
-        };
-    };
-#endif
-
+/ {
       keymap {
           compatible = "zmk,keymap";
 
