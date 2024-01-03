@@ -14,8 +14,8 @@
 #define NUM_SFT 3
 #define FKEYS_L 4
 #define NAV_L   5
-#define MEDIA   7
-#define SYSTM   9
+#define MEDIA   6
+#define SYSTM   7
 
 
 // using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
