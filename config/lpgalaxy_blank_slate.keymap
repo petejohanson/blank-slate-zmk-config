@@ -105,9 +105,9 @@
           media_layer {
               label = "Media";
               bindings = <
-&none    &none  &none  &none  &none  &none  &none       &kp C_BRI_UP  &kp C_BRI_DN  &none       &none  &kp PRINTSCREEN
-&none    &none  &none  &none  &none  &none  &kp C_PREV  &kp C_STOP    &kp C_NEXT    &kp C_NEXT  &none  &none
-&none    &none  &none  &none  &none  &none  &none       &kp C_VOL_UP  &kp C_VOL_DN  &kp C_MUTE  &none  &none
+&none    &none  &none  &none  &none  &none  &none       &kp C_BRI_DN  &kp C_BRI_UP  &none       &none  &kp PRINTSCREEN
+&none    &none  &none  &none  &none  &none  &kp C_PREV  &kp C_PLAY    &kp C_PAUSE   &kp C_NEXT  &none  &none
+&none    &none  &none  &none  &none  &none  &none       &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &none  &none
 &none    &none  &none  &none  &none  &none  &none       &none         &none         &none       &none  &none
               >;
           };
