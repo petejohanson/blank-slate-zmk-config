@@ -102,9 +102,9 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
-            flavor = "balanced"; // tap-preferred
+            flavor = "tap-preferred"; // tap-preferred
             tapping-term-ms = <170>;
-            require-prior-idle-ms = <90>; //-(90>70) 수치가 높을수록 mo 두번 연속 접근이 잘 안됩니다. (55괜찮)
+            // require-prior-idle-ms = <90>; //-(90>70) 수치가 높을수록 mo 두번 연속 접근이 잘 안됩니다. (55괜찮)
         };
 
         lt2: lt2 {
