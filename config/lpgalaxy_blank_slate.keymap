@@ -16,7 +16,7 @@
 };
 
 &mt {
-    tapping-term-ms = <300>;
+    tapping-term-ms = <200>;
 };
 
 #define BT(n) BT_SEL n
@@ -100,25 +100,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        lts: lt_space {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT_SPACE";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <150>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        mo_nav: mo_to_nav {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MO_TO_NAV";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            bindings = <&mo>, <&kp>;
-            tapping-term-ms = <140>;
-        };
-
-        spkp: sp_to_kp {
+        spab: sp_to_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "SP_TO_KP";
             #binding-cells = <2>;
@@ -129,8 +111,7 @@
     };
 
     //- base 없음 = 탭
-    //- 방향키 home row 에 특수문자
-    //- 숫자 위치 고민
+    //- 우측 엄지 숫자
 
     keymap {
         compatible = "zmk,keymap";
@@ -141,7 +122,7 @@
                 &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y               &kp U             &kp I        &kp O        &kp P             &none
                 &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H               &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT BKSP    &none
                 &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N               &kp M             &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
-                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &mo_nav LY_NAV RET  &kp_kp RCTRL F18  &kp RCTRL    &none        &none             &none
+                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &spab LY_NAV RET    &kp_kp RCTRL F18  &kp RCTRL    &none        &none             &none
             >;
         };
 
@@ -159,8 +140,8 @@
             label = "LY_NAV";
             bindings = <
                 &none    &kp LBRC         &kp RBRC         &kp LPAR             &kp RPAR             &kp DLLR                 &none     &kp LG(NUMBER_0)  &kp UP            &kp PG_UP         &kp COLON  &none
-                &none    &spkp LSFT LBKT  &spkp LCTL RBKT  &spkp LALT KP_MINUS  &spkp LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
-                &none    &kp UNDER        &kp QMARK        &kp LT               &kp GT               &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &none
+                &none    &spab LSFT LBKT  &spab LCTL RBKT  &spab LALT KP_MINUS  &spab LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
+                &none    &kp UNDER        &kp QMARK        &kp LT               &kp GT               &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp TAB    &none
                 &none    &none            &none            &none                &none                &kp SPACE                &none     &none             &none             &none             &none      &none
             >;
         };
