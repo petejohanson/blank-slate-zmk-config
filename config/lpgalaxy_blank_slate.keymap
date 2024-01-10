@@ -6,8 +6,8 @@
 #define QWERTY_BASE 1
 #define TBLE_ORTHO 1
 
-#define LY_ARROW 1
-#define LY_SPECIAL 2
+#define LY_SPECIAL 1
+#define LY_ARROW 2
 #define LY_LNUM 3
 #define LY_SPECIAL_ASSET 4
 
@@ -97,7 +97,6 @@
 
         lt1: lt1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "LT1";
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
@@ -148,16 +147,6 @@
             >;
         };
 
-        arrow_layer {
-            label = "LY_ARROW";
-            bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))          &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
-                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                 &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
-                &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)                   &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
-                &none  &none             &none               &none             &none             &none                         &kp SPACE         &kp F18    &none     &none      &none      &none
-            >;
-        };
-
         nav_layer {
             label = "LY_SPECIAL";
             bindings = <
@@ -165,6 +154,16 @@
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                      &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE         &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                     &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
                 &none  &none      &none      &none         &none         &lt1 LY_ARROW SPACE          &none      &none      &none     &none             &none      &none
+            >;
+        };
+
+        arrow_layer {
+            label = "LY_ARROW";
+            bindings = <
+                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))          &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
+                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                 &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
+                &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)                   &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
+                &none  &none             &none               &none             &none             &none                         &kp SPACE         &kp F18    &none     &none      &none      &none
             >;
         };
 
@@ -187,6 +186,7 @@
                 &none  &none             &none             &none             &none             &none          &none  &none  &none  &none  &none  &none
             >;
         };
+
     };
 
 };
