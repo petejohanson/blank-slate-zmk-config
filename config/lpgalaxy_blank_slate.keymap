@@ -9,6 +9,7 @@
 #define LY_SPECIAL 1
 #define LY_NAV 2
 #define LY_NAV_ASSET 3
+#define LY_LNUM 4
 
 &lt {
     quick_tap_ms = <200>;
@@ -16,7 +17,7 @@
 };
 
 &mt {
-    tapping-term-ms = <200>;
+    tapping-term-ms = <140>;
 };
 
 #define BT(n) BT_SEL n
@@ -119,10 +120,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y               &kp U             &kp I        &kp O        &kp P             &none
-                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H               &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT BKSP    &none
-                &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N               &kp M             &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
-                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &spab LY_NAV RET    &kp_kp RCTRL F18  &kp RCTRL    &none        &none             &none
+                &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y               &kp U               &kp I        &kp O        &kp P             &none
+                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H               &hm2 LGUI J         &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT BKSP    &none
+                &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N               &kp M               &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
+                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &spab LY_NAV RET    &mo_kp LY_LNUM F18  &kp RCTRL    &none        &none             &none
             >;
         };
 
@@ -140,7 +141,7 @@
             label = "LY_NAV";
             bindings = <
                 &none    &kp LBRC         &kp RBRC         &kp LPAR             &kp RPAR             &kp DLLR                 &none     &kp LG(NUMBER_0)  &kp UP            &kp PG_UP         &kp COLON  &none
-                &none    &spab LSFT LBKT  &spab LCTL RBKT  &spab LALT KP_MINUS  &spab LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
+                &none    &mt LSFT LBKT  &mt LCTL RBKT  &mt LALT KP_MINUS  &mt LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
                 &none    &kp UNDER        &kp QMARK        &kp LT               &kp GT               &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp TAB    &none
                 &none    &none            &none            &none                &none                &kp SPACE                &none     &none             &none             &none             &none      &none
             >;
@@ -153,6 +154,16 @@
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT               &kp DQT  &none  &none  &none  &none  &bt BT_SEL 1
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH              &none    &none  &none  &none  &none  &bt BT_CLR
                 &none  &none      &none      &none         &none         &none                 &none    &none  &none  &none  &none  &none
+            >;
+        };
+
+        rnum_layer {
+            label = "LY_LNUM";
+            bindings = <
+                &none  &none      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none      &kp PLUS     &kp MINUS  &kp EQUAL  &none
+                &none  &kp PRCNT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &kp SLASH  &kp DOT      &kp COMMA  &kp STAR   &none
+                &none  &kp LSHFT  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none      &mo LY_FUNC  &none      &none      &none
+                &none  &none      &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT  &none        &none      &none      &none
             >;
         };
     };
