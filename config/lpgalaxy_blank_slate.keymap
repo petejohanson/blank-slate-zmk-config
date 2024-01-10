@@ -117,10 +117,20 @@
             bindings = <&mo>, <&kp>;
             tapping-term-ms = <140>;
         };
+
+        spkp: sp_to_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SP_TO_KP";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+            tapping-term-ms = <140>;
+        };
     };
 
-    //- 없음 = 탭, (삭제, 엔터 위치 변경)
+    //- base 없음 = 탭
     //- 방향키 home row 에 특수문자
+    //- 숫자 위치 고민
 
     keymap {
         compatible = "zmk,keymap";
@@ -128,10 +138,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y                &kp U             &kp I        &kp O        &kp P             &none
-                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H                &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT RET     &none
-                &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N                &kp M             &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
-                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &mo_nav LY_NAV BKSP  &kp_kp RCTRL F18  &kp RCTRL    &none        &none             &none
+                &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y               &kp U             &kp I        &kp O        &kp P             &none
+                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H               &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT BKSP    &none
+                &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N               &kp M             &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
+                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &mo_nav LY_NAV RET  &kp_kp RCTRL F18  &kp RCTRL    &none        &none             &none
             >;
         };
 
@@ -148,10 +158,10 @@
         nav_layer {
             label = "LY_NAV";
             bindings = <
-                &none    &none     &none     &none     &none      &none                    &none     &kp LG(NUMBER_0)  &kp UP            &kp PG_UP         &kp COLON  &none
-                &none    &kp LSFT  &kp LCTL  &kp LALT  &kp LGUI   &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
-                &none    &none     &none     &none     &none      &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &none
-                &none    &none     &none     &none     &none      &kp SPACE                &none     &none             &none             &none             &none      &none
+                &none    &kp LBRC         &kp RBRC         &kp LPAR             &kp RPAR             &kp DLLR                 &none     &kp LG(NUMBER_0)  &kp UP            &kp PG_UP         &kp COLON  &none
+                &none    &spkp LSFT LBKT  &spkp LCTL RBKT  &spkp LALT KP_MINUS  &spkp LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
+                &none    &kp UNDER        &kp QMARK        &kp LT               &kp GT               &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &none
+                &none    &none            &none            &none                &none                &kp SPACE                &none     &none             &none             &none             &none      &none
             >;
         };
 
