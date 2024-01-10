@@ -12,8 +12,7 @@
 #define LY_SPECIAL_ASSET 4
 
 &lt {
-    quick_tap_ms = <200>;
-    tapping-term-ms = <200>;
+    tapping-term-ms = <170>;
 };
 
 &mt {
@@ -97,17 +96,7 @@
 
         lt1: lt1 {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
-
-            flavor = "tap-preferred"; //- 여기 변경함  tap-preferred
-            tapping-term-ms = <170>;
-        };
-
-        // LY_ARROW
-        ltspc: array_sapce {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ARRAY_SAPCE";
+            label = "LT1";
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
@@ -125,6 +114,17 @@
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
         };
+
+
+        //- right 쉬프트 일때 스페이스를 다른키로 변경
+        // mm_spc_unds_layer: mod_morph_underscore {
+        mm_arrow_spc: arrow_spc_layer {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt LY_ARROW SPACE>, <&kp F18>;
+            mods = <(MOD_RSFT)>;
+        };
+
     };
 
 
@@ -143,7 +143,7 @@
                 &none  &kp Q        &kp W        &kp E        &kp R        &kp T                         &kp Y           &kp U             &kp I        &kp O        &kp P               &none
                 &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                         &kp H           &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &kp_kp LSFT BKSP    &none
                 &none  &kp Z        &kp X        &kp C        &kp V        &kp B                         &kp N           &kp M             &kp COMMA    &kp DOT      &lt1 LY_LNUM SLASH  &none
-                &none  &none        &none        &kp LALT     &kp LGUI     &lt1 LY_ARROW SPACE           &mo LY_SPECIAL  &kp_kp RCTRL F18  &kp RCTRL    &none        &none               &none
+                &none  &none        &none        &kp LALT     &kp LGUI     &mm_arrow_spc                 &mo LY_SPECIAL  &kp_kp RCTRL F18  &kp RCTRL    &none        &none               &none
             >;
         };
 
