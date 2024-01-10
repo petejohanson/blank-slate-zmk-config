@@ -6,10 +6,11 @@
 #define QWERTY_BASE 1
 #define TBLE_ORTHO 1
 
-#define LY_SPECIAL 1
+#define LY_ARROW 1
 #define LY_NAV 2
-#define LY_NAV_ASSET 3
-#define LY_LNUM 4
+#define LY_NUM 3
+#define LY_NAV_ASSET 4
+#define LY_RNUM 5
 
 &lt {
     quick_tap_ms = <200>;
@@ -17,7 +18,7 @@
 };
 
 &mt {
-    tapping-term-ms = <140>;
+    tapping-term-ms = <300>;
 };
 
 #define BT(n) BT_SEL n
@@ -26,14 +27,6 @@
 
     chosen {
         zmk,matrix_transform = &ortho_transform;
-    };
-
-    macros {
-        ZMK_MACRO(thumbs_up,
-            wait-ms = <1>;
-            tap-ms = <5>;
-            bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-        )
     };
 
     tap_dances {
@@ -62,8 +55,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "KP_TO_KP";
             #binding-cells = <2>;
-            flavor = "balanced";
             bindings = <&kp>, <&kp>;
+            flavor = "balanced";
             tapping-term-ms = <170>;
         };
 
@@ -73,8 +66,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MO_TO_KP";
             #binding-cells = <2>;
-            flavor = "balanced";
             bindings = <&mo>, <&kp>;
+            flavor = "balanced";
             tapping-term-ms = <170>;
         };
 
@@ -82,11 +75,12 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS1";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <210>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <170>;
+            require-prior-idle-ms = <140>;
         };
 
         //! 확정 (잘됨)
@@ -94,25 +88,39 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS2";
             #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
             flavor = "balanced";
             tapping-term-ms = <170>;
             quick-tap-ms = <170>;
             require-prior-idle-ms = <120>;
-            bindings = <&kp>, <&kp>;
         };
 
-        spab: sp_to_kp {
+        lt1: lt1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "SP_TO_KP";
+            label = "LT1";
             #binding-cells = <2>;
-            flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <140>;
+
+            flavor = "tap-preferred"; //- 여기 변경함  tap-preferred
+            tapping-term-ms = <170>;
+            // require-prior-idle-ms = <90>; //-(90>70) 수치가 높을수록 mo 두번 연속 접근이 잘 안됩니다. (55괜찮)
+        };
+
+        lt2: lt2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT2";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <120>;
         };
     };
 
-    //- base 없음 = 탭
-    //- 우측 엄지 숫자
+    //- 한영전환 콤보로 변경
+    //- 엔터, 탭 > base에 없음
 
     keymap {
         compatible = "zmk,keymap";
@@ -120,50 +128,69 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q        &kp W        &kp E        &kp R            &kp T                &kp Y               &kp U               &kp I        &kp O        &kp P             &none
-                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F      &kp G                &kp H               &hm2 LGUI J         &hm2 LALT K  &hm2 LCTL L  &hm1 LSFT BKSP    &none
-                &none  &kp Z        &kp X        &kp C        &kp V            &kp B                &kp N               &kp M               &kp COMMA    &kp DOT      &mo LY_NAV_ASSET  &none
-                &none  &none        &none        &kp LALT     &kp_kp LGUI ESC  &kp SPACE            &spab LY_NAV RET    &mo_kp LY_LNUM F18  &kp RCTRL    &none        &none             &none
+                &none  &kp Q        &kp W        &kp E        &kp R        &kp T                 &kp Y       &kp U             &kp I        &kp O        &kp P             &none
+                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                 &kp H       &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &kp_kp LSFT BKSP  &none
+                &none  &kp Z        &kp X        &kp C        &kp V        &kp B                 &kp N       &kp M             &kp COMMA    &kp DOT      &kp SLASH         &none
+                &none  &none        &none        &kp LALT     &kp LGUI     &lt1 LY_ARROW SPACE   &mo LY_NAV  &lt2 LY_RNUM F18  &kp RCTRL    &none        &none             &none
             >;
         };
+        //base_layer {
+        //    label = "Base";
+        //    bindings = <
+        //        &none  &kp Q        &kp W        &kp E        &kp R             &kp T                 &kp Y            &kp U             &kp I        &kp O        &kp P            &none
+        //        &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F       &kp G                 &kp H            &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &kp_kp LSFT RET  &none
+        //        &none  &kp Z        &kp X        &kp C        &kp V             &kp B                 &kp N            &kp M             &kp COMMA    &kp DOT      &kp SLASH        &none
+        //        &none  &none        &none        &kp LALT     &lt2 LY_RNUM TAB  &lt1 LY_ARROW SPACE   &lt1 LY_NAV BKSP &kp_kp RCTRL F18  &kp RCTRL    &none        &none            &none
+        //    >;
+        //};
 
-        special_layer {
-            label = "LY_SPECIAL";
+        arrow_layer {
+            label = "LY_ARROW";
             bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))           &none              &kp NUMBER_7    &kp NUMBER_8  &kp NUMBER_9  &none  &none
-                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                  &kp BSLH           &kp NUMBER_4    &kp NUMBER_5  &kp NUMBER_6  &none  &none
-                &none  &kp LG(GRAVE)     &kp LG(TAB)         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none                          &kp LC(NUMBER_6)   &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &none  &none
-                &none  &none             &none               &none             &none             &none                          &kp NUMBER_0       &kp NUMBER_0    &none         &none         &none  &none
+                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))  &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
+                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)         &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
+                &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)           &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
+                &none  &none             &none               &none             &none             &none                 &kp SPACE         &kp F18    &none     &none      &none      &none
             >;
         };
 
         nav_layer {
             label = "LY_NAV";
             bindings = <
-                &none    &kp LBRC         &kp RBRC         &kp LPAR             &kp RPAR             &kp DLLR                 &none     &kp LG(NUMBER_0)  &kp UP            &kp PG_UP         &kp COLON  &none
-                &none    &mt LSFT LBKT  &mt LCTL RBKT  &mt LALT KP_MINUS  &mt LGUI KP_EQUAL  &none                    &kp DQT   &kp LEFT          &kp DOWN          &kp RIGHT         &kp SEMI   &none
-                &none    &kp UNDER        &kp QMARK        &kp LT               &kp GT               &kp BSLH                 &kp AMPS  &kp PG_DN         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp TAB    &none
-                &none    &none            &none            &none                &none                &kp SPACE                &none     &none             &none             &none             &none      &none
+                &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR             &kp CARET  &kp TILDE  &kp EXCL  &kp POUND  &kp COLON  &none
+                &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT              &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE  &kp SEMI   &none
+                &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH             &kp AMPS   &kp AT     &none     &none      &kp PIPE   &none
+                &none  &none      &none      &none         &none         &lt1 LY_ARROW SPACE  &none      &none      &none     &none      &none      &none
+            >;
+        };
+
+        num_layer {
+            label = "LY_NUM";
+            bindings = <
+                &none  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none
+                &none  &kp LSFT      &kp LCTL      &kp LALT      &kp LGUI      &kp F11       &kp F12       &kp LGUI      &kp LALT      &kp LCTL      &kp LSFT      &none
+                &none  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &none
+                &none  &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none
             >;
         };
 
         nav_asset_layer {
             label = "LY_NAV_ASSET";
             bindings = <
-                &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR              &none    &none  &none  &none  &none  &bt BT_SEL 0
-                &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT               &kp DQT  &none  &none  &none  &none  &bt BT_SEL 1
-                &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH              &none    &none  &none  &none  &none  &bt BT_CLR
-                &none  &none      &none      &none         &none         &none                 &none    &none  &none  &none  &none  &none
+                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0
+                &none  &kp LG(LA(LBKT))  &kp LG(LA(RBKT))  &none             &none             &none  &none  &none  &none  &none  &none  &bt BT_SEL 1
+                &none  &none             &none             &none             &none             &none  &none  &none  &none  &none  &none  &bt BT_CLR
+                &none  &none             &none             &none             &none             &none  &none  &none  &none  &none  &none  &none
             >;
         };
 
         rnum_layer {
-            label = "LY_LNUM";
+            label = "LY_RNUM";
             bindings = <
-                &none  &none      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none      &kp PLUS     &kp MINUS  &kp EQUAL  &none
-                &none  &kp PRCNT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &kp SLASH  &kp DOT      &kp COMMA  &kp STAR   &none
-                &none  &kp LSHFT  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none      &mo LY_FUNC  &none      &none      &none
-                &none  &none      &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT  &none        &none      &none      &none
+                &none  &none  &none  &none  &none  &none      &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &none
+                &none  &none  &none  &none  &none  &none      &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp EQUAL
+                &none  &none  &none  &none  &none  &none      &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp BSLH
+                &none  &none  &none  &none  &none  &kp SPACE  &kp NUMBER_0  &none         &none         &none         &none      &none
             >;
         };
     };
