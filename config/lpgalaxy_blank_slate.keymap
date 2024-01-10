@@ -102,7 +102,7 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
-            flavor = "tap-preferred"; // tap-preferred
+            flavor = "tap-preferred"; //- 여기 변경함  tap-preferred
             tapping-term-ms = <170>;
             // require-prior-idle-ms = <90>; //-(90>70) 수치가 높을수록 mo 두번 연속 접근이 잘 안됩니다. (55괜찮)
         };
@@ -114,16 +114,21 @@
             bindings = <&mo>, <&kp>;
 
             flavor = "balanced";
-            tapping-term-ms = <170>;
+            tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
         };
     };
 
 
-    //- 숫자, 한글, 특수문자, 방향키
-    //- 탭전환
+//! 좌측 엄지 > 커멘트 일때 > 커멘트는 탭 , 알트는 백스탭
 
-    //  spc //  del
+    //- 좌측3 = - (`)
+    //- 좌측2 = 숫자(탭)
+    //- 좌측1 = 방향키(스페이스)
+
+    //- 우측1 = 특수문자 (지우기)
+    //- 우측2 = 앱전환 (한영)
+    //- 우측3 = 앱전환 ()
 
     keymap {
         compatible = "zmk,keymap";
@@ -131,10 +136,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q           &kp W        &kp E        &kp R           &kp T                 &kp Y            &kp U             &kp I        &kp O        &kp P      &none
-                &none  &hm1 LSFT A     &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F     &kp G                 &kp H            &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &kp LSFT   &none
-                &none  &lt2 LY_RNUM Z  &kp X        &kp C        &lt2 LY_RNUM V  &kp B                 &kp N            &kp M             &kp COMMA    &kp DOT      &kp SLASH  &none
-                &none  &none           &none        &kp LALT     &kp LGUI        &lt1 LY_ARROW SPACE   &mo LY_NAV       &kp_kp RCTRL F18  &kp RCTRL    &none        &none      &none
+                &none  &kp Q        &kp W        &kp E        &kp R           &kp T                 &kp Y            &kp U             &kp I        &kp O        &kp P            &none
+                &none  &hm1 LGUI A  &hm1 LALT S  &hm1 LCTL D  &hm1 LSFT F     &kp G                 &kp H            &hm2 LSFT J       &hm2 LCTL K  &hm2 LALT L  &kp_kp LGUI RET  &none
+                &none  &kp Z        &kp X        &kp C        &kp V           &kp B                 &kp N            &kp M             &kp COMMA    &kp DOT      &kp SLASH        &none
+                &none  &none        &none        &kp LALT     &lt2 RNUM TAB   &lt1 LY_ARROW SPACE   &lt1 LY_NAV BKSP &kp_kp RCTRL F18  &kp RCTRL    &none        &none            &none
             >;
         };
 
@@ -142,7 +147,7 @@
             label = "LY_ARROW";
             bindings = <
                 &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))  &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
-                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)         &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
+                &none  &kp LGUI          &kp LALT            &kp LCTL          &kp LSFT          &kp LG(SPACE)         &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
                 &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)           &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
                 &none  &none             &none               &none             &none             &none                 &kp SPACE         &kp F18    &none     &none      &none      &none
             >;
