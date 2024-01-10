@@ -79,7 +79,7 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <130>;
 
-            hold-trigger-key-positions = <KEYS_L>;
+            hold-trigger-key-positions = <KEYS_L KEYS_R>;
             hold-trigger-on-release;
         };
 
@@ -93,14 +93,14 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <130>;
 
-            hold-trigger-key-positions = <KEYS_R>;
+            hold-trigger-key-positions = <KEYS_R KEYS_L>;
             hold-trigger-on-release;
         };
 
     };
 
     //! 모프 활용해서 엄지키에 레이어 넣던가하기
-    //- 좌측 홈로우시 좌측키랑 같이 입력안되게
+    //- 홈로우 hold-trigger-key-positions 작업
 
     //- 한영전환 슬래쉬에 넣어볼까?
     //- 한영전환 콤보로 변경
