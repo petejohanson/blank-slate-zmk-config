@@ -120,7 +120,7 @@
     };
 
 
-//! 좌측 엄지 > 커멘트 일때 > 커멘트는 탭 , 알트는 백스탭
+//! 좌측 엄지 > 홈로우 커멘드 누르고 있을때 > 커멘트는 탭 , 알트는 백스탭
 
     //- 좌측3 = - (`)
     //- 좌측2 = 숫자(탭)
@@ -136,10 +136,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q        &kp W        &kp E        &kp R           &kp T                 &kp Y            &kp U             &kp I        &kp O        &kp P            &none
-                &none  &hm1 LGUI A  &hm1 LALT S  &hm1 LCTL D  &hm1 LSFT F     &kp G                 &kp H            &hm2 LSFT J       &hm2 LCTL K  &hm2 LALT L  &kp_kp LGUI RET  &none
-                &none  &kp Z        &kp X        &kp C        &kp V           &kp B                 &kp N            &kp M             &kp COMMA    &kp DOT      &kp SLASH        &none
-                &none  &none        &none        &kp LALT     &lt2 RNUM TAB   &lt1 LY_ARROW SPACE   &lt1 LY_NAV BKSP &kp_kp RCTRL F18  &kp RCTRL    &none        &none            &none
+                &none  &kp Q        &kp W        &kp E        &kp R             &kp T                 &kp Y            &kp U             &kp I        &kp O        &kp P            &none
+                &none  &hm1 LGUI A  &hm1 LALT S  &hm1 LCTL D  &hm1 LSFT F       &kp G                 &kp H            &hm2 LSFT J       &hm2 LCTL K  &hm2 LALT L  &kp_kp LGUI RET  &none
+                &none  &kp Z        &kp X        &kp C        &kp V             &kp B                 &kp N            &kp M             &kp COMMA    &kp DOT      &kp SLASH        &none
+                &none  &none        &none        &kp LALT     &lt2 LY_RNUM TAB  &lt1 LY_ARROW SPACE   &lt1 LY_NAV BKSP &kp_kp RCTRL F18  &kp RCTRL    &none        &none            &none
             >;
         };
 
