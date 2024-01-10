@@ -11,12 +11,17 @@
 #define LY_LNUM 3
 #define LY_SPECIAL_ASSET 4
 
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
+#define KEYS_T 36 37 38 39 40 41 42 43 44 45 46 47
+
 &lt {
     tapping-term-ms = <170>;
+    flavor = "balanced";
 };
 
 &mt {
-    tapping-term-ms = <300>;
+    tapping-term-ms = <170>;
 };
 
 #define BT(n) BT_SEL n
@@ -47,8 +52,6 @@
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        // - 키입력 + 키입력
-        // &kp_kp RCTRL F18
         kp_kp: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "KP_TO_KP";
@@ -58,65 +61,6 @@
             tapping-term-ms = <170>;
         };
 
-        // - 레이어 + 키입력
-        // &mo_kp LY_LEFT_NUM F18
-        mo_kp: mo_to_kp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MO_TO_KP";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <170>;
-        };
-
-        hm1: homerow_mods1 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS1";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <130>;
-        };
-
-        //! 확정 (잘됨)
-        hm2: homerow_mods2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS2";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-
-            flavor = "balanced";
-            tapping-term-ms = <170>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <120>;
-        };
-
-        lt1: lt1 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT1";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
-
-            flavor = "tap-preferred"; //- 여기 변경함  tap-preferred
-            tapping-term-ms = <170>;
-        };
-
-        lt2: lt2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT2";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
-
-            flavor = "balanced";
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <120>;
-        };
-
-
-        //- right 쉬프트 일때 스페이스를 다른키로 변경
         // mm_spc_unds_layer: mod_morph_underscore {
         mm_arrow_spc: arrow_spc_layer {
             compatible = "zmk,behavior-mod-morph";
@@ -125,10 +69,37 @@
             mods = <(MOD_RSFT)>;
         };
 
+        hm_l: homerow_mods1 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <130>;
+
+            hold-trigger-key-positions = <KEYS_L>;
+            hold-trigger-on-release;
+        };
+
+        hm_r: homerow_mods2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <130>;
+
+            hold-trigger-key-positions = <KEYS_R>;
+            hold-trigger-on-release;
+        };
+
     };
 
-
-    //- lt 모드 정리
+    //! 모프 활용해서 엄지키에 레이어 넣던가하기
     //- 좌측 홈로우시 좌측키랑 같이 입력안되게
 
     //- 한영전환 슬래쉬에 넣어볼까?
@@ -140,10 +111,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q        &kp W        &kp E        &kp R        &kp T                         &kp Y           &kp U             &kp I        &kp O        &kp P               &none
-                &none  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                         &kp H           &hm2 LGUI J       &hm2 LALT K  &hm2 LCTL L  &kp_kp RSFT BKSP    &none
-                &none  &kp Z        &kp X        &kp C        &kp V        &kp B                         &kp N           &kp M             &kp COMMA    &kp DOT      &lt1 LY_LNUM SLASH  &none
-                &none  &none        &none        &kp LALT     &kp LGUI     &mm_arrow_spc                 &mo LY_SPECIAL  &kp_kp RCTRL F18  &kp RCTRL    &none        &none               &none
+                &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U             &kp I         &kp O         &kp P              &none
+                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kp_kp RSFT BKSP   &none
+                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &lt LY_LNUM SLASH  &none
+                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &kp_kp RCTRL F18  &kp RCTRL     &none         &none              &none
             >;
         };
 
@@ -153,7 +124,7 @@
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                     &kp CARET  &kp TILDE  &kp EXCL  &kp POUND         &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                      &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE         &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                     &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
-                &none  &none      &none      &none         &none         &lt1 LY_ARROW SPACE          &none      &none      &none     &none             &none      &none
+                &none  &none      &none      &none         &none         &lt LY_ARROW SPACE           &none      &none      &none     &none             &none      &none
             >;
         };
 
@@ -170,10 +141,10 @@
         num_layer {
             label = "LY_LNUM";
             bindings = <
-                &none  &none  &kp NUMBER_1  &kp NUMBER_2 &kp NUMBER_3  &kp NUMBER_4          &none  &none  &none  &none  &none  &none
-                &none  &none  &kp NUMBER_4  &kp NUMBER_5 &kp NUMBER_6  &none                 &none  &none  &none  &none  &none  &none
-                &none  &none  &kp NUMBER_7  &kp NUMBER_8 &kp NUMBER_9  &none                 &none  &none  &none  &none  &none  &none
-                &none  &none  &none         &none        &none         &kp NUMBER_0          &none  &none  &none  &none  &none  &none
+                &none  &kp NUMBER_1  &kp NUMBER_2 &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5          &none  &none  &none  &none  &none  &none
+                &none  &kp NUMBER_4  &kp NUMBER_5 &kp NUMBER_6  &none         &none                 &none  &none  &none  &none  &none  &none
+                &none  &kp NUMBER_7  &kp NUMBER_8 &kp NUMBER_9  &none         &none                 &none  &none  &none  &none  &none  &none
+                &none  &none         &none        &none         &kp NUMBER_0  &none                 &none  &none  &none  &none  &none  &none
             >;
         };
 
