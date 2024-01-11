@@ -107,10 +107,9 @@
 
     };
 
-
-    //- 우측 쉬프트가 변경되어 있는 상황
-    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/지우기/엔터)
     //- A키에 우측 숫자 적용하기
+    //- p키 이용해보기(쉬프트)
+    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/지우기/엔터)
 
     keymap {
         compatible = "zmk,keymap";
@@ -118,10 +117,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U                  &kp I         &kp O         &kp P                     &none
-                &none  &kp A         &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J           &hm_r LALT K  &hm_r LCTL L  &mokp_fast LY_LNUM RET    &none
-                &none  &hm_l LSFT Z  &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M                  &kp COMMA     &kp DOT       &kpkp_fast RSFT BKSP      &none
-                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &kpkp_fast RCTRL F18   &kp RCTRL     &none         &none                     &none
+                &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U                  &kp I         &kp O         &kp P                   &none
+                &none  &kp A         &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J           &hm_r LALT K  &hm_r LCTL L  &kpkp_fast RSFT RET     &none
+                &none  &hm_l LSFT Z  &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M                  &kp COMMA     &kp DOT       &mokp_fast LY_LNUM BKSP &none
+                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &kpkp_fast RCTRL F18   &kp RCTRL     &none         &none                   &none
             >;
         };
 
@@ -145,13 +144,23 @@
             >;
         };
 
-        num_layer {
+        lnum_layer {
             label = "LY_LNUM";
             bindings = <
                 &none  &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4                 &none  &none  &none  &none  &none  &none
                 &none  &kp LCTL  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none                        &none  &none  &none  &none  &none  &none
                 &none  &kp LSFT  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none                        &none  &none  &none  &none  &none  &none
                 &none  &none     &none         &kp LALT      &kp LGUI      &kp NUMBER_0                 &none  &none  &none  &none  &none  &none
+            >;
+        };
+
+        rnum_layer {
+            label = "LY_RNUM";
+            bindings = <
+                &none  &none  &none  &none  &none  &none                 &none         &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none  &none
+                &none  &none  &none  &none  &none  &none                 &none         &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none  &none
+                &none  &none  &none  &none  &none  &none                 &none         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none  &none
+                &none  &none  &none  &none  &none  &kp SPACE             &kp NUMBER_0  &none         &none         &none         &none  &none
             >;
         };
 
