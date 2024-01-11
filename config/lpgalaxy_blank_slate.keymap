@@ -108,9 +108,9 @@
     };
 
 
-    //- 숫자 잘되는지 확인
+    //- 우측 쉬프트가 변경되어 있는 상황
     //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/지우기/엔터)
-    //- 한영전환 (슬래쉬 또는 콤보)
+    //- A키에 우측 숫자 적용하기
 
     keymap {
         compatible = "zmk,keymap";
@@ -127,7 +127,7 @@
 
         nav_layer {
             label = "LY_SPECIAL";
-            bindings = <ㅁ레
+            bindings = <
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                 &kp CARET  &kp TILDE  &kp EXCL  &kp POUND             &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                  &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE             &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                 &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
