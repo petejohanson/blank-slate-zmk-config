@@ -47,7 +47,7 @@
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        mtkp_fast: kp_to_kp {
+        mtkp_fast: mt_to_kp_fase {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
@@ -64,7 +64,7 @@
             mods = <(MOD_RSFT)>;
         };
 
-        kpkp_fast: kp_to_kp {
+        kpkp_fast: kp_to_kp_fast {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -98,10 +98,8 @@
 
     };
 
-    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/탭/지우기/엔터/)
-
-    //- 한영전환 슬래쉬에 넣어볼까?
-    //- 한영전환 콤보로 변경
+    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/탭/지우기/엔터/esc)
+    //- 한영전환 (슬래쉬 또는 콤보)
 
     keymap {
         compatible = "zmk,keymap";
