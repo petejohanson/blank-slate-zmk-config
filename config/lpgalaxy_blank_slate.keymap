@@ -9,7 +9,8 @@
 #define LY_SPECIAL 1
 #define LY_ARROW 2
 #define LY_LNUM 3
-#define LY_SPECIAL_ASSET 4
+#define LY_RNUM 4
+#define LY_SPECIAL_ASSET 5
 
 &lt {
     tapping-term-ms = <170>;
@@ -107,7 +108,6 @@
 
     };
 
-    //- A키에 우측 숫자 적용하기
     //- p키 이용해보기(쉬프트)
     //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/지우기/엔터)
 
