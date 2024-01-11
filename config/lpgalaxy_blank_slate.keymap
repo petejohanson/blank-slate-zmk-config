@@ -11,10 +11,6 @@
 #define LY_LNUM 3
 #define LY_SPECIAL_ASSET 4
 
-#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
-#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
-#define KEYS_T 36 37 38 39 40 41 42 43 44 45 46 47
-
 &lt {
     tapping-term-ms = <170>;
     flavor = "balanced";
@@ -45,28 +41,28 @@
     behaviors {
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
-            label = "GRAVE_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp GRAVE>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        kp_kp: kp_to_kp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "KP_TO_KP";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <170>;
-        };
-
         // mm_spc_unds_layer: mod_morph_underscore {
         mm_arrow_spc: arrow_spc_layer {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt LY_ARROW SPACE>, <&kp F18>;
+            bindings = <&kpkp LY_ARROW SPACE>, <&kp F18>;
             mods = <(MOD_RSFT)>;
+        };
+
+        kpkp: kp_to_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <120>;
         };
 
         hm_l: homerow_mods1 {
@@ -78,9 +74,6 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <130>;
-
-            hold-trigger-key-positions = <KEYS_L KEYS_R>;
-            hold-trigger-on-release;
         };
 
         hm_r: homerow_mods2 {
@@ -92,15 +85,11 @@
             tapping-term-ms = <170>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <130>;
-
-            hold-trigger-key-positions = <KEYS_R KEYS_L>;
-            hold-trigger-on-release;
         };
 
     };
 
     //! 모프 활용해서 엄지키에 레이어 넣던가하기
-    //- 홈로우 hold-trigger-key-positions 작업
 
     //- 한영전환 슬래쉬에 넣어볼까?
     //- 한영전환 콤보로 변경
@@ -112,9 +101,9 @@
             label = "Base";
             bindings = <
                 &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U             &kp I         &kp O         &kp P              &none
-                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kp_kp RSFT BKSP   &none
-                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &lt LY_LNUM SLASH  &none
-                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &kp_kp RCTRL F18  &kp RCTRL     &none         &none              &none
+                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kpkp RSFT BKSP      &none
+                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &kpkp LY_LNUM SLASH  &none
+                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &lt RCTRL F18     &kp RCTRL     &none         &none              &none
             >;
         };
 
@@ -124,7 +113,7 @@
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                     &kp CARET  &kp TILDE  &kp EXCL  &kp POUND         &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                      &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE         &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                     &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
-                &none  &none      &none      &none         &none         &lt LY_ARROW SPACE           &none      &none      &none     &none             &none      &none
+                &none  &none      &none      &none         &none         &kpkp LY_ARROW SPACE         &none      &none      &none     &none             &none      &none
             >;
         };
 
