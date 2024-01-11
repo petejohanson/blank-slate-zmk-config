@@ -47,14 +47,6 @@
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        // mm_spc_unds_layer: mod_morph_underscore {
-        mm_arrow_spc: arrow_spc_layer {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mtkp_fast LY_ARROW SPACE>, <&kp F18>;
-            mods = <(MOD_RSFT)>;
-        };
-
         mtkp_fast: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -63,6 +55,13 @@
             flavor = "balanced";
             tapping-term-ms = <150>;
             quick-tap-ms = <120>;
+        };
+
+        mm_arrow_spc: arrow_spc_layer {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mtkp_fast LY_ARROW SPACE>, <&kp F18>;
+            mods = <(MOD_RSFT)>;
         };
 
         kpkp_fast: kp_to_kp {
@@ -110,20 +109,20 @@
         base_layer {
             label = "Base";
             bindings = <
-                &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U             &kp I         &kp O         &kp P              &none
+                &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U             &kp I         &kp O         &kp P                     &none
                 &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kpkp_fast RSFT BKSP      &none
                 &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &kpkp_fast LY_LNUM SLASH  &none
-                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &lt RCTRL F18     &kp RCTRL     &none         &none              &none
+                &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &lt RCTRL F18     &kp RCTRL     &none         &none                     &none
             >;
         };
 
         nav_layer {
             label = "LY_SPECIAL";
             bindings = <
-                &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                     &kp CARET  &kp TILDE  &kp EXCL  &kp POUND         &kp COLON  &none
-                &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                      &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE         &kp SEMI   &none
-                &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                     &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
-                &none  &none      &none      &none         &none         &kpkp_fast LY_ARROW SPACE         &none      &none      &none     &none             &none      &none
+                &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                         &kp CARET  &kp TILDE  &kp EXCL  &kp POUND             &kp COLON  &none
+                &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                          &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE             &kp SEMI   &none
+                &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                         &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
+                &none  &none      &none      &none         &none         &kpkp_fast LY_ARROW SPACE        &none      &none      &none     &none                 &none      &none
             >;
         };
 
