@@ -107,7 +107,9 @@
 
     };
 
-    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/탭) (지우기/엔터/ESC)
+
+    //- 숫자 잘되는지 확인
+    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/지우기/엔터)
     //- 한영전환 (슬래쉬 또는 콤보)
 
     keymap {
@@ -117,15 +119,15 @@
             label = "Base";
             bindings = <
                 &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U                  &kp I         &kp O         &kp P                     &none
-                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J           &hm_r LALT K  &hm_r LCTL L  &mokp_fast LY_LNUM SLASH  &none
-                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M                  &kp COMMA     &kp DOT       &kpkp_fast RSFT RET       &none
+                &none  &kp A         &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J           &hm_r LALT K  &hm_r LCTL L  &mokp_fast LY_LNUM RET    &none
+                &none  &hm_l LSFT Z  &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M                  &kp COMMA     &kp DOT       &kpkp_fast RSFT BKSP      &none
                 &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &kpkp_fast RCTRL F18   &kp RCTRL     &none         &none                     &none
             >;
         };
 
         nav_layer {
             label = "LY_SPECIAL";
-            bindings = <
+            bindings = <ㅁ레
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                 &kp CARET  &kp TILDE  &kp EXCL  &kp POUND             &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                  &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE             &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                 &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
