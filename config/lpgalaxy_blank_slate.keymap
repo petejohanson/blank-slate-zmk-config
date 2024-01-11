@@ -122,7 +122,7 @@
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                         &kp CARET  &kp TILDE  &kp EXCL  &kp POUND             &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                          &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE             &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                         &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
-                &none  &none      &none      &none         &none         &kpkp_fast LY_ARROW SPACE        &none      &none      &none     &none                 &none      &none
+                &none  &none      &none      &none         &none         &mtkp_fast LY_ARROW SPACE        &none      &none      &none     &none                 &none      &none
             >;
         };
 
