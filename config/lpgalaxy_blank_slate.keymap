@@ -51,11 +51,21 @@
         mm_arrow_spc: arrow_spc_layer {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kpkp LY_ARROW SPACE>, <&kp F18>;
+            bindings = <&mtkp_fast LY_ARROW SPACE>, <&kp F18>;
             mods = <(MOD_RSFT)>;
         };
 
-        kpkp: kp_to_kp {
+        mtkp_fast: kp_to_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <120>;
+        };
+
+        kpkp_fast: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -89,7 +99,7 @@
 
     };
 
-    //! 모프 활용해서 엄지키에 레이어 넣던가하기
+    //! 모프 활용해서 엄지키에 레이어 넣던가하기 (한영/탭/지우기/엔터/)
 
     //- 한영전환 슬래쉬에 넣어볼까?
     //- 한영전환 콤보로 변경
@@ -101,8 +111,8 @@
             label = "Base";
             bindings = <
                 &none  &kp Q         &kp W         &kp E         &kp R         &kp T                 &kp Y           &kp U             &kp I         &kp O         &kp P              &none
-                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kpkp RSFT BKSP      &none
-                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &kpkp LY_LNUM SLASH  &none
+                &none  &hm_l LSFT A  &hm_l LCTL S  &hm_l LALT D  &hm_l LGUI F  &kp G                 &kp H           &hm_r LGUI J      &hm_r LALT K  &hm_r LCTL L  &kpkp_fast RSFT BKSP      &none
+                &none  &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N           &kp M             &kp COMMA     &kp DOT       &kpkp_fast LY_LNUM SLASH  &none
                 &none  &none         &none         &kp LALT      &kp LGUI      &mm_arrow_spc         &mo LY_SPECIAL  &lt RCTRL F18     &kp RCTRL     &none         &none              &none
             >;
         };
@@ -113,7 +123,7 @@
                 &none  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR                     &kp CARET  &kp TILDE  &kp EXCL  &kp POUND         &kp COLON  &none
                 &none  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT                      &kp DQT    &kp PLUS   &kp STAR  &kp GRAVE         &kp SEMI   &none
                 &none  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH                     &kp AMPS   &kp AT     &none     &mo LY_SPECIAL_ASSET  &kp PIPE   &none
-                &none  &none      &none      &none         &none         &kpkp LY_ARROW SPACE         &none      &none      &none     &none             &none      &none
+                &none  &none      &none      &none         &none         &kpkp_fast LY_ARROW SPACE         &none      &none      &none     &none             &none      &none
             >;
         };
 
