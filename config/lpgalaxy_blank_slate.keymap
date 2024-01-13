@@ -116,7 +116,7 @@
                 &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
                 &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &ltspi LY_SPECIAL J  &kp K      &kp L     &mo LY_LNUM        &kp RET
                 &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &tog LY_TOG_NUM     &none  &none  &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  &none     &kp LEFT           &kp RIGHT
+                &none     &none  &none  &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  &none     &kp LEFT           &kp RIGHT
             >;
         };
 
@@ -143,10 +143,10 @@
         right_num_layer {
             label = "LY_RNUM";
             bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)      &kp LG(NUMBER_3)  &kp LG(NUMBER_4)           &kp RBKT   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
-                &none  &kp RC(NUMBER_6)  &kp LG(LS(NUMBER_3))  &kp LG(SPACE)     &kp LC(GRAVE)              &kp EQUAL  &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
-                &none  &none             &none                 &none             &none                      &kp BSLH   &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
-                &none  &none             &none                 &none             &kp &kp LC(LS(LA(LG(C))))  &kp SPACE  &kp NUMBER_0  &none         &none         &none         &none      &none
+                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)           &kp RBKT   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
+                &none  &kp RC(NUMBER_6)  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(LS(NUMBER_3))       &kp EQUAL  &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
+                &none  &none             &none             &none             &none                      &kp BSLH   &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
+                &none  &none             &none             &none             &kp &kp LC(LS(LA(LG(C))))  &kp SPACE  &kp NUMBER_0  &none         &none         &none         &none      &none
             >;
         };
 
@@ -176,7 +176,7 @@
                 &mokp LY_RNUM TAB  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &none         &none &none &none &none &none &none
                 &kp_gresc LCTRL 0  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &none &none &none &none &none &none
                 &kp LSHFT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none &none &none &none &none &none
-                &tog LY_TOG_NUM    &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &none &none &none &none &none &none
+                &none    &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &none &none &none &none &none &none
             >;
         };
 
