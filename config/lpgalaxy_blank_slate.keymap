@@ -103,11 +103,8 @@
     };
 
 
-    //- 좌측 하단 키들에 [문자키,, 숫자키] 순차적으로 변경하는 키 설정하기
-
-    //! 좌측 쉬프트 누를경우 우측 쉬프트에 다른키 입력되게 고민
-    //! - (좌측 모프 일때) 우측키들(,./,엔터,쉬프트,삭제) 모두 모프를 적용할 수 있다. (그반대의 경우도 가능)
-    //! 마우스 지원 (좌측 하단에 키에 배치하여 사용 / 현재 zmk 마우스 미지원)
+    //! 모프 > 좌측 모프 일때(쉬프트키등) 우측키들(,./,엔터,쉬프트,삭제) 모두 모프를 적용할 수 있다. (그반대의 경우도 가능)
+    //! 마우스 지원 > 좌측 하단에 키에 배치하여 사용 (현재 zmk 마우스 미지원)
 
 
     keymap {
@@ -119,7 +116,7 @@
                 &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
                 &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &ltspi LY_SPECIAL J  &kp K      &kp L     &mo LY_LNUM        &kp RET
                 &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &tog LY_TOG_NUM     &none  &none  &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  &none     &kp LEFT           &kp RIGHT
+                &none     &none  &none  &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  &none     &kp LEFT           &kp RIGHT
             >;
         };
 
