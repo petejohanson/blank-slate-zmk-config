@@ -58,7 +58,7 @@
             bindings = <&kp TAB>;
         };
         combo_esc {
-            timeout-ms j= <80>;
+            timeout-ms = <80>;
             key-positions = <14 15>;
             bindings = <&kp &gresc>;
         };
