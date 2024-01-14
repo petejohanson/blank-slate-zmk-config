@@ -59,15 +59,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <80>;
-            require-prior-idle-ms = <110>;
-            key-positions = <25 26>;
-            bindings = <&kp ESC>;
-        };
-    };
 
     behaviors {
         gresc: grave_escape {
