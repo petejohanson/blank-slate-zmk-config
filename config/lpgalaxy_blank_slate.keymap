@@ -21,6 +21,7 @@
 
 #define BT(n) BT_SEL n
 
+
 / {
 
     chosen {
@@ -45,6 +46,17 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <80>;
+            require-prior-idle-ms = <110>;
+            key-positions = <25 26>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+    };
+
     behaviors {
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
@@ -58,9 +70,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <130>;
+            tapping-term-ms = <140>;
+            quick-tap-ms = <140>;
+            require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -91,13 +103,13 @@
         base_layer {
             label = "Base";
             bindings = <
-                //- 우측 right shift 로 좌측 모프 먹이기
+                //- esc 콤보 적용하기 (s,d)
                 //- [esc 탭] [지우기 엔터 한영]
-                //- 슬래쉬 위치 변경(단축키 안먹음)
-                &none  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P              &none
-                &none  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM BKSP  &none
-                &none  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT RET      &none
-                &none  &none         &none  &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  &none    &none              &none
+                //- 슬래쉬 위치 변경(단축키 안먹음) (콤마 슬래쉬 콤보 = 슬래쉬)
+                &none  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P             &none
+                &none  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM RET  &none
+                &none  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT BKSP    &none
+                &none  &none         &none  &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  &none    &none             &none
             >;
         };
 
