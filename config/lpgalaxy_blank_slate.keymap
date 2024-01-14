@@ -8,10 +8,6 @@
 
 #define LY_NAV 1
 #define LY_LNUM 2
-#define LY_RNUM 3
-#define LY_FUNC 4
-#define LY_SPECIAL 5
-#define LY_TOG_NUM 6
 
 &lt {
     quick_tap_ms = <200>;
@@ -51,61 +47,51 @@
     behaviors {
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
+            label = "GRAVE_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp GRAVE>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        kp_gresc: kp_to_gresc {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            bindings = <&kp>, <&gresc>;
-            tapping-term-ms = <170>;
-        };
-
         kpkp: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
+            label = "KP_TO_KP";
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <170>;
         };
 
-        mokp: mo_to_kp {
+        hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS2";
             #binding-cells = <2>;
             flavor = "balanced";
-            bindings = <&mo>, <&kp>;
             tapping-term-ms = <170>;
-        };
-
-        ltspi: lt_special {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced"; // [hold-preferred, balanced, tap-preferred]
-            tapping-term-ms = <180>;
-            quick-tap-ms = <180>;
-            require-prior-idle-ms = <110>; //-(50>110)
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltspc: lt_space {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <250>;
-            quick-tap-ms = <180>;
+            quick-tap-ms = <170>;
             require-prior-idle-ms = <120>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        mm_num_bs: morph_number_backspace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm1 LY_LNUM BKSP>, <&kp BKSP>;
+            mods = <(MOD_LGUI|LEFT_ALT)>;
+            keep-mods = <(MOD_LGUI|LEFT_ALT)>;
+        };
+        mm_rsft_ret: morph_rshift_enter {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm1 RSFT SLASH>, <&kp RET>;
+            mods = <(MOD_LGUI|LEFT_SHIFT)>;
+            keep-mods = <(MOD_LGUI|LEFT_SHIFT)>;
         };
     };
 
-
-    //! 모프 > 좌측 모프 일때(쉬프트키등) 우측키들(,./,엔터,쉬프트,삭제) 모두 모프를 적용할 수 있다. (그반대의 경우도 가능)
-    //! 마우스 지원 > 좌측 하단에 키에 배치하여 사용 (현재 zmk 마우스 미지원)
-
+    //- 숫자키 > 우측 엄지(f18)에 배치 (모드키랑 같이 사용 가능하게 설정)
+    //- 특수키 > 우측 슬래쉬(/)에 배치 > 또는 좌측 어딘가에 배치 (v 추천)
 
     keymap {
         compatible = "zmk,keymap";
@@ -113,70 +99,35 @@
         base_layer {
             label = "Base";
             bindings = <
-                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
-                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &ltspi LY_SPECIAL J  &kp K      &kp L     &mo LY_LNUM        &kp RET
-                &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &tog LY_TOG_NUM     &none  &none  &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  &none     &kp LEFT           &kp RIGHT
+                //- 모프로 슬래쉬쪽 > 엔터 지우기등
+                //- 우측 right shift 로 좌측 모프 먹이기
+                //- [esc 탭 지우기 엔터 한영]
+                //- 슬래쉬 위치 변경(단축키 안먹음)
+                &none  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U            &kp I      &kp O    &kp P         &none
+                &none  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J            &kp K      &kp L    &mm_num_bs    &none
+                &none  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M            &kp COMMA  &kp DOT  &mm_rsft_ret  &none
+                &none  &none         &none  &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18  &kp RCTRL  &none    &none         &none
             >;
         };
 
         nav_layer {
             label = "LY_NAV";
             bindings = <
-                &kp F18    &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR   &kp PLUS  &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                &kp LCTRL  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT    &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
-                &kp LSHFT  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH   &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &kp RSHFT
-                &none      &none      &none      &kp LALT      &kp LGUI      &kp SPACE  &none     &none      &none             &none             &none      &none
+                //- 모프로 탭이동
+                &none    &kp LBRC         &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR           &none     &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
+                &none    &hm1 LCTL LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                &none    &hm1 LSFT UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &kp RSHFT
+                &none    &none            &none      &kp LALT      &kp LGUI      &kp SPACE          &none     &none      &none             &none             &none      &none
             >;
         };
 
         left_num_layer {
             label = "LY_LNUM";
             bindings = <
-                &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none      &kp PLUS     &kp MINUS  &kp EQUAL  &none  &none
-                &kp PRCNT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &kp SLASH  &kp DOT      &kp COMMA  &kp STAR   &none  &none
-                &kp LSHFT  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none      &mo LY_FUNC  &none      &none      &none  &none
-                &none      &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT  &none        &none      &none      &none  &none
-            >;
-        };
-
-        right_num_layer {
-            label = "LY_RNUM";
-            bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)       &kp RBKT   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
-                &none  &kp RC(NUMBER_6)  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(LS(NUMBER_3))   &kp EQUAL  &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
-                &none  &none             &none             &none             &none                  &kp BSLH   &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
-                &none  &none             &none             &none             &kp LC(LS(LA(LG(C))))  &kp SPACE  &kp NUMBER_0  &none         &none         &none         &none      &none
-            >;
-        };
-
-        func_layer {
-            label = "LY_FUNC";
-            bindings = <
-                &none      &kp F1  &kp F2  &kp F3    &kp F10   &none      &none  &none  &none  &none  &none  &none
-                &kp LCTRL  &kp F4  &kp F5  &kp F6    &kp F11   &none      &none  &none  &none  &none  &none  &none
-                &kp LSHFT  &kp F7  &kp F8  &kp F9    &kp F12   &none      &none  &none  &none  &none  &none  &none
-                &none      &none   &none   &kp LALT  &kp LGUI  &kp SPACE  &none  &none  &none  &none  &none  &none
-            >;
-        };
-
-        nav_special {
-            label = "LY_SPECIAL";
-            bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &none                &none  &none  &none  &none  &none  &none
-                &none  &none             &kp LG(NUMBER_0)  &none             &kp LC(GRAVE)     &none                &none  &none  &none  &none  &none  &none
-                &none  &kp LG(LA(LBKT))  &kp LG(LA(RBKT))  &none             &none             &none                &none  &none  &none  &none  &none  &none
-                &none  &none             &none             &none             &none             &kp LG(SPACE)        &none  &none  &none  &none  &none  &none
-            >;
-        };
-
-        toggle_num {
-            label = "LY_TOG_NUM";
-            bindings = <
-                &mokp LY_RNUM TAB  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &none         &none &none &none &none &none &none
-                &kp_gresc LCTRL 0  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &none &none &none &none &none &none
-                &kp LSHFT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none &none &none &none &none &none
-                &tog LY_TOG_NUM    &none         &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &none &none &none &none &none &none
+                &none  &none    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none      &kp PLUS  &kp MINUS  &kp EQUAL  &none
+                &none  &kp LCTL &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &kp SLASH  &kp DOT   &kp COMMA  &kp STAR   &none
+                &none  &kp LSFT &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none      &none     &none      &none      &none
+                &none  &none    &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     &none      &none     &none      &none      &none
             >;
         };
 
