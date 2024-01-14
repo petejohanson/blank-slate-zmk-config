@@ -54,7 +54,7 @@
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <80>;
-            key-positions = <2 3>;
+            key-positions = <1 2>;
             bindings = <&kp TAB>;
         };
         combo_esc {
@@ -65,7 +65,7 @@
         combo_backspace {
             timeout-ms = <80>;
             key-positions = <20 21>;
-            bindings = <&kp BKSP>;
+            bindings = <&kp RSFT>;
         };
         combo_ret {
             timeout-ms = <80>;
@@ -75,11 +75,6 @@
         combo_rshift {
             timeout-ms = <100>;
             key-positions = <21 22>;
-            bindings = <&kp RSFT>;
-        };
-        combo_rshift2 {
-            timeout-ms = <100>;
-            key-positions = <20 21>;
             bindings = <&kp RSFT>;
         };
     };
@@ -107,9 +102,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <140>;
-            quick-tap-ms = <140>;
-            require-prior-idle-ms = <110>;
+            tapping-term-ms = <130>;
+            quick-tap-ms = <130>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -119,28 +113,26 @@
             flavor = "balanced";
             tapping-term-ms = <140>;
             quick-tap-ms = <140>;
-            require-prior-idle-ms = <140>;
             bindings = <&mo>, <&kp>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
-        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-        //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
         base_layer {
             label = "Base";
             bindings = <
 
                 //- [esc 탭] [지우기 엔터 한영]
-                //- 슬래쉬 없음
-                //- 컨트롤 위치 D로 이동
+                //- 슬래쉬 콤보로 넣기
                 ___  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P              ___
                 ___  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM BKSP  ___
-                ___  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp BKSP   &kp BKSP &hm2 RSFT RET      ___
+                ___  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT RET      ___
                 ___  ___           ___    &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  ___      ___                ___
 
             >;
