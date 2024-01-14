@@ -3,9 +3,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define QWERTY_BASE 1
 #define TBLE_ORTHO 1
+#define ___ &none
+// #define XXX &none
+// #define ___ &trans
 
+#define LY_BASE 0
 #define LY_NAV 1
 #define LY_LNUM 2
 
@@ -47,10 +50,10 @@
     };
 
     combos {
+        // #include "combos.dtsi"
         compatible = "zmk,combos";
         combo_esc {
-            timeout-ms = <80>;
-            // require-prior-idle-ms = <110>;
+            timeout-ms = <120>;
             key-positions = <25 26>;
             bindings = <&kp ESC>;
         };
@@ -105,10 +108,10 @@
                 //- esc 콤보 적용하기 (s,d)
                 //- [esc 탭] [지우기 엔터 한영]
                 //- 슬래쉬 위치 변경(단축키 안먹음) (콤마 슬래쉬 콤보 = 슬래쉬)
-                &none  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P             &none
-                &none  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM RET  &none
-                &none  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT BKSP    &none
-                &none  &none         &none  &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  &none    &none             &none
+                ___  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P             ___
+                ___  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM RET  ___
+                ___  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT BKSP    ___
+                ___  ___           ___    &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  ___      ___               ___
             >;
         };
 
@@ -116,20 +119,20 @@
             label = "LY_NAV";
             bindings = <
                 //- 모프로 탭이동
-                &none    &kp LBRC         &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR           &none     &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                &none    &hm1 LCTL LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
-                &none    &hm1 LSFT UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &none      &kp RSHFT
-                &none    &none            &none      &kp LALT      &kp LGUI      &kp SPACE          &none     &none      &none             &none             &none      &none
+                ___    &kp LBRC         &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
+                ___    &hm1 LCTL LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                ___    &hm1 LSFT UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___       &kp RSHFT
+                ___    ___              ___        &kp LALT      &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___      ___
             >;
         };
 
         left_num_layer {
             label = "LY_LNUM";
             bindings = <
-                &none  &none    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &none      &kp PLUS  &kp MINUS  &kp EQUAL  &none
-                &none  &kp LCTL &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none         &none         &kp SLASH  &kp DOT   &kp COMMA  &kp STAR   &none
-                &none  &kp LSFT &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none         &none         &none      &none     &none      &none      &none
-                &none  &none    &none         &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     &none      &none     &none      &none      &none
+                ___  ___      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  ___        &kp PLUS  &kp MINUS  &kp EQUAL  ___
+                ___  &kp LCTL &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___           &kp SLASH  &kp DOT   &kp COMMA  &kp STAR   ___
+                ___  ___      ___           &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     ___        ___        ___       ___        ___
+                ___  &kp LSFT &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___           ___        ___        ___       ___        ___
             >;
         };
 
