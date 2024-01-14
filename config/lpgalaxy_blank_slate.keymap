@@ -13,8 +13,8 @@
 #define LY_NUM 3
 
 &lt {
-    quick_tap_ms = <200>;
-    tapping-term-ms = <200>;
+    quick_tap_ms = <180>;
+    tapping-term-ms = <180>;
 };
 
 &mt {
@@ -47,9 +47,7 @@
         };
     };
 
-
     combos {
-        // #include "combos.dtsi"
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <80>;
@@ -71,7 +69,6 @@
     behaviors {
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
-            label = "GRAVE_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp GRAVE>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
@@ -80,7 +77,6 @@
 
         kpkp: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
-            label = "KP_TO_KP";
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -89,7 +85,6 @@
 
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS1";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <210>;
@@ -101,7 +96,6 @@
         //! 확정 (잘됨)
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS2";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <170>;
@@ -110,9 +104,8 @@
             bindings = <&kp>, <&kp>;
         };
 
-        hm3: homerow_mods2 {
+        hm3: homerow_mods3 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS2";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <150>;
@@ -139,7 +132,7 @@
                 ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y       &kp U             &kp I        &kp O        &kp P      ___
                 ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H       &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &mm_bs     ___
                 ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N       &kp M             &kp COMMA    &kp DOT      &kp SLASH  ___
-                ___  ___          ___          ___          &kp LGUI     &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18   &kp RCTRL    ___          ___        ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18   &kp RCTRL    ___          ___        ___
             >;
         };
 
