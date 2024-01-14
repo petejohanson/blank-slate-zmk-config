@@ -77,6 +77,11 @@
             key-positions = <21 22>;
             bindings = <&kp RSFT>;
         };
+        combo_slash {
+            timeout-ms = <100>;
+            key-positions = <33 34>;
+            bindings = <&kp SLASH>;
+        };
     };
 
     behaviors {
@@ -117,6 +122,11 @@
         };
     };
 
+
+    //- Q > 오른족 숫자넣기
+
+
+
     keymap {
         compatible = "zmk,keymap";
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -127,7 +137,6 @@
         base_layer {
             label = "Base";
             bindings = <
-
                 //- [esc 탭] [지우기 엔터 한영]
                 //- 슬래쉬 콤보로 넣기
                 ___  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P              ___
