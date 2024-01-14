@@ -61,7 +61,8 @@
         };
         combo_ret {
             timeout-ms = <80>;
-            key-positions = <20 21>;
+            // key-positions = <20 21>;
+            key-positions = <20 31>;
             bindings = <&kp RET>;
         };
     };
@@ -129,10 +130,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y       &kp U             &kp I        &kp O        &kp P      ___
-                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H       &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &mm_bs     ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N       &kp M             &kp COMMA    &kp DOT      &kp SLASH  ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18   &kp RCTRL    ___          ___        ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y       &kp U             &kp I        &kp O        &kp P            ___
+                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H       &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &hm3 RSFT BKSP   ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N       &kp M             &kp COMMA    &kp DOT      &kp SLASH        ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18   &kp RCTRL    ___          ___              ___
             >;
         };
 
@@ -150,9 +151,9 @@
             label = "LY_NAV";
             bindings = <
                 ___    &kp LBRC        &kp RBRC        &kp LPAR            &kp RPAR            &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                ___    &hm2 LSFT LBKT  &hm2 LCTL RBKT  &hm2 LALT KP_MINUS  &hm2 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
-                ___    &kp UNDER       &kp QMARK       &kp LT              &kp GT              &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___       &kp RSHFT
-                ___    ___             ___             ___                 ___                 &kp SPACE          ___       ___        ___                ___              ___      ___
+                ___    &hm3 LSFT LBKT  &hm3 LCTL RBKT  &hm3 LALT KP_MINUS  &hm3 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                ___    &kp UNDER       &kp QMARK       &kp LT              &kp GT              &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        &kp RSHFT
+                ___    ___             ___             ___                 ___                 &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
         };
 
