@@ -179,10 +179,10 @@
         rnumber_layer {
             label = "LY_RNUM";
             bindings = <
-                &none  $none             &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)       &kp LG(NUMBER_4)   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
-                &none  &kp RC(NUMBER_6)  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(LS(NUMBER_3))   &kp EQUAL          &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
-                &none  &none             &none             &none             &none                  &kp BSLH           &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
-                &none  &none             &none             &none             &kp LC(LS(LA(LG(C))))  &kp SPACE          &kp NUMBER_0  &none         &none         &none         &none      &none
+                ___  ___               &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)       &kp LG(NUMBER_4)   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
+                ___  &kp RC(NUMBER_6)  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(LS(NUMBER_3))   &kp EQUAL          &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
+                ___  ___               ___               ___               ___                    &kp BSLH           &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
+                ___  ___               ___               ___               &kp LC(LS(LA(LG(C))))  &kp SPACE          &kp NUMBER_0  ___           ___           ___           ___         ___
             >;
         };
 
