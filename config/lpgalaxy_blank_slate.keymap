@@ -61,8 +61,8 @@
         };
         combo_ret {
             timeout-ms = <80>;
-            // key-positions = <20 21>;
-            key-positions = <20 31>;
+            key-positions = <20 21>;
+            //key-positions = <20 31>;
             bindings = <&kp RET>;
         };
     };
@@ -114,15 +114,17 @@
             bindings = <&kp>, <&kp>;
         };
 
-        mm_bs: morph_bs {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&hm3 RSFT BKSP>, <&kp BKSP>;
-            mods = <(MOD_LGUI|MOD_LALT)>;
-            keep-mods = <(MOD_LGUI|MOD_LALT)>;
+        hm4: homerow_mods4 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
         };
     };
 
+    //- 숫자, 탭이동
 
     keymap {
         compatible = "zmk,keymap";
@@ -151,9 +153,9 @@
             label = "LY_NAV";
             bindings = <
                 ___    &kp LBRC        &kp RBRC        &kp LPAR            &kp RPAR            &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                ___    &hm3 LSFT LBKT  &hm3 LCTL RBKT  &hm3 LALT KP_MINUS  &hm3 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                ___    &hm4 LSFT LBKT  &hm4 LCTL RBKT  &hm4 LALT KP_MINUS  &hm4 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
                 ___    &kp UNDER       &kp QMARK       &kp LT              &kp GT              &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        &kp RSHFT
-                ___    ___             ___             ___                 ___                 &kp SPACE          ___       ___        ___                ___              ___        ___
+                ___    ___             ___             &kp LALT            &kp LGUI            &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
         };
 
