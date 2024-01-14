@@ -52,10 +52,20 @@
     combos {
         // #include "combos.dtsi"
         compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <80>;
+            key-positions = <2 3>;
+            bindings = <&kp TAB>;
+        };
         combo_esc {
-            timeout-ms = <120>;
-            key-positions = <25 26>;
-            bindings = <&kp ESC>;
+            timeout-ms j= <80>;
+            key-positions = <14 15>;
+            bindings = <&kp &gresc>;
+        };
+        combo_backspace {
+            timeout-ms = <80>;
+            key-positions = <20 21>;
+            bindings = <&kp BKSP>;
         };
     };
 
@@ -105,7 +115,6 @@
         base_layer {
             label = "Base";
             bindings = <
-                //- esc 콤보 적용하기 (s,d)
                 //- [esc 탭] [지우기 엔터 한영]
                 //- 슬래쉬 위치 변경(단축키 안먹음) (콤마 슬래쉬 콤보 = 슬래쉬)
                 ___  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P             ___
@@ -131,8 +140,8 @@
             bindings = <
                 ___  ___      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  ___        &kp PLUS  &kp MINUS  &kp EQUAL  ___
                 ___  &kp LCTL &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___           &kp SLASH  &kp DOT   &kp COMMA  &kp STAR   ___
-                ___  ___      ___           &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     ___        ___        ___       ___        ___
                 ___  &kp LSFT &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___           ___        ___        ___       ___        ___
+                ___  ___      ___           &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     ___        ___        ___       ___        ___
             >;
         };
 
