@@ -11,6 +11,7 @@
 #define LY_BASE 0
 #define LY_NAV 1
 #define LY_LNUM 2
+#define LY_RNUM 3
 
 &lt {
     flavor = "balanced";
@@ -65,17 +66,17 @@
         combo_backspace {
             timeout-ms = <80>;
             key-positions = <20 21>;
-            bindings = <&kp RSFT>;
+            bindings = <&kp BKSP>;
+        };
+        combo_backspace2 {
+            timeout-ms = <80>;
+            key-positions = <19 20>;
+            bindings = <&kp BKSP>;
         };
         combo_ret {
             timeout-ms = <80>;
             key-positions = <32 33>;
             bindings = <&kp RET>;
-        };
-        combo_rshift {
-            timeout-ms = <100>;
-            key-positions = <21 22>;
-            bindings = <&kp RSFT>;
         };
         combo_slash {
             timeout-ms = <100>;
@@ -124,25 +125,20 @@
 
 
     //- Q > 오른족 숫자넣기
+    //- [esc 탭] [지우기 엔터 한영]
 
 
 
     keymap {
         compatible = "zmk,keymap";
-            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
         base_layer {
             label = "Base";
             bindings = <
-                //- [esc 탭] [지우기 엔터 한영]
-                //- 슬래쉬 콤보로 넣기
-                ___  &kp Q         &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P              ___
-                ___  &hm1 LCTL A   &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM BKSP  ___
-                ___  &hm1 LSFT Z   &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT RET      ___
-                ___  ___           ___    &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  ___      ___                ___
+                ___  &hm1 LY_RNUM Q  &kp W  &kp E     &kp R     &kp T                &kp Y       &kp U          &kp I      &kp O    &kp P              ___
+                ___  &hm1 LCTL A     &kp S  &kp D     &kp F     &kp G                &kp H       &kp J          &kp K      &kp L    &hm3 LY_LNUM RET   ___
+                ___  &hm1 LSFT Z     &kp X  &kp C     &kp V     &kp B                &kp N       &kp M          &kp COMMA  &kp DOT  &hm2 RSFT BKSP     ___
+                ___  ___             ___    &kp LALT  &kp LGUI  &kp SPACE            &mo LY_NAV  &lt RCTRL F18  &kp RCTRL  ___      ___                ___
 
             >;
         };
@@ -158,13 +154,23 @@
             >;
         };
 
-        left_num_layer {
+        lnumber_layer {
             label = "LY_LNUM";
             bindings = <
                 ___  ___      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  ___        &kp PLUS  &kp MINUS  &kp EQUAL  ___
                 ___  &kp LCTL &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___           &kp SLASH  &kp DOT   &kp COMMA  &kp STAR   ___
                 ___  &kp LSFT &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___           ___        ___        ___       ___        ___
                 ___  ___      ___           &kp LALT      &kp LGUI      &kp NUMBER_0  &kp LSHFT     ___        ___        ___       ___        ___
+            >;
+        };
+
+        rnumber_layer {
+            label = "LY_RNUM";
+            bindings = <
+                &none  $none             &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)       &kp LG(NUMBER_4)   &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
+                &none  &kp RC(NUMBER_6)  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(LS(NUMBER_3))   &kp EQUAL          &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
+                &none  &none             &none             &none             &none                  &kp BSLH           &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
+                &none  &none             &none             &none             &kp LC(LS(LA(LG(C))))  &kp SPACE          &kp NUMBER_0  &none         &none         &none         &none      &none
             >;
         };
 
