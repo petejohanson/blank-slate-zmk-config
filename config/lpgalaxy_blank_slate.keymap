@@ -102,10 +102,10 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
-            //flavor = "tap-preferred";
-            //tapping-term-ms = <170>;
-            flavor = "balanced";
-            tapping-term-ms = <300>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            //flavor = "balanced";
+            //tapping-term-ms = <300>;
         };
 
     };
