@@ -21,6 +21,19 @@
 
 #define BT(n) BT_SEL n
 
+/ {
+
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <80>;
+            require-prior-idle-ms = <110>;
+            key-positions = <25 26>;
+            bindings = <&kp ESC>;
+        };
+    };
+
+}
 
 / {
 
@@ -53,7 +66,6 @@
             require-prior-idle-ms = <110>;
             key-positions = <25 26>;
             bindings = <&kp ESC>;
-            layers = <0>;
         };
     };
 
@@ -70,8 +82,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <140>;
-            quick-tap-ms = <140>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <170>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
