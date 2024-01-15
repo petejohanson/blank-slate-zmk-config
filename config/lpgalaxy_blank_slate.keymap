@@ -88,9 +88,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
+            quick-tap-ms = <-1>
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <10>
             bindings = <&kp>, <&kp>;
         };
 
@@ -98,9 +98,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
+            quick-tap-ms = <-1>
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <10>
             bindings = <&kp>, <&kp>;
         };
 
@@ -128,8 +128,6 @@
             keep-mods = <(MOD_LSFT)>;
         };
     };
-
-    //- 콤보로 삭제 버튼 추가(기존거 잘안될시)
 
     //- 숫자 콤보 (14,15), 특수문자(고민), 탭이동(고민)
     //- 브라켓[] 모프로 변경
