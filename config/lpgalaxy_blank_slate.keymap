@@ -51,20 +51,17 @@
             timeout-ms = <80>;
             key-positions = <1 2>;
             bindings = <&kp TAB>;
-            layers = <0>;
         };
         combo_esc {
             timeout-ms = <80>;
             key-positions = <15 16>;
             bindings = <&gresc>;
-            layers = <0>;
         };
         combo_ret {
             timeout-ms = <80>;
             key-positions = <20 21>;
             //key-positions = <20 31>;
             bindings = <&kp RET>;
-            layers = <0>;
         };
     };
 
