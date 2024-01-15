@@ -9,7 +9,6 @@
 // #define ___ &trans
 
 #define LY_ARROW 1
-#define LY_NUM 2
 
 &lt {
     quick_tap_ms = <180>;
@@ -75,41 +74,26 @@
             keep-mods = <(MOD_LGUI|MOD_RSFT)>;
         };
 
-        kpkp: kp_to_kp {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-            tapping-term-ms = <170>;
-        };
-
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <210>;
-            quick-tap-ms = <170>;
-            require-prior-idle-ms = <150>;
+            quick-tap-ms = <180>;
+            //require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
         };
 
-        //! 확정 (잘됨)
+        //! (잘됨)
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <170>;
             quick-tap-ms = <170>;
-            require-prior-idle-ms = <120>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        hm3: homerow_mods3 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
+            // require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <70>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -120,9 +104,40 @@
             mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT)>;
             keep-mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT)>;
         };
+        // ----------------------------------- 절취 -----------------------------------
+        mm_a: morph_a {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm1 LSFT A>, <&kp A>;
+            mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+            keep-mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+        };
+        mm_s: morph_s {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm1 LCTL S>, <&kp S>;
+            mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+            keep-mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+        };
+        // ----------------------------------- 절취 -----------------------------------
+        mm_j: morph_j {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm2 RGUI J>, <&kp J>;
+            mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT|MOD_LCTL)>;
+        };
+        mm_k: morph_k {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm2 RALT K>, <&kp K>;
+            mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT|MOD_LCTL)>;
+            keep-mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT|MOD_LCTL)>;
+        };
     };
 
-    //- 숫자, 특수문자 > 콤보
+    //- 숫자 콤보 (14,15), 특수문자(고민)
+    //- 브라켓[] 모프로 변경
 
     keymap {
         compatible = "zmk,keymap";
@@ -130,30 +145,20 @@
         base_layer {
             label = "Base";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y         &kp U             &kp I        &kp O        &kp P            ___
-                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H         &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &mm_bs           ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N         &kp M             &kp COMMA    &kp DOT      &kp SLASH        ___
-                ___  ___          ___          &kp RALT     &kp RGUI     &kp SPACE            &mo LY_ARROW  &kpkp RCTRL F18   &kp RCTRL    ___          ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y         &kp U             &kp I        &kp O        &kp P      ___
+                ___  &mm_a        &mm_s        &kp D        &kp F        &kp G                &kp H         &mm_j             &mm_k        &kp L        &mm_bs     ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N         &kp M             &kp COMMA    &kp DOT      &kp SLASH  ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_ARROW  &lt RCTRL F18     &kp RCTRL    ___          ___        ___
             >;
         };
 
         array_layer {
             label = "LY_ARROW";
             bindings = <
-                ___    &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)    &kp LG(NUMBER_4)    &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
-                ___    &kp LSFT          &kp LCTL          &kp LALT            &kp LGUI            &kp LC(NUMBER_6)   ___       &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
-                ___    &kp LG(SPACE)     &kp LG(GRAVE)     &kp RC(NUMBER_6)    ___                 &kp BSLH           ___       &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
-                ___    ___               ___               &kp LALT            &kp LGUI            &kp SPACE          ___       ___        ___                ___              ___        ___
-            >;
-        };
-
-        rnum_layer {
-            label = "LY_NUM";
-            bindings = <
-                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5             &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  ___
-                ___  &kp LSFT      &kp LCTL      &kp LALT      &kp LGUI      &kp F11                  &kp F12       &kp LGUI      &kp LALT      &kp LCTL      &kp LSFT      ___
-                ___  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       ___
-                ___  ___           ___           ___           ___           ___                      ___           ___           ___           ___           ___           ___
+                ___    &kp LBRC        &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
+                ___    &kp LSFT        &kp LCTL   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
+                ___    &kp UNDER       &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
+                ___    ___             ___        &kp LALT      &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
         };
     };
