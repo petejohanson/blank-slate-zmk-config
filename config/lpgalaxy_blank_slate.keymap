@@ -8,9 +8,8 @@
 // #define XXX &none
 // #define ___ &trans
 
-#define LY_SPECIAL 1
-#define LY_NAV 2
-#define LY_NUM 3
+#define LY_ARROW 1
+#define LY_NUM 2
 
 &lt {
     quick_tap_ms = <180>;
@@ -114,17 +113,16 @@
             bindings = <&kp>, <&kp>;
         };
 
-        hm4: homerow_mods4 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <180>;
-            quick-tap-ms = <180>;
-            bindings = <&kp>, <&kp>;
+        mm_bs: morph_bs {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RSFT>, <&kp BKSP>;
+            mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT)>;
+            keep-mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT)>;
         };
     };
 
-    //- 숫자, 탭이동
+    //- 숫자, 특수문자 > 콤보
 
     keymap {
         compatible = "zmk,keymap";
@@ -132,34 +130,24 @@
         base_layer {
             label = "Base";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y       &kp U             &kp I        &kp O        &kp P            ___
-                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H       &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &hm3 RSFT BKSP   ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N       &kp M             &kp COMMA    &kp DOT      &kp SLASH        ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_NAV  &kpkp RCTRL F18   &kp RCTRL    ___          ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y         &kp U             &kp I        &kp O        &kp P            ___
+                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H         &hm2 RGUI J       &hm2 RALT K  &hm2 LCTL L  &mm_bs           ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N         &kp M             &kp COMMA    &kp DOT      &kp SLASH        ___
+                ___  ___          ___          &kp RALT     &kp RGUI     &kp SPACE            &mo LY_ARROW  &kpkp RCTRL F18   &kp RCTRL    ___          ___              ___
             >;
         };
 
-        special_layer {
-            label = "LY_SPECIAL";
+        array_layer {
+            label = "LY_ARROW";
             bindings = <
-                ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))           ___                ___    ___  ___  ___  ___
-                ___  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                  &kp BSLH           ___    ___  ___  ___  ___
-                ___  &kp LG(GRAVE)     &kp LG(TAB)         &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___                            &kp LC(NUMBER_6)   ___    ___  ___  ___  ___
-                ___  ___               ___                 ___               ___               ___                            ___                ___    ___  ___  ___  ___
+                ___    &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)    &kp LG(NUMBER_4)    &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
+                ___    &kp LSFT          &kp LCTL          &kp LALT            &kp LGUI            &kp LC(NUMBER_6)   ___       &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
+                ___    &kp LG(SPACE)     &kp LG(GRAVE)     &kp RC(NUMBER_6)    ___                 &kp BSLH           ___       &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
+                ___    ___               ___               &kp LALT            &kp LGUI            &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
         };
 
-        nav_layer {
-            label = "LY_NAV";
-            bindings = <
-                ___    &kp LBRC        &kp RBRC        &kp LPAR            &kp RPAR            &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                ___    &hm4 LSFT LBKT  &hm4 LCTL RBKT  &hm4 LALT KP_MINUS  &hm4 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
-                ___    &kp UNDER       &kp QMARK       &kp LT              &kp GT              &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        &kp RSHFT
-                ___    ___             ___             &kp LALT            &kp LGUI            &kp SPACE          ___       ___        ___                ___              ___        ___
-            >;
-        };
-
-        num_layer {
+        rnum_layer {
             label = "LY_NUM";
             bindings = <
                 ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5             &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  ___
