@@ -78,9 +78,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <210>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <180>;
-            require-prior-idle-ms = <130>;
+            require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -107,14 +107,24 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mo LY_ARROW>, <&kp BKSP>;
-            mods = <(MOD_LGUI|MOD_LALT|MOD_LSFT)>;
-            keep-mods = <(MOD_LGUI|MOD_LALT)>;
+            mods = <(MOD_LGUI|MOD_LALT|MOD_RSFT|MOD_RGUI|MOD_RALT)>;
+            keep-mods = <(MOD_LGUI|MOD_LALT|MOD_RGUI|MOD_RALT)>;
+        };
+        mm_bs3: morph_bs3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp BKSP>;
+            mods = <(MOD_LGUI|MOD_LALT|MOD_LCTL|MOD_RGUI|MOD_RALT)>;
+            keep-mods = <(MOD_LGUI|MOD_LALT|MOD_RGUI|MOD_RALT)>;
         };
     };
 
-    //- 삭제가 조금더 쉬운상태이어야 한다 (엄지로 지울까?)
-    //- 숫자 콤보 (14,15), 특수문자(고민), 탭이동
+    //- 삭제가 조금더 쉬운상태이어야 한다
+        //- p에 매치해보기
+        //- 엄지에 매치해보기
+    //- 스페이스 = 우측 홈로우로 모프 적용해서 엔터 넣어보기
     //- 브라켓[] 모프로 변경
+    //- 숫자 콤보 (14,15), 특수문자(고민), 탭이동
 
     keymap {
         compatible = "zmk,keymap";
@@ -122,8 +132,8 @@
         base_layer {
             label = "Base";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y         &kp U             &kp I         &kp O        &kp P            ___
-                ___  &hm1 LSFT A  &hm1 LCTL S  &hm1 LALT D  &hm1 LGUI F  &kp G                &kp H         &hm2 RGUI J       &hm2 RALT K   &hm2 LCTL L  &kp RSFT         ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y         &kp U             &kp I         &kp O        &mm_bs3          ___
+                ___  &hm1 RSFT A  &hm1 LCTL S  &hm1 RALT D  &hm1 RGUI F  &kp G                &kp H         &hm2 RGUI J       &hm2 RALT K   &hm2 LCTL L  &kp RSFT         ___
                 ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N         &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
                 ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mm_bs2       &lt RCTRL F18     &kp RCTRL     ___          ___              ___
             >;
