@@ -91,23 +91,27 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
+
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release = <true>
+            hold-trigger-on-release
         };
 
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
+
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release = <true>
+            hold-trigger-on-release
         };
 
         mm_bs: morph_bs {
