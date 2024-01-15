@@ -120,13 +120,6 @@
             keep-mods = <(MOD_RGUI|MOD_RSFT)>;
         };
 
-        mm_ret: morph_ret {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LSFT>, <&kp RET>;
-            mods = <(MOD_RGUI|MOD_RSFT)>;
-            keep-mods = <(MOD_RGUI|MOD_RSFT)>;
-        };
     };
 
     //- 스페이스 = 우측 홈로우로 모프
