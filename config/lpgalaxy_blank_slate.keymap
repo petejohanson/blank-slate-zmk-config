@@ -122,6 +122,7 @@
     //- 삭제가 조금더 쉬운상태이어야 한다
         //- p 또는
         //- 엄지에 매치해보기
+        //- 잘안되면 콤보로 삭제 넣는것도 좋을듯
     //- 스페이스 = 우측 홈로우로 모프 적용해서 엔터 넣어보기
 
     //- 브라켓[] 모프로 변경
@@ -130,7 +131,7 @@
     keymap
         compatible = "zmk,keymap";
 
-        base_layer
+        base_layer {
             label = "Base";
             bindings = <
                 ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &mm_bs3          ___
@@ -138,7 +139,7 @@
                 ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
                 ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE            &mo LY_ARROW       &lt RCTRL F18     &kp RCTRL     ___          ___              ___
             >;
-        ;
+        };
 
         array_layer {
             label = "LY_ARROW";
