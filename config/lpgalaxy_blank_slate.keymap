@@ -9,8 +9,10 @@
 // #define ___ &trans
 
 #define LY_ARROW 1
+#define LY_TEST_COMBO 2
 
 &lt {
+    // quick-tap-ms = <-1>;
     tapping-term-ms = <180>;
 };
 
@@ -65,6 +67,12 @@
             bindings = <&kp RET>;
             layers = <0>;
         };
+        combo_mobs {
+            timeout-ms = <80>;
+            key-positions = <14 15>;
+            bindings = <&mo LY_TEST_COMBO>;
+            layers = <0>;
+        };
     };
 
     behaviors {
@@ -82,6 +90,7 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
             require-prior-idle-ms = <120>;
+            // quick-tap-ms = <-1>
             bindings = <&kp>, <&kp>;
         };
 
@@ -91,6 +100,7 @@
             flavor = "balanced";
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
+            // quick-tap-ms = <-1>
             bindings = <&kp>, <&kp>;
         };
 
@@ -111,8 +121,7 @@
         };
     };
 
-    //- 탭 다시켜기 단축키 사용하고 방햐키 접근시 글자가 지워지는 문제
-    //- 스페이스 = 우측 홈로우로 모프 적용해서 엔터 넣어보기
+    //- 스페이스 = 우측 홈로우로 모프
     //- 콤보 레이어 등록해서 다른 레이어에서 콤보 안되게 막기
 
     //- 콤보로 삭제(기존거 잘안될시)
@@ -139,6 +148,16 @@
                 ___    &kp LSFT        &kp LCTL   &kp LALT      &kp LGUI      &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
                 ___    &kp UNDER       &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
                 ___    ___             ___        &kp LALT      &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___        ___
+            >;
+        };
+
+        test_combo_layer {
+            label = "LY_TEST_COMBO";
+            bindings = <
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  &kp BKSP  &kp LA(BKSP)  &kp LG(BKSP)  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
             >;
         };
     };
