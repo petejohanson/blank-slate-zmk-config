@@ -118,8 +118,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
             bindings = <&kp>, <&kp>;
         };
     };
@@ -153,7 +153,7 @@
             label = "LY_NAV";
             bindings = <
                 ___    &kp LBRC        &kp RBRC        &kp LPAR            &kp RPAR            &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                ___    &lt LSFT LBKT  &lt LCTL RBKT  &lt LALT KP_MINUS  &lt LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                ___    &hm4 LSFT LBKT  &hm4 LCTL RBKT  &hm4 LALT KP_MINUS  &hm4 LGUI KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
                 ___    &kp UNDER       &kp QMARK       &kp LT              &kp GT              &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        &kp RSHFT
                 ___    ___             ___             &kp LALT            &kp LGUI            &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
