@@ -96,7 +96,7 @@
             require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release
+            hold-trigger-on-release = <true>
         };
 
         hm2: homerow_mods2 {
@@ -107,7 +107,7 @@
             require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release
+            hold-trigger-on-release = <true>
         };
 
         mm_bs: morph_bs {
