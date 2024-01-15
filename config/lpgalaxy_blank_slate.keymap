@@ -11,7 +11,6 @@
 #define LY_ARROW 1
 
 &lt {
-    quick-tap-ms = <-1>;
     tapping-term-ms = <180>;
 };
 
@@ -83,18 +82,15 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <-1>
             bindings = <&kp>, <&kp>;
         };
 
-        //! (잘됨)
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <-1>
             bindings = <&kp>, <&kp>;
         };
 
