@@ -99,7 +99,7 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced"; //! 발란스 변경
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
@@ -112,7 +112,7 @@
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
