@@ -99,11 +99,10 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-unless-interrupted";
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <-1>;
             bindings = <&kp>, <&kp>;
 
             hold-trigger-key-positions = <KEYS_R KEYS_T>; //! 안되는 이유가 뭐지??
@@ -113,11 +112,10 @@
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-unless-interrupted";
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
-            quick-tap-ms = <-1>;
             bindings = <&kp>, <&kp>;
 
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
