@@ -16,7 +16,7 @@
 #define KEYS_T 36 37 38 39 40 41 42 43 44 45 46 47
 
 &lt {
-    // quick-tap-ms = <-1>;
+    quick-tap-ms = <-1>;
     tapping-term-ms = <180>;
 };
 
@@ -103,6 +103,7 @@
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
+            quick-tap-ms = <-1>;
             bindings = <&kp>, <&kp>;
 
             hold-trigger-key-positions = <KEYS_R KEYS_T>; //! 안되는 이유가 뭐지??
@@ -116,6 +117,7 @@
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
+            quick-tap-ms = <-1>;
             bindings = <&kp>, <&kp>;
 
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
@@ -147,8 +149,7 @@
         };
     };
 
-
-    // hold-trigger-key-positions 사용 해보기 tap-unless-interrupted
+    // hold-trigger-key-positions, hold-trigger-on-release, // tap-unless-interrupted
     //- 홈로우를 먼저 누르고, 방향키 레이어로 접근하면 레이어 접근이 안되고 삭제되는 문제 (레이어키에 삭제모프가 있어서)
     //- 숫자 콤보 (14,15), 특수문자(고민 / 소지), 탭이동(고민)
     //- 브라켓[] 모프로 변경
