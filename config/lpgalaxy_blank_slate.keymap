@@ -1,1 +1,191 @@
-            hold-trigger-on-release
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define TBLE_ORTHO 1
+#define ___ &none
+// #define XXX &none
+// #define ___ &trans
+
+#define LY_ARROW 1
+#define LY_TEST_COMBO 2
+
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
+#define KEYS_T 36 37 38 39 40 41 42 43 44 45 46 47
+
+&lt {
+    // quick-tap-ms = <-1>;
+    tapping-term-ms = <180>;
+};
+
+&mt {
+    tapping-term-ms = <300>;
+};
+
+#define BT(n) BT_SEL n
+
+/ {
+
+    chosen {
+        zmk,matrix_transform = &ortho_transform;
+    };
+
+    macros {
+        ZMK_MACRO(thumbs_up,
+            wait-ms = <1>;
+            tap-ms = <5>;
+            bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+        )
+    };
+
+    tap_dances {
+        shifty: shift_caps_word {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SHIFTY";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LSHFT>, <&caps_word>;
+        };
+    };
+
+    // ╭──┬──┬──┬──┬──╮  ╭──┬──┬──┬──┬──╮
+    //  1  2  3  4  5     6  7  8  9  10
+    // ├──┼──┼──┼──┼──┤  ├──┼──┼──┼──┼──┤
+    //  13 14 15 16 17    18 19 20 21 22
+    // ├──┼──┼──┼──┼──┤  ├──┼──┼──┼──┼──┤
+    //  25 26 27 28 29    30 31 32 33 34
+    // ╰──┴──┼──┼──┼──┤  ├──┼──┼──┼──┴──╯
+    //        39 40 41    42 43 44
+    //       ╰──┴──┴──╯  ╰──┴──┴──╯
+    combos {
+        compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <80>;
+            key-positions = <1 2>;
+            bindings = <&kp TAB>;
+            layers = <0>;
+        };
+        combo_esc {
+            timeout-ms = <80>;
+            key-positions = <15 16>;
+            bindings = <&gresc>;
+            layers = <0>;
+        };
+        combo_ret {
+            timeout-ms = <80>;
+            key-positions = <20 21>;
+            bindings = <&kp RET>;
+            layers = <0>;
+        };
+        combo_mobs {
+            timeout-ms = <80>;
+            key-positions = <14 15>;
+            bindings = <&mo LY_TEST_COMBO>;
+            layers = <0>;
+        };
+    };
+
+    behaviors {
+        gresc: grave_escape {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp GRAVE>;
+            mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LGUI|MOD_RSFT)>;
+        };
+
+        hm1: homerow_mods1 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <KEYS_R KEYS_T>; //! 안되는 이유가 뭐지??
+            hold-trigger-on-release;
+        };
+
+        hm2: homerow_mods2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+
+            tapping-term-ms = <160>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release;
+        };
+
+        mm_bs: morph_bs {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mo LY_ARROW>, <&kp BKSP>;
+            mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+            keep-mods = <(MOD_RGUI|MOD_RALT)>;
+        };
+
+        mm_ret: morph_ret {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LSFT>, <&kp RET>;
+            mods = <(MOD_RGUI|MOD_RSFT)>;
+            keep-mods = <(MOD_RGUI|MOD_RSFT)>;
+        };
+
+        mm_lang: morph_lang {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp F18>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+    };
+
+
+    // hold-trigger-key-positions 사용 해보기 tap-unless-interrupted
+    //- 홈로우를 먼저 누르고, 방향키 레이어로 접근하면 레이어 접근이 안되고 삭제되는 문제 (레이어키에 삭제모프가 있어서)
+    //- 숫자 콤보 (14,15), 특수문자(고민 / 소지), 탭이동(고민)
+    //- 브라켓[] 모프로 변경
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            label = "Base";
+            bindings = <
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
+                ___  &hm1 RSFT A  &hm1 LCTL S  &hm1 RALT D  &hm1 RGUI F  &kp G                &kp H              &hm2 LGUI J       &hm2 LALT K   &hm2 LCTL L  &mm_ret          ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mm_bs             &lt RCTRL F18     &kp RCTRL     ___          ___              ___
+            >;
+        };
+
+        array_layer {
+            label = "LY_ARROW";
+            bindings = <
+                // 탭이동, 지우기중 선택
+                ___    &kp LBRC        &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
+                ___    &kp LSFT        &kp LCTL   &kp LALT      &kp LGUI      &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
+                ___    &kp UNDER       &kp QMARK  &kp LT        &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
+                ___    ___             ___        &kp LALT      &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___        ___
+            >;
+        };
+
+        test_combo_layer {
+            label = "LY_TEST_COMBO";
+            bindings = <
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  &kp BKSP  &kp LA(BKSP)  &kp LG(BKSP)  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+            >;
+        };
+    };
+
+};
