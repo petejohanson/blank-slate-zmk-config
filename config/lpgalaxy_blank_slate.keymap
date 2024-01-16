@@ -98,7 +98,7 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred"; //! 발란스 변경
+            flavor = "tap-preferred"; //! 발란스 변경 tap-preferred
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
@@ -111,7 +111,7 @@
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
