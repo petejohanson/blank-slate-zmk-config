@@ -16,7 +16,6 @@
 #define KEYS_T 36 37 38 39 40 41 42 43 44 45 46 47
 
 &lt {
-    quick-tap-ms = <-1>;
     tapping-term-ms = <180>;
 };
 
@@ -99,7 +98,7 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced"; //! 발란스 변경
+            flavor = "tap-unless-interrupted";
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
@@ -112,7 +111,7 @@
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-unless-interrupted";
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
