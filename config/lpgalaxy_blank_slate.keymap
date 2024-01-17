@@ -62,7 +62,7 @@
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <80>;
-            key-positions = <1 2>;
+            key-positions = <3 4>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
@@ -76,6 +76,12 @@
             timeout-ms = <80>;
             key-positions = <20 21>;
             bindings = <&kp RET>;
+            layers = <0>;
+        };
+        combo_bksp {
+            timeout-ms = <80>;
+            key-positions = <21 22>;
+            bindings = <&kp BKSP>;
             layers = <0>;
         };
         combo_mobs {
@@ -98,20 +104,20 @@
         hm1: homerow_mods1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred"; //! 발란스 변경 tap-preferred
+            flavor = "balanced";
 
             tapping-term-ms = <180>;
             require-prior-idle-ms = <120>;
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-key-positions = <KEYS_R KEYS_T>; //! 테스트해보기
             hold-trigger-on-release;
         };
 
         hm2: homerow_mods2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
 
             tapping-term-ms = <160>;
             require-prior-idle-ms = <120>;
@@ -146,7 +152,7 @@
         };
     };
 
-    // hold-trigger-key-positions, hold-trigger-on-release, // tap-unless-interrupted
+    //! 홈로우 hold-trigger-key-positions 테스트
     //- 홈로우를 먼저 누르고, 방향키 레이어로 접근하면 레이어 접근이 안되고 삭제되는 문제 (레이어키에 삭제모프가 있어서)
     //- 숫자 콤보 (14,15), 특수문자(고민 / 소지), 탭이동(고민)
     //- 브라켓[] 모프로 변경
