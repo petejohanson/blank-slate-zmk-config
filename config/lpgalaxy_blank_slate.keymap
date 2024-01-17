@@ -76,20 +76,26 @@
         };
         combo_ret {
             timeout-ms = <60>;
-            key-positions = <21 22>; //- 삭제로 하는게 좋을지도..
+            key-positions = <21 22>; //- 삭제로 사용 하는게 좋을지도..
             bindings = <&kp RET>;
             layers = <0>;
         };
 
 
+        //- 삭제 , 숫자(좌측으로), 특수키
         combo_special {
             timeout-ms = <60>;
             key-positions = <14 15>;
             bindings = <&mo LY_SPECIAL>;
             layers = <0>;
         };
-        //- 삭제 , 숫자,  특수키
-        combo_mobs {
+        combo_bksp1 {
+            timeout-ms = <60>;
+            key-positions = <14 15 16>;
+            bindings = <&kp BKSP>;
+            layers = <0>;
+        };
+        combo_bksp2 {
             timeout-ms = <60>;
             key-positions = <20 31>;
             bindings = <&kp BKSP>;
