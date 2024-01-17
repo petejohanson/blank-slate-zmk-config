@@ -9,7 +9,8 @@
 // #define ___ &trans
 
 #define LY_ARROW 1
-#define LY_TEST_COMBO 2
+#define LY_BKSP 2
+#define LY_RNUM 3
 
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
@@ -87,7 +88,13 @@
         combo_mobs {
             timeout-ms = <80>;
             key-positions = <14 15>;
-            bindings = <&mo LY_TEST_COMBO>;
+            bindings = <&mo LY_BKSP>;
+            layers = <0>;
+        };
+        combo_rnum {
+            timeout-ms = <80>;
+            key-positions = <13 28>;
+            bindings = <&mo LY_RNUM>;
             layers = <0>;
         };
     };
@@ -127,19 +134,19 @@
             hold-trigger-on-release;
         };
 
-        mm_bs: morph_bs {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mo LY_ARROW>, <&kp BKSP>;
-            mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
-            keep-mods = <(MOD_RGUI|MOD_RALT)>;
-        };
+        // mm_bs: morph_bs {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     #binding-cells = <0>;
+        //     bindings = <&mo LY_ARROW>, <&kp BKSP>;
+        //     mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
+        //     keep-mods = <(MOD_RGUI|MOD_RALT)>;
+        // };
 
         mm_ret: morph_ret {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LSFT>, <&kp RET>;
-            mods = <(MOD_RGUI|MOD_RSFT)>;
+            mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
             keep-mods = <(MOD_RGUI|MOD_RSFT)>;
         };
 
@@ -152,8 +159,7 @@
         };
     };
 
-    //! 홈로우 hold-trigger-key-positions 테스트
-    //- 홈로우를 먼저 누르고, 방향키 레이어로 접근하면 레이어 접근이 안되고 삭제되는 문제 (레이어키에 삭제모프가 있어서)
+    //- 스페이스 한글 > 삭제 넣기
     //- 숫자 콤보 (14,15), 특수문자(고민 / 소지), 탭이동(고민)
     //- 브라켓[] 모프로 변경
 
@@ -166,7 +172,7 @@
                 ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
                 ___  &hm1 RSFT A  &hm1 LCTL S  &hm1 RALT D  &hm1 RGUI F  &kp G                &kp H              &hm2 LGUI J       &hm2 LALT K   &hm2 LCTL L  &mm_ret          ___
                 ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mm_bs             &lt RCTRL F18     &kp RCTRL     ___          ___              ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mo LY_ARROW       &lt RCTRL F18     &kp RCTRL     ___          ___              ___
             >;
         };
 
@@ -181,13 +187,23 @@
             >;
         };
 
-        test_combo_layer {
-            label = "LY_TEST_COMBO";
+        backspace_layer {
+            label = "LY_BKSP";
             bindings = <
                 ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___  ___  ___               ___  &kp BKSP  &kp LA(BKSP)  &kp LG(BKSP)  ___  ___
                 ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+            >;
+        };
+
+        rnum_layer {
+            label = "LY_RNUM";
+            bindings = <
+                ___  ___  ___  ___  ___  &kp RBKT        &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
+                ___  ___  ___  ___  ___  &kp EQUAL       &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
+                ___  ___  ___  ___  ___  &kp BSLH        &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
+                ___  ___  ___  ___  ___  &kp SPACE       &kp NUMBER_0  ___           ___           ___           ___        ___
             >;
         };
     };
