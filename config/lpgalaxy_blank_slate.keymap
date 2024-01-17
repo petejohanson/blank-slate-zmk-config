@@ -83,14 +83,15 @@
 
 
         //- 삭제 , 숫자(좌측으로), 특수키
+        //- 왼족 엄지(스페이스) 삭제키 할당 (우측 모프)
         combo_special {
-            timeout-ms = <60>;
+            timeout-ms = <80>;
             key-positions = <14 15>;
             bindings = <&mo LY_SPECIAL>;
             layers = <0>;
         };
         combo_bksp1 {
-            timeout-ms = <60>;
+            timeout-ms = <80>;
             key-positions = <14 15 16>;
             bindings = <&kp BKSP>;
             layers = <0>;
