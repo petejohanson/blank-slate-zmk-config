@@ -93,7 +93,7 @@
         combo_bksp1 {
             timeout-ms = <80>;
             key-positions = <14 15 16>;
-            bindings = <&kp BKSP>;
+            bindings = <&mo LY_BKSP>;
             layers = <0>;
         };
         combo_bksp2 {
