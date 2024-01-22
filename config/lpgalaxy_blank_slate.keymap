@@ -15,7 +15,7 @@
 #define LY_SPECIAL 5
 
 &lt {
-    quick-tap-ms = <-1>;
+    // quick-tap-ms = <-1>;
     tapping-term-ms = <200>;
 };
 
