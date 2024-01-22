@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define TBLE_ORTHO 1
-#define ___ ___
-// #define XXX ___
+#define ___ &none
+// #define XXX &none
 // #define ___ &trans
 
 #define LY_NAV 1
