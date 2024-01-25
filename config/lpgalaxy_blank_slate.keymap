@@ -36,6 +36,26 @@
             bindings = <&mo LY_SPECIAL>;
             layers = <0>;
         };
+
+        // 좌측 ctrl 콤보
+        combo_mod1 {
+            timeout-ms = <110>;
+            key-positions = <12 40>;
+            bindings = <&kp LC(LGUI)>;
+            layers = <0>;
+        };
+        combo_mod2 {
+            timeout-ms = <110>;
+            key-positions = <12 39>;
+            bindings = <&kp LC(LALT)>;
+            layers = <0>;
+        };
+        combo_mod3 {
+            timeout-ms = <110>;
+            key-positions = <12 24>;
+            bindings = <&kp LC(LSHFT)>;
+            layers = <0>;
+        };
     };
 
     behaviors {
