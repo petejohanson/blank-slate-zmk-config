@@ -17,7 +17,7 @@
 
 #define BT(n) BT_SEL n
 
-&kscan0 {
+&kscan {
     debounce-press-ms = <3>;
     debounce-release-ms = <3>;
 };
