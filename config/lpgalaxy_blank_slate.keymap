@@ -15,10 +15,15 @@
 #define LY_SPECIAL 5
 #define LY_SUPPORT 6
 
+#define BT(n) BT_SEL n
+
+&kscan0 {
+    debounce-press-ms = <3>;
+    debounce-release-ms = <3>;
+};
+
 &lt { tapping-term-ms = <200>; };
 &mt { tapping-term-ms = <300>; };
-
-#define BT(n) BT_SEL n
 
 / {
 
