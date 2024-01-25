@@ -39,19 +39,19 @@
 
         // 좌측 ctrl 콤보
         combo_mod1 {
-            timeout-ms = <110>;
+            timeout-ms = <100>;
             key-positions = <12 40>;
             bindings = <&kp LC(LGUI)>;
             layers = <0>;
         };
         combo_mod2 {
-            timeout-ms = <110>;
+            timeout-ms = <100>;
             key-positions = <12 39>;
             bindings = <&kp LC(LALT)>;
             layers = <0>;
         };
         combo_mod3 {
-            timeout-ms = <110>;
+            timeout-ms = <100>;
             key-positions = <12 24>;
             bindings = <&kp LC(LSHFT)>;
             layers = <0>;
@@ -80,7 +80,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&gresc>;
-            tapping-term-ms = <170>;
+            tapping-term-ms = <150>;
         };
 
         kpkp: kp_to_kp {
@@ -120,10 +120,6 @@
             bindings = <&mo>, <&kp>;
         };
     };
-
-    //- esc키에 탭전환 넣어보자
-        //- 모드키(cmd, alt, shift) 콤보로 들어오면 ctrl로
-        //- 아닐경우 모프 (탭전환 + esc)
 
     //- 필요한 항목 있으면 콤보 사용
         //- 현재 j 탭 변경을 콤보로 변경해보자 (엔터로 이동해도 괜찮을듯)
