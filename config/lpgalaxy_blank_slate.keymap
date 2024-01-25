@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define TBLE_ORTHO 1
+#define BT(n) BT_SEL n
 #define ___ &none
 // #define XXX &none
 // #define ___ &trans
@@ -15,11 +16,9 @@
 #define LY_SPECIAL 5
 #define LY_SUPPORT 6
 
-#define BT(n) BT_SEL n
-
 &kscan {
-    debounce-press-ms = <3>;
-    debounce-release-ms = <3>;
+    debounce-press-ms = <10>;
+    debounce-release-ms = <10>;
 };
 
 &lt { tapping-term-ms = <200>; };
@@ -31,10 +30,30 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_rnumber {
+        combo_special {
             timeout-ms = <80>;
             key-positions = <20 21>;
             bindings = <&mo LY_SPECIAL>;
+            layers = <0>;
+        };
+
+        // 좌측 ctrl 콤보
+        combo_mod1 {
+            timeout-ms = <110>;
+            key-positions = <12 40>;
+            bindings = <&kp LGUI>;
+            layers = <0>;
+        };
+        combo_mod2 {
+            timeout-ms = <110>;
+            key-positions = <12 39>;
+            bindings = <&kp LGUI>;
+            layers = <0>;
+        };
+        combo_mod2 {
+            timeout-ms = <110>;
+            key-positions = <12 24>;
+            bindings = <&kp LGUI>;
             layers = <0>;
         };
     };
@@ -53,6 +72,14 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&kp>, <&gresc>;
+            tapping-term-ms = <170>;
+        };
+
+        kp_gresc2: kp_to_gresc2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&gresc>;
             tapping-term-ms = <170>;
         };
 
@@ -94,6 +121,10 @@
         };
     };
 
+    //- esc키에 탭전환 넣어보자
+        //- 모드키(cmd, alt, shift) 콤보로 들어오면 ctrl로
+        //- 아닐경우 모프 (탭전환 + esc)
+
     //- 필요한 항목 있으면 콤보 사용
         //- 현재 j 탭 변경을 콤보로 변경해보자 (엔터로 이동해도 괜찮을듯)
 
@@ -107,10 +138,11 @@
         base_layer {
             label = "Base";
             bindings = <
-                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
-                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM        &kp RET
-                &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT           &kp RIGHT
+                &mokp LY_RNUM TAB     &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
+                // &kp_gresc LCTRL 0
+                &kp_gresc2 LY_RNUM 0  &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM        &kp RET
+                &kp LSHFT             &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
+                &mo LY_SUPPORT        ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT           &kp RIGHT
             >;
         };
 
