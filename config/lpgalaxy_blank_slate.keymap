@@ -36,26 +36,6 @@
             bindings = <&mo LY_SPECIAL>;
             layers = <0>;
         };
-
-        // 좌측 ctrl 콤보
-        combo_mod1 {
-            timeout-ms = <100>;
-            key-positions = <12 40>;
-            bindings = <&kp LC(LGUI)>;
-            layers = <0>;
-        };
-        combo_mod2 {
-            timeout-ms = <100>;
-            key-positions = <12 39>;
-            bindings = <&kp LC(LALT)>;
-            layers = <0>;
-        };
-        combo_mod3 {
-            timeout-ms = <100>;
-            key-positions = <12 24>;
-            bindings = <&kp LC(LSHFT)>;
-            layers = <0>;
-        };
     };
 
     behaviors {
@@ -73,14 +53,6 @@
             flavor = "balanced";
             bindings = <&kp>, <&gresc>;
             tapping-term-ms = <170>;
-        };
-
-        kp_gresc2: kp_to_gresc2 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            bindings = <&mo>, <&gresc>;
-            tapping-term-ms = <150>;
         };
 
         kpkp: kp_to_kp {
@@ -121,12 +93,10 @@
         };
     };
 
-    //- 필요한 항목 있으면 콤보 사용
-        //- 현재 j 탭 변경을 콤보로 변경해보자 (엔터로 이동해도 괜찮을듯)
+    //- 필요한 항목 있으면 콤보 사용 (엔터 괜찮은듯)
 
     //! 마우스 지원 > 좌측 하단에 키에 배치하여 사용 (현재 zmk 마우스 미지원)
     //! 모프 > 좌측 모프 일때(쉬프트키등) 우측키들(,./,엔터,쉬프트,삭제) 모두 모프를 적용할 수 있다. (그반대의 경우도 가능)
-
 
     keymap {
         compatible = "zmk,keymap";
@@ -134,11 +104,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &mokp LY_RNUM TAB     &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
-                // &kp_gresc LCTRL 0
-                &kp_gresc2 LY_RNUM 0  &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM        &kp RET
-                &kp LSHFT             &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &mo LY_SUPPORT        ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT           &kp RIGHT
+                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
+                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM        &kp RET
+                &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
+                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT           &kp RIGHT
             >;
         };
 
