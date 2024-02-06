@@ -58,36 +58,34 @@
     //           ╰────┴────┴────╯  ╰────┴────┴────╯
     combos {
         compatible = "zmk,combos";
-        combo_tab {
-            timeout-ms = <60>;
-            key-positions = <3 4>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
         combo_esc {
             timeout-ms = <60>;
-            key-positions = <15 16>;
+            key-positions = <2 3>;
             bindings = <&gresc>;
-            layers = <0>;
+            // layers = <0>;
+        };
+        combo_tab {
+            timeout-ms = <60>;
+            key-positions = <14 15>;
+            bindings = <&kp TAB>;
+            // layers = <0>;
         };
         combo_ret {
-            timeout-ms = <60>;
-            key-positions = <21 22>;
+            timeout-ms = <80>;
+            key-positions = <20 21>;
             bindings = <&kp RET>;
-            layers = <0>;
+            // layers = <0>;
         };
-
-
+        combo_bksp1 {
+            timeout-ms = <200>;
+            key-positions = <13 14 15 16>;
+            bindings = <&mo LY_BKSP>;
+            // layers = <0>;
+        };
         combo_rnumber {
             timeout-ms = <80>;
             key-positions = <13 14>;
             bindings = <&mo LY_RNUM>;
-            layers = <0>;
-        };
-        combo_bksp1 {
-            timeout-ms = <80>;
-            key-positions = <13 14 15 16>;
-            bindings = <&mo LY_BKSP>;
             layers = <0>;
         };
     };
@@ -105,27 +103,10 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-
             tapping-term-ms = <160>;
             require-prior-idle-ms = <130>;
             bindings = <&kp>, <&kp>;
         };
-
-        // mm_bs: morph_bs {
-        //     compatible = "zmk,behavior-mod-morph";
-        //     #binding-cells = <0>;
-        //     bindings = <&mo LY_ARROW>, <&kp BKSP>;
-        //     mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
-        //     keep-mods = <(MOD_RGUI|MOD_RALT)>;
-        // };
-
-        // mm_ret: morph_ret {
-        //     compatible = "zmk,behavior-mod-morph";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp LSFT>, <&kp RET>;
-        //     mods = <(MOD_RGUI|MOD_RALT|MOD_RSFT)>;
-        //     keep-mods = <(MOD_RGUI|MOD_RSFT)>;
-        // };
 
         mm_lang: morph_lang {
             compatible = "zmk,behavior-mod-morph";
@@ -136,8 +117,8 @@
         };
     };
 
-    //- 삭제, 숫자 레이어 만들기 (숫자는 홈모드랑 같이 사용가능해야 되서 좌측 버전으로 만들기 / 우측 앱전환 엄지에배치?? ??)
-    //- border 스페이스 하면 자주 버그남
+    //- 삭제
+    //- [덜중요] 엔터(x), 탭, esc 상대적으로 조금 누르기 어렵다
 
     keymap {
         compatible = "zmk,keymap";
@@ -166,9 +147,9 @@
         rnum_layer {
             label = "LY_RNUM";
             bindings = <
-                ___  ___  ___  ___  ___  &kp RBKT        &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   &kp BKSP
-                ___  ___  ___  ___  ___  &kp EQUAL       &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  &kp RET
-                ___  ___  ___  ___  ___  &kp BSLH        &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp EQUAL
+                ___  ___  ___  ___  ___  &kp RBKT        &kp PRCNT     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS   ___
+                ___  ___  ___  ___  ___  &kp EQUAL       &kp STAR      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS  ___
+                ___  ___  ___  ___  ___  &kp BSLH        &kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    ___
                 ___  ___  ___  ___  ___  &kp SPACE       &kp NUMBER_0  ___           ___           ___           ___        ___
             >;
         };
@@ -176,9 +157,9 @@
         lnum_layer {
             label = "LY_LNUM";
             bindings = <
-                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  ___  ___  ___  ___  ___  ___
-                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___           ___  ___  ___  ___  ___  ___
-                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___           ___  ___  ___  ___  ___  ___
+                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___            ___          ___  ___  ___  ___  ___  ___
+                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___            ___          ___  ___  ___  ___  ___  ___
+                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___            ___          ___  ___  ___  ___  ___  ___
                 ___  ___           ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___  ___
             >;
         };
