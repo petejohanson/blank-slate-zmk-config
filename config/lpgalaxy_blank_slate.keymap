@@ -82,6 +82,12 @@
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
+        combo_bksp2 {
+            timeout-ms = <150>;
+            key-positions = <15 16>;
+            bindings = <&mo LY_BKSP>;
+            // layers = <0>;
+        };
         combo_rnumber {
             timeout-ms = <80>;
             key-positions = <13 14>;
