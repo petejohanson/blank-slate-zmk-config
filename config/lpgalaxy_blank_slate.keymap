@@ -72,10 +72,12 @@
         };
         combo_ret {
             timeout-ms = <80>;
-            key-positions = <20 21>;
+            key-positions = <19 22>;
             bindings = <&kp RET>;
             // layers = <0>;
         };
+
+
         combo_bksp1 {
             timeout-ms = <200>;
             key-positions = <13 14 15 16>;
@@ -88,6 +90,14 @@
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
+        combo_bksp3 {
+            timeout-ms = <180>;
+            key-positions = <2 16>;
+            bindings = <&mo LY_BKSP>;
+            // layers = <0>;
+        };
+
+
         combo_rnumber {
             timeout-ms = <80>;
             key-positions = <13 14>;
@@ -114,6 +124,7 @@
             bindings = <&kp>, <&kp>;
         };
 
+        // 한영
         mm_lang: morph_lang {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -121,10 +132,24 @@
             mods = <(MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
+
+        // 브라켓 []
+        mm_lbkt: morph_lbkt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LSFT>, <&kp LBKT>;
+            mods = <(MOD_LGUI)>;
+        };
+        mm_rbkt: morph_rbkt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LCTL>, <&kp RBKT>;
+            mods = <(MOD_LGUI)>;
+        };
     };
 
-    //- 삭제
-    //- [덜중요] 엔터(x), 탭, esc 상대적으로 조금 누르기 어렵다
+    //- 특수키 (탭이동, 스크린샷등)
+    //- [덜중요] 삭제, 엔터(x), 탭, esc 상대적으로 조금 누르기 어렵다
 
     keymap {
         compatible = "zmk,keymap";
@@ -142,9 +167,8 @@
         array_layer {
             label = "LY_ARROW";
             bindings = <
-                //- 브라켓[] 모프로 변경 (또는 레이어1 에서만 콤보로)
                 ___    &kp LBRC        &kp RBRC   &kp LPAR       &kp RPAR      &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
-                ___    &kp LSFT        &kp LCTL   &kp KP_MINUS   &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
+                ___    &mm_lbkt        &mm_rbkt   &kp KP_MINUS   &kp KP_EQUAL  &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
                 ___    &kp UNDER       &kp QMARK  &kp LT         &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  ___        ___
                 ___    ___             ___        &kp LALT       &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
