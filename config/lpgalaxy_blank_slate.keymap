@@ -133,7 +133,7 @@
             bindings = <&mo>, <&kp>;
             //tapping-term-ms = <170>;
             flavor = "balanced";
-            tapping-term-ms = <350>;
+            tapping-term-ms = <300>;
         };
 
         // 한영
@@ -168,7 +168,7 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            label = "Base";
+            label = "BASE";
             bindings = <
                 ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
                 ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J             &kp K         &kp L        &kp RSFT         ___
@@ -220,10 +220,10 @@
         super_layer {
             label = "LY_SUPER";
             bindings = <
-                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))          &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
-                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                 &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
-                &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)                   &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
-                &none  &none             &none               &none             &none             &none                         &kp SPACE         &kp F18    &none     &none      &none      &none
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
+                ___  &mo LY_BKSP  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J             &kp K         &kp L        &kp RSFT         ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
+                ___  ___          ___          ___          ___          ___                  &mo LY_ARROW       &mo LY_LNUM       &kp RCTRL     ___          ___              ___
             >;
         };
 
