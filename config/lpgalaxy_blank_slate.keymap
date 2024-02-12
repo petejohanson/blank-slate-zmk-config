@@ -11,8 +11,8 @@
 #define LY_ARROW 1
 #define LY_RNUM 2
 #define LY_LNUM 3
-#define LY_BKSP 4
-#define LY_SUPER 5
+#define LY_SUPER 4
+#define LY_BKSP 5
 
 &lt {
     tapping-term-ms = <160>;
@@ -207,6 +207,16 @@
             >;
         };
 
+        super_layer {
+            label = "LY_SUPER";
+            bindings = <
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
+                ___  &mo LY_BKSP  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J             &kp K         &kp L        &kp RSFT         ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
+                ___  ___          ___          ___          ___          ___                  ___       ___       &kp RCTRL     ___          ___              ___
+            >;
+        };
+
         backspace_layer {
             label = "LY_BKSP";
             bindings = <
@@ -217,15 +227,6 @@
             >;
         };
 
-        super_layer {
-            label = "LY_SUPER";
-            bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
-                ___  &mo LY_BKSP  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J             &kp K         &kp L        &kp RSFT         ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &kp SLASH        ___
-                ___  ___          ___          ___          ___          ___                  &mo LY_ARROW       &mo LY_LNUM       &kp RCTRL     ___          ___              ___
-            >;
-        };
 
     };
 
