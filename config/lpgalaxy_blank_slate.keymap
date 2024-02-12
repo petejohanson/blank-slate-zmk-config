@@ -130,13 +130,15 @@
             bindings = <&kp>, <&kp>;
         };
 
+
+        //- 잘안되면 모프도 끼워서 해보자
         ltspc: lt_space {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
             //tapping-term-ms = <170>;
             flavor = "balanced";
-            tapping-term-ms = <320>;
+            tapping-term-ms = <350>;
         };
 
         // 한영
