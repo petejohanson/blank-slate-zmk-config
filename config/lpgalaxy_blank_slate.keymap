@@ -12,6 +12,7 @@
 #define LY_RNUM 2
 #define LY_LNUM 3
 #define LY_BKSP 4
+#define LY_SUPER 5
 
 &lt {
     tapping-term-ms = <160>;
@@ -90,12 +91,6 @@
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
-        combo_bksp2 {
-            timeout-ms = <220>;
-            key-positions = <15 16>;
-            bindings = <&mo LY_BKSP>;
-            // layers = <0>;
-        };
         combo_bksp3 {
             timeout-ms = <200>;
             key-positions = <14 28>;
@@ -146,7 +141,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             //bindings = <&kp SPACE>, <&kp F18>;
-            bindings = <&ltspc LY_BKSP SPACE>, <&kp F18>;
+            bindings = <&ltspc LY_SUPER SPACE>, <&kp F18>;
             mods = <(MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
@@ -219,6 +214,16 @@
                 ___  ___  ___  ___  ___  ___               ___  &kp BKSP  &kp LA(BKSP)  &kp LG(BKSP)  ___  ___
                 ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
+            >;
+        };
+
+        super_layer {
+            label = "LY_SUPER";
+            bindings = <
+                &none  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)    &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(LS(NUMBER_3))          &kp LG(NUMBER_0)  &kp GRAVE  &kp UP    &kp PG_UP  &kp BKSP   &none
+                &none  &kp LSFT          &kp LCTL            &kp LALT          &kp LGUI          &kp LG(SPACE)                 &kp BSLH          &kp LEFT   &kp DOWN  &kp RIGHT  &kp RET    &none
+                &none  &gresc            &kp LG(GRAVE)       &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp LG(TAB)                   &kp LC(NUMBER_6)  &kp PG_DN  &kp TAB   &kp GRAVE  &kp SLASH  &none
+                &none  &none             &none               &none             &none             &none                         &kp SPACE         &kp F18    &none     &none      &none      &none
             >;
         };
 
