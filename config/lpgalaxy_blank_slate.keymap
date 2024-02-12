@@ -76,6 +76,12 @@
             bindings = <&kp RET>;
             // layers = <0>;
         };
+        combo_ret2 {
+            timeout-ms = <120>;
+            key-positions = <21 22>;
+            bindings = <&kp RET>;
+            // layers = <0>;
+        };
 
 
         combo_bksp1 {
@@ -85,14 +91,14 @@
             // layers = <0>;
         };
         combo_bksp2 {
-            timeout-ms = <150>;
+            timeout-ms = <220>;
             key-positions = <15 16>;
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
         combo_bksp3 {
-            timeout-ms = <180>;
-            key-positions = <2 16>;
+            timeout-ms = <200>;
+            key-positions = <14 28>;
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
@@ -124,11 +130,21 @@
             bindings = <&kp>, <&kp>;
         };
 
+        ltspc: lt_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+            //tapping-term-ms = <170>;
+            flavor = "balanced";
+            tapping-term-ms = <320>;
+        };
+
         // 한영
         mm_lang: morph_lang {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp F18>;
+            //bindings = <&kp SPACE>, <&kp F18>;
+            bindings = <&ltspc LY_BKSP SPACE>, <&kp F18>;
             mods = <(MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
