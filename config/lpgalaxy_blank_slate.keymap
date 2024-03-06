@@ -55,8 +55,7 @@
     // ╰────┴────┼────┼────┼────┤  ├────┼────┼────┼────┴────╯
     //            39   40   41      42   43   44
     //           ╰────┴────┴────╯  ╰────┴────┴────╯
-    combos
-     {
+    combos {
         compatible = "zmk,combos";
         combo_lang {
             timeout-ms = <80>;
@@ -64,23 +63,23 @@
             bindings = <&kp F18>;
             layers = <0>;
         };
-        combo_esc {
-            timeout-ms = <80>;
-            key-positions = <2 3>;
-            bindings = <&gresc>;
-            layers = <0>;
-        };
         combo_tab {
             timeout-ms = <80>;
-            key-positions = <14 15>;
+            key-positions = <1 2>;
             bindings = <&kp TAB>;
+            layers = <0>;
+        };
+        combo_esc {
+            timeout-ms = <80>;
+            key-positions = <13 14>;
+            bindings = <&gresc>;
             layers = <0>;
         };
         combo_ret {
             timeout-ms = <80>;
             key-positions = <19 22>;
             bindings = <&kp RET>;
-            layers = <0,2>;
+            layers = <0 2>;
         };
 
 
@@ -88,19 +87,19 @@
             timeout-ms = <80>;
             key-positions = <21 22>;
             bindings = <&kp BKSP>;
-            layers = <0,2>;
+            layers = <0 2>;
         };
         combo_bksp2 {
             timeout-ms = <80>;
             key-positions = <20 21>;
             bindings = <&kp BKSP>;
-            layers = <0,2>;
+            layers = <0 2>;
         };
 
 
         combo_rnumber {
             timeout-ms = <120>;
-            key-positions = <13 14>;
+            key-positions = <14 15>;
             bindings = <&mo LY_RNUM>;
             layers = <0>;
         };
@@ -166,6 +165,7 @@
         };
     };
 
+    //- 한영이 누르기 어려움
     //- 특수키 (탭이동, 스크린샷등)
 
     keymap {
