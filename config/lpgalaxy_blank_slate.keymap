@@ -58,6 +58,12 @@
     combos
      {
         compatible = "zmk,combos";
+        combo_lang {
+            timeout-ms = <80>;
+            key-positions = <17 18>;
+            bindings = <&kp F18>;
+            // layers = <0>;
+        };
         combo_esc {
             timeout-ms = <80>;
             key-positions = <2 3>;
@@ -154,8 +160,7 @@
         };
     };
 
-    //- 특수키 j (탭이동, 스크린샷등)
-    //- [누르기 어려움] 탭, esc, 한영
+    //- 특수키 (탭이동, 스크린샷등)
 
     keymap {
         compatible = "zmk,keymap";
