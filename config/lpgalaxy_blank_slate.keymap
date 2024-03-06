@@ -58,13 +58,13 @@
     combos {
         compatible = "zmk,combos";
         combo_esc {
-            timeout-ms = <60>;
+            timeout-ms = <100>;
             key-positions = <2 3>;
             bindings = <&gresc>;
             // layers = <0>;
         };
         combo_tab {
-            timeout-ms = <60>;
+            timeout-ms = <100>;
             key-positions = <14 15>;
             bindings = <&kp TAB>;
             // layers = <0>;
@@ -75,17 +75,11 @@
             bindings = <&kp RET>;
             // layers = <0>;
         };
-        combo_ret2 {
-            timeout-ms = <120>;
-            key-positions = <21 22>;
-            bindings = <&kp RET>;
-            // layers = <0>;
-        };
 
 
         combo_bksp1 {
             timeout-ms = <200>;
-            key-positions = <20 31>;
+            key-positions = <21 22>;
             bindings = <&kp BKSP>;
             // layers = <0>;
         };
@@ -118,7 +112,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <160>;
+            tapping-term-ms = <170>;
             require-prior-idle-ms = <130>;
             bindings = <&kp>, <&kp>;
         };
@@ -147,9 +141,8 @@
         };
     };
 
-    //! 삭제가 제일 안됨
     //- 특수키 j (탭이동, 스크린샷등)
-    //- [덜중요] 삭제 (기타: 탭, esc) 상대적으로 조금 누르기 어렵다
+    //- [누르기 어려움] 탭, esc, 한영
 
     keymap {
         compatible = "zmk,keymap";
