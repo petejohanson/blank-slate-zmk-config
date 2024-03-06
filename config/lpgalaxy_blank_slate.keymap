@@ -84,21 +84,15 @@
         };
 
 
-        combo_bksp1 {
-            timeout-ms = <200>;
-            key-positions = <13 14 15 16>;
-            bindings = <&mo LY_BKSP>;
-            // layers = <0>;
-        };
+        // combo_bksp1 {
+        //     timeout-ms = <200>;
+        //     key-positions = <13 14 15 16>;
+        //     bindings = <&mo LY_BKSP>;
+        //     // layers = <0>;
+        // };
         combo_bksp2 {
             timeout-ms = <200>;
-            key-positions = <13 14 15>;
-            bindings = <&mo LY_BKSP>;
-            // layers = <0>;
-        };
-        combo_bksp3 {
-            timeout-ms = <200>;
-            key-positions = <14 28>;
+            key-positions = <20 21>;
             bindings = <&mo LY_BKSP>;
             // layers = <0>;
         };
@@ -155,7 +149,7 @@
     };
 
     //! 삭제가 제일 안됨
-    //- 특수키 (탭이동, 스크린샷등)
+    //- 특수키 j (탭이동, 스크린샷등)
     //- [덜중요] 삭제 (기타: 탭, esc) 상대적으로 조금 누르기 어렵다
 
     keymap {
