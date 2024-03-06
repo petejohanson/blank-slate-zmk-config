@@ -55,16 +55,17 @@
     // ╰────┴────┼────┼────┼────┤  ├────┼────┼────┼────┴────╯
     //            39   40   41      42   43   44
     //           ╰────┴────┴────╯  ╰────┴────┴────╯
-    combos {
+    combos
+     {
         compatible = "zmk,combos";
         combo_esc {
-            timeout-ms = <100>;
+            timeout-ms = <80>;
             key-positions = <2 3>;
             bindings = <&gresc>;
             // layers = <0>;
         };
         combo_tab {
-            timeout-ms = <100>;
+            timeout-ms = <80>;
             key-positions = <14 15>;
             bindings = <&kp TAB>;
             // layers = <0>;
@@ -78,13 +79,13 @@
 
 
         combo_bksp1 {
-            timeout-ms = <200>;
+            timeout-ms = <80>;
             key-positions = <21 22>;
             bindings = <&kp BKSP>;
             // layers = <0>;
         };
         combo_bksp2 {
-            timeout-ms = <180>;
+            timeout-ms = <80>;
             key-positions = <20 21>;
             bindings = <&kp BKSP>;
             // layers = <0>;
@@ -92,9 +93,21 @@
 
 
         combo_rnumber {
-            timeout-ms = <80>;
+            timeout-ms = <100>;
             key-positions = <13 14>;
             bindings = <&mo LY_RNUM>;
+            layers = <0>;
+        };
+        combo_cmd_tab {
+            timeout-ms = <80>;
+            key-positions = <26 27>;
+            bindings = <&kp LG(TAB)>;
+            layers = <0>;
+        };
+        combo_cmd_esc {
+            timeout-ms = <80>;
+            key-positions = <27 28>;
+            bindings = <&kp LG(GRAVE)>;
             layers = <0>;
         };
     };
