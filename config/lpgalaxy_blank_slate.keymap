@@ -64,6 +64,12 @@
             bindings = <&kp F18>;
             // layers = <0>;
         };
+        combo_lang2 {
+            timeout-ms = <80>;
+            key-positions = <22 41>;
+            bindings = <&kp F18>;
+            // layers = <0>;
+        };
         combo_esc {
             timeout-ms = <80>;
             key-positions = <2 3>;
