@@ -91,9 +91,9 @@
         //     // layers = <0>;
         // };
         combo_bksp2 {
-            timeout-ms = <200>;
+            timeout-ms = <180>;
             key-positions = <20 21>;
-            bindings = <&mo LY_BKSP>;
+            bindings = <&kp BKSP>;
             // layers = <0>;
         };
 
