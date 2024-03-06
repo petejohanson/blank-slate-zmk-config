@@ -11,7 +11,6 @@
 #define LY_ARROW 1
 #define LY_RNUM 2
 #define LY_LNUM 3
-#define LY_BKSP 4
 
 &lt {
     tapping-term-ms = <160>;
@@ -84,12 +83,12 @@
         };
 
 
-        // combo_bksp1 {
-        //     timeout-ms = <200>;
-        //     key-positions = <13 14 15 16>;
-        //     bindings = <&mo LY_BKSP>;
-        //     // layers = <0>;
-        // };
+        combo_bksp1 {
+            timeout-ms = <200>;
+            key-positions = <20 31>;
+            bindings = <&kp BKSP>;
+            // layers = <0>;
+        };
         combo_bksp2 {
             timeout-ms = <180>;
             key-positions = <20 21>;
@@ -194,17 +193,6 @@
                 ___  ___           ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___       ___
             >;
         };
-
-        backspace_layer {
-            label = "LY_BKSP";
-            bindings = <
-                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___  ___  ___               ___  &kp BKSP  &kp LA(BKSP)  &kp LG(BKSP)  ___  ___
-                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___  ___  ___               ___  ___  ___  ___  ___  ___
-            >;
-        };
-
 
     };
 
