@@ -11,9 +11,9 @@
 
 #define QWERTY_BASE 1
 
-#define TBLE_ORTHO   1
+// #define TBLE_ORTHO   1
 // #define TBLE_MIT     1
-// #define TBLE_DUAL_2U 1
+#define TBLE_DUAL_2U 1
 
 #define NAV_L 1
 #define NUM_L 2
