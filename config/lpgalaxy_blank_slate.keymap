@@ -94,7 +94,7 @@
             key-positions = <20 21>;
             bindings = <&mo LY_LNUM>;
             layers = <0>;
-        }
+        };
         combo_rnumber {
             timeout-ms = <120>;
             key-positions = <14 15>;
@@ -171,11 +171,8 @@
         };
     };
 
-    //- 오른쪽 > (숫자 + 한영) + 펑션
-    //- K + L > 탭이동, 스크린샷등
-
-    // 생각해본 설정
-    // - j+k = 좌측숫자
+    //- 오른쪽 rctrl > (숫자 + 한영) + 펑션
+    //- J+K > 탭이동, 스크린샷등
 
     keymap {
         compatible = "zmk,keymap";
