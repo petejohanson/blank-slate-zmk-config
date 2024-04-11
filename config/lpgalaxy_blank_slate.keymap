@@ -11,6 +11,7 @@
 #define LY_ARROW 1
 #define LY_RNUM 2
 #define LY_LNUM 3
+#define LY_FUNC 4
 
 &lt {
     tapping-term-ms = <160>;
@@ -81,22 +82,19 @@
             bindings = <&kp RET>;
             layers = <0 2>;
         };
-
-
-        combo_bksp1 {
-            timeout-ms = <80>;
+        combo_rsft {
+            timeout-ms = <120>;
             key-positions = <21 22>;
-            bindings = <&kp BKSP>;
-            layers = <0 2>;
+            bindings = <&kp RSFT>;
         };
-        combo_bksp2 {
-            timeout-ms = <80>;
+
+
+        combo_lnumber {
+            timeout-ms = <90>;
             key-positions = <20 21>;
-            bindings = <&kp BKSP>;
-            layers = <0 2>;
-        };
-
-
+            bindings = <&mo LY_LNUM>;
+            layers = <0>;
+        }
         combo_rnumber {
             timeout-ms = <120>;
             key-positions = <14 15>;
@@ -136,9 +134,17 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <170>;
+            tapping-term-ms = <190>;
             require-prior-idle-ms = <130>;
             bindings = <&kp>, <&kp>;
+        };
+
+        mokp: mo_to_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+            tapping-term-ms = <170>;
         };
 
         // 한영
@@ -165,8 +171,11 @@
         };
     };
 
-    //- 한영이 누르기 어려움
-    //- 특수키 (탭이동, 스크린샷등)
+    //- 오른쪽 > (숫자 + 한영) + 펑션
+    //- K + L > 탭이동, 스크린샷등
+
+    // 생각해본 설정
+    // - j+k = 좌측숫자
 
     keymap {
         compatible = "zmk,keymap";
@@ -174,10 +183,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U             &kp I         &kp O        &kp P            ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J             &kp K         &kp L        &kp RSFT         ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M             &kp COMMA     &kp DOT      &hm1 LCTL SLASH  ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mo LY_ARROW       &mo LY_LNUM       &kp RCTRL     ___          ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U              &kp I         &kp O          &kp P            ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J              &kp K         &kp L          &kp BKSP         ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M              &kp COMMA     &hm1 LCTL DOT  &hm1 RSFT SLASH  ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mo LY_ARROW       &mokp LY_LNUM F18  &kp RCTRL     ___            ___              ___
             >;
         };
 
@@ -204,10 +213,21 @@
         lnum_layer {
             label = "LY_LNUM";
             bindings = <
-                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___            ___          ___  ___  ___  ___  ___       ___
-                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___            ___          ___  ___  ___  ___  &kp LSFT  ___
-                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___            ___          ___  ___  ___  ___  ___       ___
-                ___  ___           ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___       ___
+                ___  ___       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___  ___  ___  ___  ___          ___
+                ___  &kp LCTL  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___  ___  ___  ___  &mo LY_FUNC  ___
+                ___  &kp LSFT  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___  ___  ___  ___  ___          ___
+                ___  ___       ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___          ___
+            >;
+        };
+
+        //- 설정
+        func_layer {
+            label = "LY_FUNC";
+            bindings = <
+                ___  ___       &kp F1  &kp F2  &kp F3    &kp F10   ___        ___  ___  ___  ___  ___
+                ___  &kp LCTL  &kp F4  &kp F5  &kp F6    &kp F11   ___        ___  ___  ___  ___  ___
+                ___  &kp LSFT  &kp F7  &kp F8  &kp F9    &kp F12   ___        ___  ___  ___  ___  ___
+                ___  ___       ___     ___     &kp LALT  &kp LGUI  &kp SPACE  ___  ___  ___  ___  ___
             >;
         };
 
