@@ -60,66 +60,6 @@
     //           ╰────┴────┴────╯  ╰────┴────┴────╯
     combos {
         compatible = "zmk,combos";
-        combo_tab {
-            timeout-ms = <80>;
-            key-positions = <13 14>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
-        combo_esc {
-            timeout-ms = <80>;
-            key-positions = <25 26>;
-            bindings = <&gresc>;
-            layers = <0>;
-        };
-        combo_ret {
-            timeout-ms = <80>;
-            key-positions = <21 22>;
-            bindings = <&kp RET>;
-            layers = <0 2>;
-        };
-
-
-        combo_left_number {
-            timeout-ms = <90>;
-            key-positions = <19 22>;
-            bindings = <&mo LY_LNUM>;
-            layers = <0>;
-        };
-        combo_right_number {
-            timeout-ms = <100>;
-            key-positions = <15 16>;
-            bindings = <&mo LY_RNUM>;
-            layers = <0>;
-        };
-
-
-        combo_left_super {
-            timeout-ms = <70>;
-            key-positions = <20 21>;
-            bindings = <&mo LY_LEFT_SUPER>;
-            layers = <0>;
-        };
-        combo_right_super {
-            timeout-ms = <70>;
-            key-positions = <1 2>;
-            bindings = <&mo LY_RIGHT_SUPER>;
-            layers = <0>;
-        };
-
-
-        combo_cmd_tab {
-            timeout-ms = <70>;
-            key-positions = <26 27>;
-            bindings = <&kp LG(TAB)>;
-            layers = <0>;
-        };
-        combo_cmd_esc {
-            timeout-ms = <70>;
-            key-positions = <27 28>;
-            bindings = <&kp LG(GRAVE)>;
-            layers = <0>;
-        };
     };
 
     behaviors {
