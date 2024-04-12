@@ -62,7 +62,7 @@
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <80>;
-            key-positions = <1 2>;
+            key-positions = <13 14>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
@@ -247,10 +247,10 @@
         rsuper_layer {
             label = "LY_RIGHT_SUPER";
             bindings = <
-                ___  ___  ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)        ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___  ___  ___        ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___  ___  ___        ___  ___  ___  ___  ___  ___
-                ___  ___  ___  &kp LALT  &kp LGUI  &kp SPACE  ___  ___  ___  ___  ___  ___
+                ___  ___  ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
+                ___  ___  ___  &kp LALT          &kp LGUI           &kp SPACE        ___  ___  ___  ___  ___  ___
             >;
         };
 
