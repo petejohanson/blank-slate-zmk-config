@@ -187,10 +187,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T                &kp Y              &kp U              &kp I         &kp O          &kp P            ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G                &kp H              &kp J              &kp K         &kp L          &kp BKSP         ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B                &kp N              &kp M              &kp COMMA     &hm1 LCTL DOT  &hm2 RSFT SLASH  ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &mm_lang             &mo LY_ARROW       &mokp LY_LNUM F18  &kp RCTRL     ___            ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R        &kp T               &kp Y              &kp U              &kp I         &kp O          &kp P            ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G               &kp H              &kp J              &kp K         &kp L          &kp BKSP         ___
+                ___  &kp Z        &kp X        &kp C        &kp V        &kp B               &kp N              &kp M              &kp COMMA     &hm1 LCTL DOT  &hm2 RSFT SLASH  ___
+                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE           &mo LY_ARROW       &mokp LY_LNUM F18  &kp RCTRL     ___            ___              ___
             >;
         };
 
