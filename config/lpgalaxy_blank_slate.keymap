@@ -80,19 +80,20 @@
         };
 
 
-        // combo_left_number {
-        //     timeout-ms = <90>;
-        //     key-positions = <19 22>;
-        //     bindings = <&mo LY_LNUM>;
-        //     layers = <0>;
-        // };
+        combo_left_number {
+            timeout-ms = <90>;
+            key-positions = <19 22>;
+            bindings = <&mo LY_LNUM>;
+            layers = <0>;
+        };
         combo_right_number {
             timeout-ms = <100>;
-            key-positions = <14 15>;
+            key-positions = <15 16>;
             bindings = <&mo LY_RNUM>;
             layers = <0>;
         };
 
+        //- 좌측 한손으로 탭이동이 어렵다
         //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
         //- 좌측 숫자는 기존것 처럼 변경해야 할듯... (다른키보드 사용할때 헷갈림)
         combo_left_super {
@@ -218,10 +219,10 @@
         lnum_layer {
             label = "LY_LNUM";
             bindings = <
-                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___           ___  ___       ___       ___       ___       ___
-                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PRCNT     ___           ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
-                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PRCNT     ___           ___  ___       ___       ___       ___       ___
-                ___  ___           ___           &kp LALT      ___   &kp NUMBER_0  ___  ___       ___       ___       ___       ___
+                ___  &kp PRCNT  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___  ___  ___  ___  ___          ___
+                ___  &kp LCTL   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___  ___  ___  ___  &mo LY_FUNC  ___
+                ___  &kp LSFT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___  ___  ___  ___  ___          ___
+                ___  ___        ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___          ___
             >;
         };
 
