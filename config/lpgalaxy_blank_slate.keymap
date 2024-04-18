@@ -81,22 +81,20 @@
         };
 
 
-        // combo_left_number {
-        //     timeout-ms = <90>;
-        //     key-positions = <19 22>;
-        //     bindings = <&mo LY_LNUM>;
-        //     layers = <0>;
-        // };
+        combo_left_number {
+            timeout-ms = <90>;
+            key-positions = <19 22>;
+            bindings = <&mo LY_LNUM>;
+            layers = <0>;
+        };
         combo_right_number {
-            timeout-ms = <80>;
-            key-positions = <14 15>;
+            timeout-ms = <100>;
+            key-positions = <15 16>;
             bindings = <&mo LY_RNUM>;
             layers = <0>;
         };
 
-        //! 버전별로 다안됨 ??
         //- 좌측 한손으로 탭이동이 어렵다
-        //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
         combo_left_super {
             timeout-ms = <70>;
             key-positions = <20 21>;
@@ -148,7 +146,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <120>;
-            require-prior-idle-ms = <90>;
+            require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -191,7 +189,7 @@
             label = "BASE";
             bindings = <
                 ___  &kp Q        &kp W        &kp E        &kp R        &kp T               &kp Y              &kp U              &kp I         &kp O          &kp P            ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G               &kp H              &kp J              &kp K         &kp L          &hm2 RSFT BKSP   ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G               &kp H              &kp J              &kp K         &kp L          &kp BKSP         ___
                 ___  &kp Z        &kp X        &kp C        &kp V        &kp B               &kp N              &kp M              &kp COMMA     &hm1 LCTL DOT  &hm2 RSFT SLASH  ___
                 ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE           &mo LY_ARROW       &mokp LY_LNUM F18  &kp RCTRL     ___            ___              ___
             >;
@@ -220,30 +218,30 @@
         lnum_layer {
             label = "LY_LNUM";
             bindings = <
-                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___           ___  ___       ___       ___       ___       ___
-                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PRCNT     ___           ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
-                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PRCNT     ___           ___  ___       ___       ___       ___       ___
-                ___  ___           ___           &kp LALT      &mo LY_FUNC   &kp NUMBER_0  ___  ___       ___       ___       ___       ___
+                ___  &kp PRCNT  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___  ___  ___  ___  ___          ___
+                ___  &kp LCTL   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___  ___  ___  ___  &mo LY_FUNC  ___
+                ___  &kp LSFT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___  ___  ___  ___  ___          ___
+                ___  ___        ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___          ___
             >;
         };
 
         func_layer {
             label = "LY_FUNC";
             bindings = <
-                ___  &kp F1  &kp F2    &kp F3    &kp F10   ___        ___  ___       ___       ___       ___       ___
-                ___  &kp F4  &kp F5    &kp F6    &kp F11   ___        ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
-                ___  &kp F7  &kp F8    &kp F9    &kp F12   ___        ___  ___       ___       ___       ___       ___
-                ___  ___     ___       ___       ___       &kp SPACE  ___  ___       ___       ___       ___       ___
+                ___  ___       &kp F1  &kp F2    &kp F3    &kp F10   ___  ___  ___  ___  ___  ___
+                ___  &kp LCTL  &kp F4  &kp F5    &kp F6    &kp F11   ___  ___  ___  ___  ___  ___
+                ___  &kp LSFT  &kp F7  &kp F8    &kp F9    &kp F12   ___  ___  ___  ___  ___  ___
+                ___  ___       ___     &kp LALT  &kp LGUI  &kp SPACE ___  ___  ___  ___  ___  ___
             >;
         };
 
         lsuper_layer {
             label = "LY_LEFT_SUPER";
             bindings = <
-                ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___        ___  ___  ___  ___  ___  ___
-                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     &kp RC(NUMBER_6)  &kp LG(SPACE)     ___        ___  ___  ___  ___  ___  ___
-                ___  ___               ___               ___               ___               ___        ___  ___  ___  ___  ___  ___
-                ___  ___               ___               ___               ___               &kp SPACE  ___  ___  ___  ___  ___  ___
+                ___  &kp RC(NUMBER_6)  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___  ___  ___  ___  ___  ___
+                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     ___               &kp LG(SPACE)     ___               ___  ___  ___  ___  ___  ___
+                ___  &kp LSFT          &kp NUMBER_7      &kp NUMBER_8      &kp NUMBER_9      ___               ___  ___  ___  ___  ___  ___
+                ___  ___               ___               &kp LALT          &kp LGUI          &kp SPACE         ___  ___  ___  ___  ___  ___
             >;
         };
 
@@ -253,7 +251,7 @@
                 ___  ___  ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___               ___                &kp SPACE        ___  ___  ___  ___  ___  ___
+                ___  ___  ___  &kp LALT          &kp LGUI           &kp SPACE        ___  ___  ___  ___  ___  ___
             >;
         };
 
