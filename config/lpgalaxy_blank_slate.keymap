@@ -229,20 +229,20 @@
         func_layer {
             label = "LY_FUNC";
             bindings = <
-                ___  &kp F1  &kp F2    &kp F3    &kp F10   ___        ___  ___       ___       ___       ___       ___
-                ___  &kp F4  &kp F5    &kp F6    &kp F11   ___        ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
-                ___  &kp F7  &kp F8    &kp F9    &kp F12   ___        ___  ___       ___       ___       ___       ___
-                ___  ___     ___       ___       ___       &kp SPACE  ___  ___       ___       ___       ___       ___
+                ___  ___       &kp F1  &kp F2    &kp F3    &kp F10   ___  ___  ___  ___  ___  ___
+                ___  &kp LCTL  &kp F4  &kp F5    &kp F6    &kp F11   ___  ___  ___  ___  ___  ___
+                ___  &kp LSFT  &kp F7  &kp F8    &kp F9    &kp F12   ___  ___  ___  ___  ___  ___
+                ___  ___       ___     &kp LALT  &kp LGUI  &kp SPACE ___  ___  ___  ___  ___  ___
             >;
         };
 
         lsuper_layer {
             label = "LY_LEFT_SUPER";
             bindings = <
-                ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___        ___  ___  ___  ___  ___  ___
-                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     &kp RC(NUMBER_6)  &kp LG(SPACE)     ___        ___  ___  ___  ___  ___  ___
-                ___  ___               ___               ___               ___               ___        ___  ___  ___  ___  ___  ___
-                ___  ___               ___               ___               ___               &kp SPACE  ___  ___  ___  ___  ___  ___
+                ___  &kp RC(NUMBER_6)  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___  ___  ___  ___  ___  ___
+                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     ___               &kp LG(SPACE)     ___               ___  ___  ___  ___  ___  ___
+                ___  &kp LSFT          &kp NUMBER_7      &kp NUMBER_8      &kp NUMBER_9      ___               ___  ___  ___  ___  ___  ___
+                ___  ___               ___               &kp LALT          &kp LGUI          &kp SPACE         ___  ___  ___  ___  ___  ___
             >;
         };
 
@@ -252,7 +252,7 @@
                 ___  ___  ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
-                ___  ___  ___  ___               ___                &kp SPACE        ___  ___  ___  ___  ___  ___
+                ___  ___  ___  &kp LALT          &kp LGUI           &kp SPACE        ___  ___  ___  ___  ___  ___
             >;
         };
 
