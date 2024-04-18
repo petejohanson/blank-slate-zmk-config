@@ -2,10 +2,12 @@ manifest:
   remotes:
     - name: petejohanson
       url-base: https://github.com/petejohanson
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
-      remote: petejohanson
-      revision: features/soft-off-take-2
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
     - name: blank-slate-zmk-module
       remote: petejohanson
