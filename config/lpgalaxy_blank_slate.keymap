@@ -94,6 +94,8 @@
         };
 
         //- 좌측 한손으로 탭이동이 어렵다
+        //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
+        //- 좌측 숫자는 기존것 처럼 변경해야 할듯... (다른키보드 사용할때 헷갈림)
         combo_left_super {
             timeout-ms = <70>;
             key-positions = <20 21>;
@@ -217,30 +219,30 @@
         lnum_layer {
             label = "LY_LNUM";
             bindings = <
-                ___  &kp PRCNT  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___  ___  ___  ___  ___          ___
-                ___  &kp LCTL   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  ___           ___  ___  ___  ___  &mo LY_FUNC  ___
-                ___  &kp LSFT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  ___           ___  ___  ___  ___  ___          ___
-                ___  ___        ___           &kp LALT      &kp LGUI      &kp NUMBER_0  ___  ___  ___  ___  ___          ___
+                ___  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  ___           ___           ___  ___       ___       ___       ___       ___
+                ___  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PRCNT     ___           ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
+                ___  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PRCNT     ___           ___  ___       ___       ___       ___       ___
+                ___  ___           ___           &kp LALT      &mo LY_FUNC   &kp NUMBER_0  ___  ___       ___       ___       ___       ___
             >;
         };
 
         func_layer {
             label = "LY_FUNC";
             bindings = <
-                ___  ___       &kp F1  &kp F2    &kp F3    &kp F10   ___  ___  ___  ___  ___  ___
-                ___  &kp LCTL  &kp F4  &kp F5    &kp F6    &kp F11   ___  ___  ___  ___  ___  ___
-                ___  &kp LSFT  &kp F7  &kp F8    &kp F9    &kp F12   ___  ___  ___  ___  ___  ___
-                ___  ___       ___     &kp LALT  &kp LGUI  &kp SPACE ___  ___  ___  ___  ___  ___
+                ___  &kp F1  &kp F2    &kp F3    &kp F10   ___        ___  ___       ___       ___       ___       ___
+                ___  &kp F4  &kp F5    &kp F6    &kp F11   ___        ___  &kp LGUI  &kp LALT  &kp LCTL  &kp LSFT  ___
+                ___  &kp F7  &kp F8    &kp F9    &kp F12   ___        ___  ___       ___       ___       ___       ___
+                ___  ___     ___       ___       ___       &kp SPACE  ___  ___       ___       ___       ___       ___
             >;
         };
 
         lsuper_layer {
             label = "LY_LEFT_SUPER";
             bindings = <
-                ___  &kp RC(NUMBER_6)  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___  ___  ___  ___  ___  ___
-                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     ___               &kp LG(SPACE)     ___               ___  ___  ___  ___  ___  ___
-                ___  &kp LSFT          &kp NUMBER_7      &kp NUMBER_8      &kp NUMBER_9      ___               ___  ___  ___  ___  ___  ___
-                ___  ___               ___               &kp LALT          &kp LGUI          &kp SPACE         ___  ___  ___  ___  ___  ___
+                ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  ___        ___  ___  ___  ___  ___  ___
+                ___  &kp LG(NUMBER_0)  &kp LC(GRAVE)     &kp RC(NUMBER_6)  &kp LG(SPACE)     ___        ___  ___  ___  ___  ___  ___
+                ___  ___               ___               ___               ___               ___        ___  ___  ___  ___  ___  ___
+                ___  ___               ___               ___               ___               &kp SPACE  ___  ___  ___  ___  ___  ___
             >;
         };
 
@@ -250,7 +252,7 @@
                 ___  ___  ___  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
                 ___  ___  ___  ___               ___                ___              ___  ___  ___  ___  ___  ___
-                ___  ___  ___  &kp LALT          &kp LGUI           &kp SPACE        ___  ___  ___  ___  ___  ___
+                ___  ___  ___  ___               ___                &kp SPACE        ___  ___  ___  ___  ___  ___
             >;
         };
 
