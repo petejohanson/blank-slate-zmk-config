@@ -59,37 +59,46 @@
     //           ╰────┴────┴────╯  ╰────┴────┴────╯
     combos {
         compatible = "zmk,combos";
-        // left setting
-        combo_tab {
-            timeout-ms = <80>;
-            key-positions = <16 17>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
-        combo_esc {
-            timeout-ms = <70>;
-            key-positions = <14 15 16>;
-            bindings = <&gresc>;
-            layers = <0>;
-        };
-        combo_right_number {
-            timeout-ms = <100>;
-            key-positions = <15 16>;
-            bindings = <&mo LY_RNUM>;
-            layers = <0>;
-        };
+        //- left shortcut
         combo_cmd_tab {
-            timeout-ms = <70>;
+            timeout-ms = <50>;
             key-positions = <26 27>;
             bindings = <&kp LG(TAB)>;
             layers = <0>;
+            require-prior-idle-ms = <200>;
         };
         combo_cmd_esc {
-            timeout-ms = <70>;
+            timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&kp LG(GRAVE)>;
             layers = <0>;
+            require-prior-idle-ms = <200>;
         };
+
+        //- left setting
+        //! esc, tab, rnum, rsuper(왼족한손)
+        combo_right_number {
+            timeout-ms = <50>;
+            key-positions = <14 15>;
+            bindings = <&mo LY_RNUM>;
+            layers = <0>;
+            require-prior-idle-ms = <200>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp TAB>;
+            layers = <0>;
+            require-prior-idle-ms = <200>;
+        };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <14 15 16>;
+            bindings = <&gresc>;
+            layers = <0>;
+            require-prior-idle-ms = <200>;
+        };
+
         // combo_right_super {
         //     timeout-ms = <70>;
         //     key-positions = <1 2>;
@@ -97,12 +106,13 @@
         //     layers = <0>;
         // };
 
-        // right setting
+        //- right setting
         combo_left_super {
-            timeout-ms = <80>;
+            timeout-ms = <60>;
             key-positions = <20 21>;
             bindings = <&mo LY_LEFT_SUPER>;
             layers = <0>;
+            require-prior-idle-ms = <200>;
         };
     };
 
