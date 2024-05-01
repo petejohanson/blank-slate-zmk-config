@@ -28,18 +28,6 @@
 
     chosen { zmk,matrix_transform = &ortho_transform; };
 
-    combos {
-        compatible = "zmk,combos";
-        //- 콤보 잘안되면 엔터키에 스페셜 기능을 넣자
-        combo_special {
-            timeout-ms = <60>;
-            key-positions = <20 21>;
-            bindings = <&mo LY_SPECIAL>;
-            require-prior-idle-ms = <200>;
-            layers = <0>;
-        };
-    };
-
     behaviors {
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
