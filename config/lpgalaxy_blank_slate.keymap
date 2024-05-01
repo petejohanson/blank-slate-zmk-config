@@ -30,10 +30,12 @@
 
     combos {
         compatible = "zmk,combos";
+        //- 콤보 잘안되면 엔터키에 스페셜 기능을 넣자
         combo_special {
-            timeout-ms = <80>;
+            timeout-ms = <60>;
             key-positions = <20 21>;
             bindings = <&mo LY_SPECIAL>;
+            require-prior-idle-ms = <200>;
             layers = <0>;
         };
     };
@@ -60,7 +62,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
-            tapping-term-ms = <170>;
+            tapping-term-ms = <180>;
         };
 
         mokp: mo_to_kp {
@@ -68,7 +70,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <170>;
+            tapping-term-ms = <160>;
         };
     };
 
@@ -78,10 +80,10 @@
         base_layer {
             label = "Base";
             bindings = <
-                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P              &kp BKSP
-                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM        &kp RET
-                &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kpkp LCTRL SLASH  &kp RSHFT
-                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT           &kp RIGHT
+                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
+                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp LY_SPECIAL RET
+                &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kp SLASH    &kp RSHFT
+                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &kp RIGHT
             >;
         };
 
