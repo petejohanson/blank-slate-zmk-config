@@ -24,6 +24,8 @@
 &lt { tapping-term-ms = <200>; };
 &mt { tapping-term-ms = <300>; };
 
+//- 콤보로 탭 이동 및 다른 단축키 설정하기
+
 / {
 
     chosen { zmk,matrix_transform = &ortho_transform; };
@@ -58,7 +60,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <160>;
+            tapping-term-ms = <170>;
         };
     };
 
@@ -68,8 +70,8 @@
         base_layer {
             label = "Base";
             bindings = <
-                &mokp LY_RNUM TAB   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
-                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp LY_SPECIAL RET
+                &kp_gresc LCTRL 0   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
+                &mokp LY_RNUM TAB   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp LY_SPECIAL RET
                 &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kp SLASH    &kp RSHFT
                 &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &kp RIGHT
             >;
