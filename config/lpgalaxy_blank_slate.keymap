@@ -55,12 +55,21 @@
             tapping-term-ms = <180>;
         };
 
-        mokp: mo_to_kp {
+        mokp1: mo_to_kp1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
             tapping-term-ms = <170>;
+        };
+
+        mokp2: mo_to_kp2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+            tapping-term-ms = <190>;
+            quick-tap-ms = <150>;
         };
     };
 
@@ -71,7 +80,7 @@
             label = "Base";
             bindings = <
                 &kp_gresc LCTRL 0   &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
-                &mokp LY_RNUM TAB   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp LY_SPECIAL RET
+                &mokp1 LY_RNUM TAB  &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp2 LY_SPECIAL RET
                 &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kp SLASH    &kp RSHFT
                 &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &kp RIGHT
             >;
