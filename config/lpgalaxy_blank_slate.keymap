@@ -80,8 +80,8 @@
         nav_layer {
             label = "LY_NAV";
             bindings = <
-                &kp F18    &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR   &kp PLUS  &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
-                &kp LCTRL  &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT    &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
+                &kp LCTRL  &kp LBRC   &kp RBRC   &kp LPAR      &kp RPAR      &kp DLLR   &kp PLUS  &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  &kp BKSP
+                &kp F18    &kp LBKT   &kp RBKT   &kp KP_MINUS  &kp KP_EQUAL  &kp SQT    &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   &kp RET
                 &kp LSHFT  &kp UNDER  &kp QMARK  &kp LT        &kp GT        &kp BSLH   &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp PIPE   &kp RSHFT
                 ___        ___        ___        &kp LALT      &kp LGUI      &kp SPACE  ___       ___        ___               ___               ___        ___
             >;
@@ -110,7 +110,7 @@
         func_layer {
             label = "LY_FUNC";
             bindings = <
-                ___        &kp F1  &kp F2  &kp F3    &kp F10   ___        ___  ___  ___  ___  ___  ___
+                &kp LCTRL  &kp F1  &kp F2  &kp F3    &kp F10   ___        ___  ___  ___  ___  ___  ___
                 &kp LCTRL  &kp F4  &kp F5  &kp F6    &kp F11   ___        ___  ___  ___  ___  ___  ___
                 &kp LSHFT  &kp F7  &kp F8  &kp F9    &kp F12   ___        ___  ___  ___  ___  ___  ___
                 ___        ___     ___     &kp LALT  &kp LGUI  &kp SPACE  ___  ___  ___  ___  ___  ___
