@@ -67,21 +67,21 @@
         //     bindings = <&mo LY_LNUM>;
         //     layers = <0>;
         // };
-        combo_right_number {
-            timeout-ms = <80>;
-            key-positions = <16>; // 14 15
-            bindings = <&mo LY_RNUM>;
-            layers = <0>;
-        };
+        // combo_right_number {
+        //     timeout-ms = <80>;
+        //     key-positions = <14 15>;
+        //     bindings = <&mo LY_RNUM>;
+        //     layers = <0>;
+        // };
 
         //- 좌측 한손으로 탭이동이 어렵다
         //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
-        combo_left_super {
-            timeout-ms = <70>;
-            key-positions = <19>; // 20 21
-            bindings = <&mo LY_LEFT_SUPER>;
-            layers = <0>;
-        };
+        // combo_left_super {
+        //     timeout-ms = <70>;
+        //     key-positions = <20 21>;
+        //     bindings = <&mo LY_LEFT_SUPER>;
+        //     layers = <0>;
+        // };
         // combo_right_super {
         //     timeout-ms = <70>;
         //     key-positions = <1 2>;
@@ -131,12 +131,21 @@
             bindings = <&kp>, <&kp>;
         };
 
-        mokp: mo_to_kp {
+        mokp1: mo_to_kp1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
             tapping-term-ms = <170>;
+        };
+
+        mokp2: mo_to_kp2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <140>;
         };
 
         // 한영
@@ -169,10 +178,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R        &kp T               &kp Y              &kp U              &kp I         &kp O          &kp P            ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &kp F        &kp G               &kp H              &kp J              &kp K         &kp L          &hm2 RSFT BKSP   ___
-                ___  &kp Z        &kp X        &kp C        &kp V        &kp B               &kp N              &kp M              &kp COMMA     &kp DOT        &hm2 LCTL SLASH  ___
-                ___  ___          ___          &kp LALT     &kp LGUI     &kp SPACE           &mo LY_ARROW       &mokp LY_LNUM F18  &kp RCTRL     ___            ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y              &kp U                               &kp I         &kp O          &kp P            ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H              &mokp2 LY_LEFT_SUPER J              &kp K         &kp L          &hm2 RSFT BKSP   ___
+                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N              &kp M                               &kp COMMA     &kp DOT        &hm2 LCTL SLASH  ___
+                ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW       &mokp1 LY_LNUM F18                  &kp RCTRL     ___            ___              ___
             >;
         };
 
