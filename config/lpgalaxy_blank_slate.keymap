@@ -185,10 +185,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y              &kp U                               &kp I         &kp O          &kp P            ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H              &mokp2 LY_LEFT_SUPER J              &kp K         &kp L          &hm2 RSFT BKSP   ___
-                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N              &kp M                               &kp COMMA     &kp DOT        &hm2 LCTL SLASH  ___
-                ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW       &mokp1 LY_LNUM F18                  &kp RCTRL     ___            ___              ___
+                ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y              &kp U                               &kp I            &kp O    &kp P     ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H              &mokp2 LY_LEFT_SUPER J              &kp K            &kp L    &kp RSFT  ___
+                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N              &kp M                               &hm2 LCTL COMMA  &kp DOT  &kp BKSP  ___
+                ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW       &mokp1 LY_LNUM F18                  &kp RCTRL        ___      ___       ___
             >;
         };
 
@@ -197,7 +197,7 @@
             bindings = <
                 ___    &kp LBRC        &kp RBRC   &kp LPAR  &kp RPAR      &kp DLLR           ___       &kp GRAVE  &kp UP            &kp PG_UP         &kp COLON  ___
                 ___    &kp LSFT        &kp LCTL   &mm_lbkt  &mm_rbkt      &kp SQT            &kp DQT   &kp LEFT   &kp DOWN          &kp RIGHT         &kp SEMI   ___
-                ___    &kp UNDER       &kp QMARK  &kp LT    &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp PIPE   ___
+                ___    &kp UNDER       &kp QMARK  &kp LT    &kp GT        &kp BSLH           &kp AMPS  &kp PG_DN  &kp LG(LS(LBKT))  &kp LG(LS(RBKT))  &kp SLASH  ___
                 ___    ___             ___        &kp LALT  &kp LGUI      &kp SPACE          ___       ___        ___                ___              ___        ___
             >;
         };
