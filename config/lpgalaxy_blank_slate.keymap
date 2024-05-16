@@ -59,6 +59,12 @@
             bindings = <&kp RET>;
             layers = <0 2>;
         };
+        combo_ret2 {
+            timeout-ms = <80>;
+            key-positions = <19 22>;
+            bindings = <&kp RET>;
+            layers = <0 2>;
+        };
 
 
         // combo_left_number {
@@ -76,6 +82,7 @@
 
         //- 좌측 한손으로 탭이동이 어렵다
         //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
+        //- lcmd + rctrl = function으로 진입되게
         // combo_left_super {
         //     timeout-ms = <70>;
         //     key-positions = <20 21>;
@@ -126,7 +133,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <120>;
+            tapping-term-ms = <100>;
             require-prior-idle-ms = <90>;
             bindings = <&kp>, <&kp>;
         };
@@ -136,7 +143,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <170>;
+            tapping-term-ms = <160>;
         };
 
         mokp2: mo_to_kp2 {
@@ -144,8 +151,8 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <140>;
+            tapping-term-ms = <190>;
+            require-prior-idle-ms = <130>;
         };
 
         // 한영
