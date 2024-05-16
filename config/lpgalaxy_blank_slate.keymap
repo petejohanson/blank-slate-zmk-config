@@ -133,7 +133,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <100>;
+            tapping-term-ms = <120>;
             require-prior-idle-ms = <90>;
             bindings = <&kp>, <&kp>;
         };
