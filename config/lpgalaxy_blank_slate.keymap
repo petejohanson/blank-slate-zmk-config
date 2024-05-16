@@ -65,6 +65,12 @@
             bindings = <&kp RET>;
             layers = <0 2>;
         };
+        combo_bksp {
+            timeout-ms = <80>;
+            key-positions = <8 9>;
+            bindings = <&kp BKSP>;
+            layers = <0 2>;
+        };
 
 
         // combo_left_number {
@@ -133,7 +139,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <120>;
+            tapping-term-ms = <150>;
             require-prior-idle-ms = <90>;
             bindings = <&kp>, <&kp>;
         };
@@ -185,10 +191,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y              &kp U                               &kp I            &kp O    &kp P     ___
-                ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H              &mokp2 LY_LEFT_SUPER J              &kp K            &kp L    &kp RSFT  ___
-                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N              &kp M                               &hm2 LCTL COMMA  &kp DOT  &kp BKSP  ___
-                ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW       &mokp1 LY_LNUM F18                  &kp RCTRL        ___      ___       ___
+                ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y                   &kp U                   &kp I            &kp O    &kp P     ___
+                ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H                   &mokp2 LY_LEFT_SUPER J  &kp K            &kp L    &kp RSFT  ___
+                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N                   &kp M                   &hm2 LCTL COMMA  &kp DOT  &kp BKSP  ___
+                ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW            &mokp1 LY_LNUM F18      &kp RCTRL        ___      ___       ___
             >;
         };
 
