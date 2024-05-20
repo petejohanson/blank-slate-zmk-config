@@ -42,7 +42,7 @@
     combos {
         compatible = "zmk,combos";
         combo_tab {
-            timeout-ms = <80>;
+            timeout-ms = <60>;
             key-positions = <2 3>;
             bindings = <&kp TAB>;
             layers = <0>;
@@ -53,55 +53,17 @@
             bindings = <&gresc>;
             layers = <0>;
         };
-        combo_ret {
-            timeout-ms = <80>;
-            key-positions = <21 22>;
-            bindings = <&kp RET>;
-            layers = <0 2>;
-        };
-        combo_ret2 {
-            timeout-ms = <80>;
-            key-positions = <19 22>;
-            bindings = <&kp RET>;
-            layers = <0 2>;
-        };
-        combo_ret3 {
-            timeout-ms = <80>;
-            key-positions = <8 9>;
-            bindings = <&kp RET>;
-            layers = <0 2>;
+        combo_left_number {
+            timeout-ms = <90>;
+            key-positions = <32 33>;
+            bindings = <&kp DOT>;
+            layers = <0>;
         };
 
-
-        // combo_left_number {
-        //     timeout-ms = <90>;
-        //     key-positions = <19 22>;
-        //     bindings = <&mo LY_LNUM>;
-        //     layers = <0>;
-        // };
-        // combo_right_number {
-        //     timeout-ms = <80>;
-        //     key-positions = <14 15>;
-        //     bindings = <&mo LY_RNUM>;
-        //     layers = <0>;
-        // };
-
+        //- q를 길게 누를때 왼족 탭 이동이 가능하게 변경
         //- 좌측 한손으로 탭이동이 어렵다
         //- tab,esc,enter 잘안된다 (콤보를 세개하던지, 레이어에 넣자)
         //- lcmd + rctrl = function으로 진입되게
-        // combo_left_super {
-        //     timeout-ms = <70>;
-        //     key-positions = <20 21>;
-        //     bindings = <&mo LY_LEFT_SUPER>;
-        //     layers = <0>;
-        // };
-        // combo_right_super {
-        //     timeout-ms = <70>;
-        //     key-positions = <1 2>;
-        //     bindings = <&mo LY_RIGHT_SUPER>;
-        //     layers = <0>;
-        // };
-
 
         combo_cmd_tab {
             timeout-ms = <70>;
@@ -193,7 +155,7 @@
             bindings = <
                 ___  &kp Q        &kp W        &kp E        &kp R                   &kp T               &kp Y                   &kp U                   &kp I            &kp O    &kp P     ___
                 ___  &hm1 LSFT A  &kp S        &kp D        &mokp2 LY_RNUM F        &kp G               &kp H                   &mokp2 LY_LEFT_SUPER J  &kp K            &kp L    &kp BKSP  ___
-                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N                   &kp M                   &hm2 LCTL COMMA  &kp DOT  &kp RSFT  ___
+                ___  &kp Z        &kp X        &kp C        &kp V                   &kp B               &kp N                   &kp M                   &hm2 LCTL COMMA  &kp RET  &kp RSFT  ___
                 ___  ___          ___          &kp LALT     &kp LGUI                &kp SPACE           &mo LY_ARROW            &mokp1 LY_LNUM F18      &kp RCTRL        ___      ___       ___
             >;
         };
