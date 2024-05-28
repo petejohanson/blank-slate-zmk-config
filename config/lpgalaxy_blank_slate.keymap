@@ -47,7 +47,7 @@
             tapping-term-ms = <170>;
         };
 
-        kpkp1: kp_to_kp {
+        kpkp: kp_to_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -68,8 +68,8 @@
             #binding-cells = <2>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <100>;
+            tapping-term-ms = <190>;
+            quick-tap-ms = <150>;
         };
     };
 
@@ -80,9 +80,9 @@
             label = "Base";
             bindings = <
                 &mokp1 LY_RNUM TAB  &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
-                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &mokp2 LY_SPECIAL J  &kp K      &kp L     &mo LY_LNUM  &kp RET
+                &kp_gresc LCTRL 0   &kp A  &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &mokp2 LY_SPECIAL RET
                 &kp LSHFT           &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kp SLASH    &kp RSHFT
-                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp1 RCTRL F18     &kp RCTRL  ___       &kp LEFT     &kp RIGHT
+                &mo LY_SUPPORT      ___    ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &kp RIGHT
             >;
         };
 
@@ -139,10 +139,10 @@
         support_layer {
             label = "LY_SUPPORT";
             bindings = <
-                &kp RC(NUMBER_6)  ___  ___  ___  &kp LG(TAB)    ___           ___            ___            ___               ___               ___  ___
-                ___               ___  ___  ___  &kp LG(SPACE)  ___           &kp LC(GRAVE)  &kp LC(GRAVE)  ___               ___               ___  ___
-                ___               ___  ___  ___  ___            ___           ___            ___            &kp LG(LA(LBKT))  &kp LG(LA(RBKT))  ___  ___
-                ___               ___  ___  ___  ___            ___           ___            ___            ___               ___               ___  ___
+                &kp RC(NUMBER_6)  ___  ___  ___  &kp LG(TAB)    ___           ___  ___            ___  ___  ___  ___
+                ___               ___  ___  ___  &kp LG(SPACE)  ___           ___  &kp LC(GRAVE)  ___  ___  ___  ___
+                ___               ___  ___  ___  ___            ___           ___  ___            ___  ___  ___  ___
+                ___               ___  ___  ___  ___            ___           ___  ___            ___  ___  ___  ___
             >;
         };
 
