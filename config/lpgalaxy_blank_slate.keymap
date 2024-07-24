@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define TBLE_ORTHO 1
-#define BT(n) BT_SEL n
 #define ___ &none
 // #define XXX &none
 // #define ___ &trans
