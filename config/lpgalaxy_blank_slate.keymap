@@ -26,13 +26,13 @@
 
 / {
     chosen {
-       zmk,matrix_transform =
+       zmk,physical-layout =
 #ifdef TBLE_DUAL_2U
-                       &dual_2u_transform;
+                       &layout_ortho_4x12_2x2u;
 #elif defined(TBLE_MIT)
-                       &mit_transform;
+                       &layout_ortho_4x12_1x2u;
 #else
-                       &ortho_transform;
+                       &layout_ortho_4x12_all1u;
 #endif
     };
 
