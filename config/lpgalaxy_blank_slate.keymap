@@ -83,7 +83,7 @@
                 &mokp1 LY_RNUM TAB  &kp Q      &kp W  &kp E     &kp R     &kp T      &kp Y       &kp U                &kp I      &kp O     &kp P        &kp BKSP
                 &kp_gresc LCTRL 0   &kp A      &kp S  &kp D     &kp F     &kp G      &kp H       &kp J                &kp K      &kp L     &mo LY_LNUM  &kp RET
                 &kp LSHFT           &kp Z      &kp X  &kp C     &kp V     &kp B      &kp N       &kp M                &kp COMMA  &kp DOT   &kp SLASH    &kp RSHFT
-                &mo LY_SUPPORT      &mo LY_BT  ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &mo LY_RNUM
+                &mo LY_SUPPORT      &mo LY_BT  ___    &kp LALT  &kp LGUI  &kp SPACE  &mo LY_NAV  &kpkp RCTRL F18      &kp RCTRL  ___       &kp LEFT     &mo LY_SPECIAL
             >;
         };
 
