@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define TBLE_ORTHO 1
+// #define BT(n) BT_SEL n
 #define ___ &none
 // #define XXX &none
 // #define ___ &trans
@@ -16,15 +17,14 @@
 #define LY_SUPPORT 6
 #define LY_BT 7
 
-// &kscan {
-//     debounce-press-ms = <10>;
-//     debounce-release-ms = <10>;
-// };
+&kscan {
+    debounce-press-ms = <10>;
+    debounce-release-ms = <10>;
+};
 
 &lt { tapping-term-ms = <200>; };
 &mt { tapping-term-ms = <300>; };
 
-//- 콤보로 탭 이동 및 다른 단축키 설정하기
 
 / {
 
