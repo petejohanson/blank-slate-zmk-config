@@ -67,7 +67,7 @@
          combo_alt {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&kp LALT>;
+            bindings = <&kp LGUI>;
         };
         
     };
@@ -105,7 +105,7 @@
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
 #else
- &trans     &trans     &trans       &mt LGUI ESC &lt SYMBOL SPACE &trans  &trans  &lt SYMBOL ENTER &mt LCTRL BSPC &trans     &trans     &trans
+ &trans     &trans       &mt LALT ESC &lt SYMBOL SPACE  &trans  &trans  &trans &trans    &lt SYMBOL ENTER &mt LCTRL BSPC   &trans     &trans
 #endif
             >;
         };
@@ -148,7 +148,7 @@
             label = "Sym";
             bindings = <
  &trans     &trans     &trans     &trans     &trans     &trans  &trans  &trans     &bt BT_CLR  &trans     &trans     &trans
- &trans     &trans     &trans     &trans     &trans     &trans  &trans  &trans     &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  
+ &trans     &trans     &kp LGUI     &trans     &trans     &trans  &trans  &trans     &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  
  &trans     &trans     &trans     &trans     &trans     &trans  &trans  &trans     &trans     &trans     &trans     &trans
 #ifdef TBLE_DUAL_2U
 &trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
