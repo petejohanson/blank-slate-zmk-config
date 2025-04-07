@@ -98,13 +98,13 @@
         nav_layer {
             label = "Nav";
             bindings = <
-&soft_off	&trans		&kp F7		&kp F8		&kp F9		&kp F10		&kp F11		&kp F12		&trans		&bootloader	&trans		&bt BT_CLR
-&trans		&trans		&kp F4		&kp F5		&kp F6		&trans		&trans		&trans		&trans		&trans		&trans		&trans
-&trans		&trans		&kp F1		&kp F2		&kp F3		&trans		&trans		&trans		&trans		&trans		&trans		&trans
+&soft_off     	&kp F7        	&kp F8        	&kp F9        	&kp F10       	&kp F11       	&kp F12       	&trans        	&trans        	&bootloader   	&trans        	&bt BT_CLR    
+&trans        	&kp F4        	&kp F5        	&kp F6        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        
+&trans        	&kp F1        	&kp F2        	&kp F3        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        
 #ifdef TBLE_DUAL_2U
 &trans  	&trans        	&trans     	&trans          &trans          		&trans       			&trans         	&trans 		&trans 		&trans
 #elif defined(TBLE_MIT)
-&trans		&trans		&trans		&trans		&trans		&trans				&trans		&bt BT(0) 	&bt BT(1) 	&bt BT(2) 	&bt BT(3)
+&trans        	&trans        	&trans        	&trans        	&trans        	&trans        			&trans        	&bt BT(0)     	&bt BT(1)     	&bt BT(2)     	&bt BT(3)     
 #else
 &trans  	&trans        	&trans     	&trans      	&trans          &trans       	&trans    	&trans  	&trans         	&trans 		&trans 		&trans
 #endif
@@ -114,15 +114,15 @@
         num_layer {
             label = "Num";
             bindings = <
-&trans		&trans		&kp N7		&kp N8		&kp N9		&trans		&trans		&trans		&kp UNDER	&kp PLUS	&trans		&kp DEL
-&kp GRAVE	&trans		&kp N4		&kp N5		&kp N6		&trans		&trans		&trans		&kp LPAR	&kp RPAR	&kp DQT		&trans
-&trans		&trans		&kp N1		&kp N2		&kp N3		&trans		&trans		&trans		&kp LBRC	&kp RBRC	&kp PIPE	&trans
+&trans        	&kp N7        	&kp N8        	&kp N9        	&trans        	&trans        	&trans        	&trans        	&kp UNDER     	&kp PLUS      	&trans        	&kp DEL       
+&kp GRAVE     	&kp N4        	&kp N5        	&kp N6        	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp DQT       	&trans        
+&trans        	&kp N1        	&kp N2        	&kp N3        	&trans        	&trans        	&trans        	&trans        	&kp LBRC      	&kp RBRC      	&kp PIPE      	&trans        
 #ifdef TBLE_DUAL_2U
-&trans  	&trans       	&trans     	&kp N0          &trans                 		&trans            		&trans         	&trans 		&trans 		&trans
+&trans  	&trans       	&kp N0     	&trans          &trans                 		&trans            		&trans         	&trans 		&trans 		&trans
 #elif defined(TBLE_MIT)
-&trans		&trans		&trans		&kp N0		&trans		&trans				&trans		&kp PG_UP	&kp C_BRI_DN	&kp C_BRI_UP	&kp PG_DN
+&trans        	&trans        	&kp N0        	&trans        	&trans        	&trans        			&trans        	&kp PG_UP     	&kp C_BRI_DN  	&kp C_BRI_UP  	&kp PG_DN     
 #else
-&trans  	&trans       	&trans     	&kp N0      	&trans    	&none         	&none     	&kp ESC        	&kp DEL      	&trans 		&trans 		&trans
+&trans  	&trans       	&kp N0     	&trans      	&trans    	&none         	&none     	&kp ESC        	&kp DEL      	&trans 		&trans 		&trans
 #endif
             >;
         };
@@ -130,13 +130,13 @@
         sym_layer {
             label = "Sym";
             bindings = <
-&trans		&trans		&kp AMPS	&kp STAR	&trans		&trans		&trans		&trans		&kp MINUS	&kp EQUAL	&trans		&kp DEL
-&kp TILDE	&trans		&kp DLLR	&kp PRCNT	&kp CARET	&trans		&trans		&trans		&kp LPAR	&kp RPAR	&kp SQT		&trans
-&trans		&trans		&kp EXCL	&kp AT		&kp HASH	&trans		&trans		&trans		&kp LBKT	&kp RBKT	&kp BSLH	&trans
+&trans        	&kp AMPS      	&kp STAR      	&trans        	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
+&kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET     	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SQT       	&trans        
+&trans        	&kp EXCL      	&kp AT        	&kp HASH      	&trans        	&trans        	&trans        	&trans        	&kp LBKT      	&kp RBKT      	&kp BSLH      	&trans    
 #ifdef TBLE_DUAL_2U
 &trans 		&trans        	&trans     	&kp RPAR        &trans          		&trans      			&trans         	&trans 		&trans 		&trans
 #elif defined(TBLE_MIT)
-&trans		&trans		&trans		&trans		&trans		&trans				&trans		&kp C_MUTE	&kp C_VOL_DN	&kp C_VOL_UP	&trans
+&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	        	&trans        	&kp C_MUTE    	&kp C_VOL_DN  	&kp C_VOL_UP  	&trans     
 #else
 &trans		&trans          &trans     	&kp RPAR        &trans          &trans       	&trans    	&trans  	&trans         	&trans 		&trans 		&trans
 #endif
