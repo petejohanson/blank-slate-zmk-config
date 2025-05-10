@@ -43,7 +43,7 @@
                 bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
 		)
     };
-    
+
     tap_dances {
     	shifty: shift_caps_word {
 		compatible = "zmk,behavior-tap-dance";
@@ -51,7 +51,7 @@
 		#binding-cells = <0>;
 		tapping-term-ms = <150>;
 		bindings = <&kp LSHFT>, <&caps_word>;
-	};
+	    };
     };
 
 // Conditional layer only when we have less thumb keys
