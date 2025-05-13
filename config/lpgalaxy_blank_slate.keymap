@@ -90,7 +90,7 @@
  &kp LSHFT  &kp Z      &kp X      &kp C       &kp D          &kp V          &kp K            &kp H          &kp COMMA   &kp DOT    &kp SEMI    &kp NUHS
 #endif
 #ifdef TBLE_DUAL_2U
- &kp LCTRL  &kp NUBS   &kp LGUI   &kp LALT    &lt NUM_L SPACE               &lt NAV_L RET                   &kp LALT    &kp DEL    &kp NUHS    &kp RCTRL
+   &kp LCTRL           &kp LGUI            &kp LALT            &mo NUMBERS         &kp SPACE                                                                       &kp RET             &mo FUNCTION        &kp RALT            &kp DEL            &kp RCTRL
 #elif defined(TBLE_MIT)
  &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN    &kp RIGHT
 #else
