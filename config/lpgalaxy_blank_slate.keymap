@@ -68,8 +68,8 @@
     cond_layers {
         compatible = "zmk,conditional-layers";
 	tri {
-	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <SYM_L>;
+	    if-layers = <NUMBERS FUNCTION>;
+	    then-layer = <SPECIAL>;
         };
     };
 #endif
