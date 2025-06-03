@@ -78,7 +78,7 @@
             bindings = <
 #ifdef QWERTY_BASE
 &kp ESC		&kp Q		&kp W		&kp E		&kp R		&kp T		&kp Y		&kp U		&kp I		&kp O		&kp P		&kp BKSP
-&kp TAB		&kp A		&kp S		&kp D		&kp F		&kp G		&kp H		&kp J		&kp K		&kp L		&kp SEMI	&kp RET
+&kp TAB		&kp A		&kp S		&kp D		&kp F		&kp G		&kp H		&kp J		&kp K		&kp L		&kp SQT		&kp RET
 &kp LSHFT	&kp Z		&kp X		&kp C		&kp V		&kp B		&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp RSHFT
 #else
  &kp ESC    	&kp Q      	&kp W      	&kp F       	&kp P          	&kp B          	&kp J           &kp L          	&kp U       	&kp Y      	&kp QUOT      	&kp BKSP
@@ -115,7 +115,7 @@
             label = "Num";
             bindings = <
 &trans        	&kp N7        	&kp N8        	&kp N9        	&trans        	&trans        	&trans        	&trans        	&kp UNDER     	&kp PLUS      	&trans        	&kp DEL       
-&kp GRAVE     	&kp N4        	&kp N5        	&kp N6        	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp DQT       	&trans        
+&kp GRAVE     	&kp N4        	&kp N5        	&kp N6        	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp COLON      	&trans        
 &trans        	&kp N1        	&kp N2        	&kp N3        	&trans        	&trans        	&trans        	&trans        	&kp LBRC      	&kp RBRC      	&kp PIPE      	&trans        
 #ifdef TBLE_DUAL_2U
 &trans  	&trans       	&kp N0     	&trans          &trans                 		&trans            		&trans         	&trans 		&trans 		&trans
@@ -131,7 +131,7 @@
             label = "Sym";
             bindings = <
 &trans        	&kp AMPS      	&kp STAR      	&trans        	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
-&kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET     	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SQT       	&trans        
+&kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET     	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SEMI       	&trans        
 &trans        	&kp EXCL      	&kp AT        	&kp HASH      	&trans        	&trans        	&trans        	&trans        	&kp LBKT      	&kp RBKT      	&kp BSLH      	&trans    
 #ifdef TBLE_DUAL_2U
 &trans 		&trans        	&trans     	&kp RPAR        &trans          		&trans      			&trans         	&trans 		&trans 		&trans
