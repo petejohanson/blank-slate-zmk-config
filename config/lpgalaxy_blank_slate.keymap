@@ -27,13 +27,23 @@
     chosen {
        zmk,physical-layout = &layout_ortho_4x12_1x2u;
     };
+
+    macros {
+        thumbs_up: thumbs_up {
+            compatible = "zmk,behavior_macro";
+            #binding-cells = <0>;
+            wait-ms = <1>;
+            tap-ms = <5>;
+            bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+        };
+    };
     
     tap_dances {
     	shifty: shift_caps_word {
 		compatible = "zmk,behavior-tap-dance";
 		label = "TD_SHIFTY";
 		#binding-cells = <0>;
-		tapping-term-ms = <150>;
+		tapping-term-ms = <250>;
 		bindings = <&kp LSHFT>, <&caps_word>;
 	};
     };
@@ -47,7 +57,7 @@
 &kp ESC		&kp Q		&kp W		&kp E	    	&kp R	    	&kp T	    	&kp Y		&kp U		&kp I		&kp O		&kp P		&kp BKSP
 &kp TAB		&kp A	    	&kp S	    	&kp D	    	&kp F	    	&kp G	    	&kp H		&kp J		&kp K		&kp L		&kp SQT		&kp RET
 &shifty 	&kp Z		&kp X	    	&kp C	    	&kp V		&kp B	    	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp RSHFT
-&kp LCTRL	&mo NAV_L   	&kp LGUI    	&kp LALT    	&tog NUM_L   	&kp SPACE			&mo SYM_L	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
+&kp LCTRL	&mo NAV_L   	&kp LGUI    	&kp LALT    	&mo NUM_L   	&kp SPACE			&mo SYM_L	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
             >;
         };
 
@@ -74,7 +84,7 @@
         sym_layer {
             label = "Sym";
             bindings = <
-&trans        	&kp AMPS      	&kp STAR      	&trans		&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
+&trans        	&kp AMPS      	&kp STAR      	&thumbs_up	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
 &kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET       &trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SEMI       	&trans        
 &trans        	&kp EXCL      	&kp AT        	&kp HASH        &trans        	&trans        	&trans        	&trans        	&kp LBKT      	&kp RBKT      	&kp BSLH      	&trans    
 &trans        	&trans        	&trans        	&trans          &trans        	&trans        	            	&trans        	&kp C_MUTE    	&kp C_VOL_DN  	&kp C_VOL_UP  	&trans     
