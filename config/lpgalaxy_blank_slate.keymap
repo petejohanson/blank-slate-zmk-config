@@ -29,14 +29,13 @@
     };
 
     macros {
-        zed_em_kay: zed_em_kay {
+        mcr_deg: mcr_deg {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp Z &kp M &kp K>
-                , <&macro_release &kp LSHFT>
-                ;
+            bindings =
+                <&macro_press &kp LALT>,
+                <&macro_tap &kp KP_N2 &kp KP_N4 &kp KP_N8>,
+                <&macro_release &kp LALT>;
         };
     };
     
@@ -86,7 +85,7 @@
         sym_layer {
             label = "Sym";
             bindings = <
-&trans        	&kp AMPS      	&kp STAR      	&zed_em_kay	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
+&trans        	&kp AMPS      	&kp STAR      	&mcr_deg	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
 &kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET       &trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SEMI       	&trans        
 &trans        	&kp EXCL      	&kp AT        	&kp HASH        &trans        	&trans        	&trans        	&trans        	&kp LBKT      	&kp RBKT      	&kp BSLH      	&trans    
 &trans        	&trans        	&trans        	&trans          &trans        	&trans        	            	&trans        	&kp C_MUTE    	&kp C_VOL_DN  	&kp C_VOL_UP  	&trans     
