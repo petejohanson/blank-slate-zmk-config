@@ -40,12 +40,12 @@
     };
     
     tap_dances {
-    	shifty: shift_caps_word {
+    	TABBY: tab_caps_word {
 		compatible = "zmk,behavior-tap-dance";
-		label = "TD_SHIFTY";
+		label = "TD_TABBY";
 		#binding-cells = <0>;
 		tapping-term-ms = <250>;
-		bindings = <&kp LSHFT>, <&caps_word>;
+		bindings = <&kp TAB>, <&caps_word>;
 	};
     };
 
@@ -56,8 +56,8 @@
             label = "Base";
             bindings = <
 &kp ESC		&kp Q		&kp W		&kp E	    	&kp R	    	&kp T	    	&kp Y		&kp U		&kp I		&kp O		&kp P		&kp BKSP
-&kp TAB		&kp A	    	&kp S	    	&kp D	    	&kp F	    	&kp G	    	&kp H		&kp J		&kp K		&kp L		&kp SQT		&kp RET
-&shifty 	&kp Z		&kp X	    	&kp C	    	&kp V		&kp B	    	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp RSHFT
+&TABBY		&kp A	    	&kp S	    	&kp D	    	&kp F	    	&kp G	    	&kp H		&kp J		&kp K		&kp L		&kp SQT		&kp RET
+&kp LSHFT 	&kp Z		&kp X	    	&kp C	    	&kp V		&kp B	    	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp RSHFT
 &kp LCTRL	&mo NAV_L   	&kp LGUI    	&kp LALT    	&mo NUM_L   	&kp SPACE			&mo SYM_L	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
             >;
         };
