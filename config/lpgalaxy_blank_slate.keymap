@@ -55,10 +55,10 @@
         base_layer {
             label = "Base";
             bindings = <
-&kp ESC		&kp Q		&kp W		&kp E	    	&kp R	    	&kp T	    	&kp Y		&kp U		&kp I		&kp O		&kp P		&kp BKSP
-&TABBIE		&kp A	    	&kp S	    	&kp D	    	&kp F	    	&kp G	    	&kp H		&kp J		&kp K		&kp L		&kp SQT		&kp RET
-&kp LSHFT 	&kp Z		&kp X	    	&kp C	    	&kp V		&kp B	    	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH	&kp RSHFT
-&kp LCTRL	&mo NAV_L   	&kp LGUI    	&kp LALT    	&mo NUM_L   	&kp SPACE			&mo SYM_L	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT
+&kp ESC		    &kp Q		    &kp W		    &kp E	    	&kp R	    	&kp T	    	&kp Y		    &kp U		    &kp I		    &kp O		    &kp P		    &kp BKSP
+&TABBIE	    	&kp A	        &kp S	    	&kp D	    	&kp F	    	&kp G	    	&kp H		    &kp J		    &kp K		    &kp L		    &kp SQT		    &kp RET
+&kp LSHFT    	&kp Z		    &kp X	    	&kp C	    	&kp V		    &kp B	    	&kp N		    &kp M		    &kp COMMA	    &kp DOT		    &kp FSLH	    &kp RSHFT
+&kp LCTRL   	&mo NAV_L       &kp LGUI    	&kp LALT    	&mo NUM_L   	&kp SPACE			            &mo SYM_L	    &kp LEFT	    &kp DOWN	    &kp UP		    &kp RIGHT
             >;
         };
 
@@ -68,7 +68,7 @@
 &soft_off     	&kp F7        	&kp F8        	&kp F9        	&kp F10       	&kp F11       	&kp F12       	&trans        	&trans        	&bootloader   	&trans        	&bt BT_CLR    
 &trans        	&kp F4        	&kp F5        	&kp F6        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        
 &trans        	&kp F1        	&kp F2        	&kp F3        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        	&trans        
-&trans        	&trans        	&trans        	&trans        	&trans        	&trans        			&trans        	&bt BT(0)     	&bt BT(1)     	&bt BT(2)     	&bt BT(3)     
+&trans        	&trans        	&trans        	&trans        	&trans        	&trans        			        &trans        	&bt BT(0)     	&bt BT(1)     	&bt BT(2)     	&bt BT(3)     
             >;
         };
 
@@ -78,14 +78,14 @@
 &trans        	&kp N7        	&kp N8        	&kp N9        	&trans        	&trans        	&trans        	&trans        	&kp UNDER     	&kp PLUS      	&trans        	&kp DEL       
 &kp GRAVE     	&kp N4        	&kp N5        	&kp N6        	&trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp COLON      	&trans        
 &trans        	&kp N1        	&kp N2        	&kp N3        	&trans        	&trans        	&trans        	&trans        	&kp LBRC      	&kp RBRC      	&kp PIPE      	&trans        
-&trans        	&trans        	&kp N0        	&trans        	&trans        	&trans        			&trans        	&kp HOME     	&kp PG_DN   	&kp PG_UP   	&kp END     
+&trans        	&trans        	&kp N0        	&trans        	&trans        	&trans        			        &trans        	&kp HOME     	&kp PG_DN   	&kp PG_UP   	&kp END     
             >;
         };
 
         sym_layer {
             label = "Sym";
             bindings = <
-&trans        	&kp AMPS      	&kp STAR      	&mcr_deg	&trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
+&trans        	&kp AMPS      	&kp STAR      	&mcr_deg	    &trans        	&trans        	&trans        	&trans        	&kp MINUS     	&kp EQUAL     	&trans        	&kp DEL       
 &kp TILDE     	&kp DLLR      	&kp PRCNT     	&kp CARET       &trans        	&trans        	&trans        	&trans        	&kp LPAR      	&kp RPAR      	&kp SEMI       	&trans        
 &trans        	&kp EXCL      	&kp AT        	&kp HASH        &trans        	&trans        	&trans        	&trans        	&kp LBKT      	&kp RBKT      	&kp BSLH      	&trans    
 &trans        	&trans        	&trans        	&trans          &trans        	&trans        	            	&trans        	&kp C_MUTE    	&kp C_VOL_DN  	&kp C_VOL_UP  	&trans     
