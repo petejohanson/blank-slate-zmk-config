@@ -65,6 +65,18 @@
 
         combos {
                 compatible = "zmk,combos";
+                combo_caps_word {
+                    timeout-ms = <50>;
+                    key-positions = <24 35>;
+                    bindings = <&caps_word>;
+                    layers = <LETTERS>;
+                };
+                combo_caps {
+                    timeout-ms = <50>;
+                    key-positions = <24 38>;
+                    bindings = <&kp CAPS>;
+                    layers = <LETTERS>;
+                };
                 combo_bt_clr {
                     timeout-ms = <200>;
                     key-positions = <18 23>;
