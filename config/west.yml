@@ -7,10 +7,10 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3
       import: app/west.yml
     - name: blank-slate-zmk-module
       remote: petejohanson
-      revision: main
+      revision: v0.3
   self:
     path: config
